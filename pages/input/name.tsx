@@ -7,9 +7,11 @@ import {
   TextInput,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useRouter } from 'next/router';
 import { useUserState } from '../../store/store';
 
 const Name = () => {
+  const router = useRouter();
   const form = useForm({
     initialValues: { name: '', gender: 1 },
     validate: (values) => ({
@@ -24,10 +26,11 @@ const Name = () => {
         onSubmit={form.onSubmit((values) => {
           setName(values.name);
           setGender(values.gender);
+          router.push('/input/birth');
         })}
       >
-        <Grid.Col>
-          <Center style={{ height: '40vh' }}>
+        <Grid.Col style={{ height: '40vh' }}>
+          <Center style={{ height: '100%' }}>
             <TextInput
               label="당신의 이름은?"
               // value={form.values.name}
@@ -43,8 +46,8 @@ const Name = () => {
             />
           </Center>
         </Grid.Col>
-        <Grid.Col>
-          <Center style={{ height: '40vh' }}>
+        <Grid.Col style={{ height: '40vh' }}>
+          <Center style={{ height: '100%' }}>
             <RadioGroup
               label="당신의 성별은?"
               value={`${form.values.gender}`}
@@ -59,8 +62,8 @@ const Name = () => {
             </RadioGroup>
           </Center>
         </Grid.Col>
-        <Grid.Col>
-          <Center style={{ height: '20vh' }}>
+        <Grid.Col style={{ height: '20vh' }}>
+          <Center style={{ height: '100%' }}>
             <Button type="submit" style={{ width: '100%' }}>
               Next
             </Button>
