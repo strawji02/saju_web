@@ -32,6 +32,8 @@ const Birth = ({
     (params: any) => axios.get('http://175.196.233.60/result5.php', { params }),
     {
       onSuccess: (res) => {
+        console.log(res);
+
         setSaju(res.data);
         router.push('/result/info');
       },
@@ -76,6 +78,7 @@ const Birth = ({
         },
         { equalityFn: shallow }
       ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 

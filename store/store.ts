@@ -32,6 +32,11 @@ export interface SajuData {
   month: string;
   day: string;
   time: string;
+  year_kr: string;
+  month_kr: string;
+  day_kr: string;
+  time_kr: string;
+  res_str: string;
 }
 interface SajuState {
   data: SajuData;
@@ -75,6 +80,11 @@ export const useSajuState = create<SajuState>()(
           month: '',
           day: '',
           time: '',
+          year_kr: '',
+          month_kr: '',
+          day_kr: '',
+          time_kr: '',
+          res_str: '',
         },
         setSaju: (data) => set(() => ({ data })),
       })),

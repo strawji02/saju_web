@@ -31,6 +31,11 @@ const Info = () => {
       month: data.month,
       day: data.day,
       time: data.time,
+      year_kr: data.year_kr,
+      month_kr: data.month_kr,
+      day_kr: data.day_kr,
+      time_kr: data.time_kr,
+      res_str: data.res_str,
     });
   }, [data, name, birth]);
 
@@ -52,16 +57,40 @@ const Info = () => {
         <Text component="div">양력 생년월일 : {userData?.solar}</Text>
       </Grid.Col>
       <Grid.Col>
-        <Text>연주 : {userData?.year}</Text>
+        <Text>
+          연주 : {userData?.year} {userData?.year_kr}
+        </Text>
       </Grid.Col>
       <Grid.Col>
-        <Text>월주 : {userData?.month}</Text>
+        <Text>
+          월주 : {userData?.month} {userData?.month_kr}
+        </Text>
       </Grid.Col>
       <Grid.Col>
-        <Text>일주 : {userData?.day}</Text>
+        <Text>
+          일주 : {userData?.day} {userData?.day_kr}
+        </Text>
       </Grid.Col>
       <Grid.Col>
-        <Text>시주 : {userData?.time}</Text>
+        <Text>
+          시주 : {userData?.time} {userData?.time_kr}
+        </Text>
+      </Grid.Col>
+      <Grid.Col
+        style={{
+          height: '50vh',
+          overflow: 'scroll',
+          backgroundColor: '#999999',
+        }}
+      >
+        <Text color="black">
+          {userData?.res_str &&
+            userData.res_str.split('\n').map((line, index) => (
+              <Text key={index}>
+                {line} <br />
+              </Text>
+            ))}
+        </Text>
       </Grid.Col>
     </Grid>
   );
