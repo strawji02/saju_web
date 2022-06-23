@@ -29,7 +29,7 @@ const Birth = ({
   const router = useRouter();
   const { setSaju } = useSajuState();
   const submitMutate = useMutation(
-    (params: any) => axios.get('http://175.196.233.60/result5.php', { params }),
+    (params: any) => axios.get('//175.196.233.60:80/result5.php', { params }),
     {
       onSuccess: (res) => {
         console.log(res);
