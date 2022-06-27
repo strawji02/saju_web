@@ -29,11 +29,7 @@ const Birth = ({
   const router = useRouter();
   const { setSaju } = useSajuState();
   const submitMutate = useMutation(
-    (params: any) =>
-      axios.get(
-        '//ec2-35-163-236-217.us-west-2.compute.amazonaws.com:8000/result5.php',
-        { params }
-      ),
+    (params: any) => axios.get('//35.84.255.61/:8000/result5.php', { params }),
     {
       onSuccess: (res) => {
         console.log(res);
@@ -172,9 +168,7 @@ const Birth = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await axios.get(
-    'http://ec2-35-163-236-217.us-west-2.compute.amazonaws.com:8000/dosi.php'
-  );
+  const res = await axios.get('http://35.84.255.61:8000/dosi.php');
   const resData = await res.data.split('\n');
   const data = resData
     .map((d: string) => {
