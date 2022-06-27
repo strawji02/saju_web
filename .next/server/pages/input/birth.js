@@ -47,7 +47,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_sto
 const Birth = ({ data  })=>{
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();
     const { setSaju  } = (0,_store_store__WEBPACK_IMPORTED_MODULE_7__/* .useSajuState */ .S)();
-    const submitMutate = (0,react_query__WEBPACK_IMPORTED_MODULE_6__.useMutation)((params)=>axios__WEBPACK_IMPORTED_MODULE_4___default().get("//ec2-35-163-236-217.us-west-2.compute.amazonaws.com:8000/result5.php", {
+    const submitMutate = (0,react_query__WEBPACK_IMPORTED_MODULE_6__.useMutation)((params)=>axios__WEBPACK_IMPORTED_MODULE_4___default().get("//35.84.255.61/:8000/result5.php", {
             params
         })
     , {
@@ -221,7 +221,7 @@ const Birth = ({ data  })=>{
     });
 };
 const getServerSideProps = async ()=>{
-    const res = await axios__WEBPACK_IMPORTED_MODULE_4___default().get("http://ec2-35-163-236-217.us-west-2.compute.amazonaws.com:8000/dosi.php");
+    const res = await axios__WEBPACK_IMPORTED_MODULE_4___default().get("http://35.84.255.61:8000/dosi.php");
     const resData = await res.data.split("\n");
     const data = resData.map((d)=>{
         if (d !== "") {
