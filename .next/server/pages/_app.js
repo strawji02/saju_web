@@ -1,125 +1,65 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 888;
-exports.ids = [888];
+exports.id = "pages/_app";
+exports.ids = ["pages/_app"];
 exports.modules = {
 
-/***/ 14:
+/***/ "./pages/_app.tsx":
+/*!************************!*\
+  !*** ./pages/_app.tsx ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ App)
-});
-
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(997);
-;// CONCATENATED MODULE: external "next/head"
-const head_namespaceObject = require("next/head");
-var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
-// EXTERNAL MODULE: external "@mantine/core"
-var core_ = __webpack_require__(2247);
-// EXTERNAL MODULE: external "react-query"
-var external_react_query_ = __webpack_require__(1175);
-;// CONCATENATED MODULE: ./pages/_app.tsx
-
-
-
-
-function App(props) {
-    const { Component , pageProps  } = props;
-    const queryClient = new external_react_query_.QueryClient();
-    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(external_react_query_.QueryClientProvider, {
-            client: queryClient,
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("title", {
-                            children: "\uAC04\uC0B0 \uCCA0\uD559\uC6D0"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("meta", {
-                            name: "viewport",
-                            content: "minimum-scale=1, initial-scale=1, width=device-width"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                            rel: "shortcut icon",
-                            href: "/images/favicon.ico"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                            rel: "apple-touch-icon",
-                            sizes: "180x180",
-                            href: "/images/apple-touch-icon.png"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                            rel: "icon",
-                            type: "image/png",
-                            sizes: "32x32",
-                            href: "/images/favicon-32x32.png"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                            rel: "icon",
-                            type: "image/png",
-                            sizes: "16x16",
-                            href: "/images/favicon-16x16.png"
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx(core_.MantineProvider, {
-                    withGlobalStyles: true,
-                    withNormalizeCSS: true,
-                    theme: {
-                        /** Put your mantine theme override here */ colorScheme: "dark",
-                        fontFamily: "Open Sans, sans serif"
-                    },
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(core_.Center, {
-                        style: {
-                            height: "100vh",
-                            backgroundColor: "#333333"
-                        },
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(core_.Container, {
-                            style: {
-                                height: "100%",
-                                // backgroundColor: '#ffffff',
-                                maxWidth: 350,
-                                width: 350
-                            },
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(Component, {
-                                ...pageProps
-                            })
-                        })
-                    })
-                })
-            ]
-        })
-    });
-};
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mantine/core */ \"@mantine/core\");\n/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mantine_core__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-query */ \"react-query\");\n/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\nfunction App(props) {\n    const { Component , pageProps  } = props;\n    const queryClient = new react_query__WEBPACK_IMPORTED_MODULE_3__.QueryClient();\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_query__WEBPACK_IMPORTED_MODULE_3__.QueryClientProvider, {\n            client: queryClient,\n            children: [\n                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {\n                    children: [\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                            children: \"\\uAC04\\uC0B0 \\uCCA0\\uD559\\uC6D0\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 16,\n                            columnNumber: 11\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                            name: \"viewport\",\n                            content: \"minimum-scale=1, initial-scale=1, width=device-width\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 17,\n                            columnNumber: 11\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                            rel: \"shortcut icon\",\n                            href: \"/images/favicon.ico\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 21,\n                            columnNumber: 11\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                            rel: \"apple-touch-icon\",\n                            sizes: \"180x180\",\n                            href: \"/images/apple-touch-icon.png\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 22,\n                            columnNumber: 11\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                            rel: \"icon\",\n                            type: \"image/png\",\n                            sizes: \"32x32\",\n                            href: \"/images/favicon-32x32.png\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 27,\n                            columnNumber: 11\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                            rel: \"icon\",\n                            type: \"image/png\",\n                            sizes: \"16x16\",\n                            href: \"/images/favicon-16x16.png\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 33,\n                            columnNumber: 11\n                        }, this)\n                    ]\n                }, void 0, true, {\n                    fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                    lineNumber: 15,\n                    columnNumber: 9\n                }, this),\n                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.MantineProvider, {\n                    withGlobalStyles: true,\n                    withNormalizeCSS: true,\n                    theme: {\n                        /** Put your mantine theme override here */ colorScheme: \"dark\",\n                        fontFamily: \"Open Sans, sans serif\"\n                    },\n                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Center, {\n                        style: {\n                            height: \"100vh\",\n                            backgroundColor: \"#333333\"\n                        },\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Container, {\n                            style: {\n                                height: \"100%\",\n                                // backgroundColor: '#ffffff',\n                                maxWidth: 350,\n                                width: 350\n                            },\n                            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n                                ...pageProps\n                            }, void 0, false, {\n                                fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                                lineNumber: 58,\n                                columnNumber: 15\n                            }, this)\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                            lineNumber: 50,\n                            columnNumber: 13\n                        }, this)\n                    }, void 0, false, {\n                        fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                        lineNumber: 49,\n                        columnNumber: 11\n                    }, this)\n                }, void 0, false, {\n                    fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n                    lineNumber: 40,\n                    columnNumber: 9\n                }, this)\n            ]\n        }, void 0, true, {\n            fileName: \"/Users/strawji/saju_web/saju_web/pages/_app.tsx\",\n            lineNumber: 14,\n            columnNumber: 7\n        }, this)\n    }, void 0, false);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQTtBQUM2QjtBQUNzQztBQUdKO0FBRWhELFNBQVNNLEdBQUcsQ0FBQ0MsS0FBZSxFQUFFO0lBQzNDLE1BQU0sRUFBRUMsU0FBUyxHQUFFQyxTQUFTLEdBQUUsR0FBR0YsS0FBSztJQUN0QyxNQUFNRyxXQUFXLEdBQUcsSUFBSU4sb0RBQVcsRUFBRTtJQUVyQyxxQkFDRTtrQkFDRSw0RUFBQ0MsNERBQW1CO1lBQUNNLE1BQU0sRUFBRUQsV0FBVzs7OEJBQ3RDLDhEQUFDVixrREFBSTs7c0NBQ0gsOERBQUNZLE9BQUs7c0NBQUMsaUNBQU07Ozs7O2dDQUFRO3NDQUNyQiw4REFBQ0MsTUFBSTs0QkFDSEMsSUFBSSxFQUFDLFVBQVU7NEJBQ2ZDLE9BQU8sRUFBQyxzREFBc0Q7Ozs7O2dDQUM5RDtzQ0FDRiw4REFBQ0MsTUFBSTs0QkFBQ0MsR0FBRyxFQUFDLGVBQWU7NEJBQUNDLElBQUksRUFBQyxxQkFBcUI7Ozs7O2dDQUFHO3NDQUN2RCw4REFBQ0YsTUFBSTs0QkFDSEMsR0FBRyxFQUFDLGtCQUFrQjs0QkFDdEJFLEtBQUssRUFBQyxTQUFTOzRCQUNmRCxJQUFJLEVBQUMsOEJBQThCOzs7OztnQ0FDbkM7c0NBQ0YsOERBQUNGLE1BQUk7NEJBQ0hDLEdBQUcsRUFBQyxNQUFNOzRCQUNWRyxJQUFJLEVBQUMsV0FBVzs0QkFDaEJELEtBQUssRUFBQyxPQUFPOzRCQUNiRCxJQUFJLEVBQUMsMkJBQTJCOzs7OztnQ0FDaEM7c0NBQ0YsOERBQUNGLE1BQUk7NEJBQ0hDLEdBQUcsRUFBQyxNQUFNOzRCQUNWRyxJQUFJLEVBQUMsV0FBVzs0QkFDaEJELEtBQUssRUFBQyxPQUFPOzRCQUNiRCxJQUFJLEVBQUMsMkJBQTJCOzs7OztnQ0FDaEM7Ozs7Ozt3QkFDRzs4QkFDUCw4REFBQ2YsMERBQWU7b0JBQ2RrQixnQkFBZ0I7b0JBQ2hCQyxnQkFBZ0I7b0JBQ2hCQyxLQUFLLEVBQUU7d0JBQ0wsMkNBQTJDLENBQzNDQyxXQUFXLEVBQUUsTUFBTTt3QkFDbkJDLFVBQVUsRUFBRSx1QkFBdUI7cUJBQ3BDOzhCQUVELDRFQUFDeEIsaURBQU07d0JBQUN5QixLQUFLLEVBQUU7NEJBQUVDLE1BQU0sRUFBRSxPQUFPOzRCQUFFQyxlQUFlLEVBQUUsU0FBUzt5QkFBRTtrQ0FDNUQsNEVBQUMxQixvREFBUzs0QkFDUndCLEtBQUssRUFBRTtnQ0FDTEMsTUFBTSxFQUFFLE1BQU07Z0NBQ2QsOEJBQThCO2dDQUM5QkUsUUFBUSxFQUFFLEdBQUc7Z0NBQ2JDLEtBQUssRUFBRSxHQUFHOzZCQUNYO3NDQUVELDRFQUFDdEIsU0FBUztnQ0FBRSxHQUFHQyxTQUFTOzs7OztvQ0FBSTs7Ozs7Z0NBQ2xCOzs7Ozs0QkFDTDs7Ozs7d0JBQ087Ozs7OztnQkFDRTtxQkFDckIsQ0FDSDtDQUNIIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc2FqdV93ZWIvLi9wYWdlcy9fYXBwLnRzeD8yZmJlIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEFwcFByb3BzIH0gZnJvbSAnbmV4dC9hcHAnO1xuaW1wb3J0IEhlYWQgZnJvbSAnbmV4dC9oZWFkJztcbmltcG9ydCB7IENlbnRlciwgQ29udGFpbmVyLCBNYW50aW5lUHJvdmlkZXIgfSBmcm9tICdAbWFudGluZS9jb3JlJztcbmltcG9ydCBJbWFnZSBmcm9tICduZXh0L2ltYWdlJztcbmltcG9ydCBzdHlsZXMgZnJvbSAnLi4vc3R5bGVzL0hvbWUubW9kdWxlLmNzcyc7XG5pbXBvcnQgeyBRdWVyeUNsaWVudCwgUXVlcnlDbGllbnRQcm92aWRlciB9IGZyb20gJ3JlYWN0LXF1ZXJ5JztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gQXBwKHByb3BzOiBBcHBQcm9wcykge1xuICBjb25zdCB7IENvbXBvbmVudCwgcGFnZVByb3BzIH0gPSBwcm9wcztcbiAgY29uc3QgcXVlcnlDbGllbnQgPSBuZXcgUXVlcnlDbGllbnQoKTtcblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8UXVlcnlDbGllbnRQcm92aWRlciBjbGllbnQ9e3F1ZXJ5Q2xpZW50fT5cbiAgICAgICAgPEhlYWQ+XG4gICAgICAgICAgPHRpdGxlPuqwhOyCsCDssqDtlZnsm5A8L3RpdGxlPlxuICAgICAgICAgIDxtZXRhXG4gICAgICAgICAgICBuYW1lPVwidmlld3BvcnRcIlxuICAgICAgICAgICAgY29udGVudD1cIm1pbmltdW0tc2NhbGU9MSwgaW5pdGlhbC1zY2FsZT0xLCB3aWR0aD1kZXZpY2Utd2lkdGhcIlxuICAgICAgICAgIC8+XG4gICAgICAgICAgPGxpbmsgcmVsPVwic2hvcnRjdXQgaWNvblwiIGhyZWY9XCIvaW1hZ2VzL2Zhdmljb24uaWNvXCIgLz5cbiAgICAgICAgICA8bGlua1xuICAgICAgICAgICAgcmVsPVwiYXBwbGUtdG91Y2gtaWNvblwiXG4gICAgICAgICAgICBzaXplcz1cIjE4MHgxODBcIlxuICAgICAgICAgICAgaHJlZj1cIi9pbWFnZXMvYXBwbGUtdG91Y2gtaWNvbi5wbmdcIlxuICAgICAgICAgIC8+XG4gICAgICAgICAgPGxpbmtcbiAgICAgICAgICAgIHJlbD1cImljb25cIlxuICAgICAgICAgICAgdHlwZT1cImltYWdlL3BuZ1wiXG4gICAgICAgICAgICBzaXplcz1cIjMyeDMyXCJcbiAgICAgICAgICAgIGhyZWY9XCIvaW1hZ2VzL2Zhdmljb24tMzJ4MzIucG5nXCJcbiAgICAgICAgICAvPlxuICAgICAgICAgIDxsaW5rXG4gICAgICAgICAgICByZWw9XCJpY29uXCJcbiAgICAgICAgICAgIHR5cGU9XCJpbWFnZS9wbmdcIlxuICAgICAgICAgICAgc2l6ZXM9XCIxNngxNlwiXG4gICAgICAgICAgICBocmVmPVwiL2ltYWdlcy9mYXZpY29uLTE2eDE2LnBuZ1wiXG4gICAgICAgICAgLz5cbiAgICAgICAgPC9IZWFkPlxuICAgICAgICA8TWFudGluZVByb3ZpZGVyXG4gICAgICAgICAgd2l0aEdsb2JhbFN0eWxlc1xuICAgICAgICAgIHdpdGhOb3JtYWxpemVDU1NcbiAgICAgICAgICB0aGVtZT17e1xuICAgICAgICAgICAgLyoqIFB1dCB5b3VyIG1hbnRpbmUgdGhlbWUgb3ZlcnJpZGUgaGVyZSAqL1xuICAgICAgICAgICAgY29sb3JTY2hlbWU6ICdkYXJrJyxcbiAgICAgICAgICAgIGZvbnRGYW1pbHk6ICdPcGVuIFNhbnMsIHNhbnMgc2VyaWYnLFxuICAgICAgICAgIH19XG4gICAgICAgID5cbiAgICAgICAgICA8Q2VudGVyIHN0eWxlPXt7IGhlaWdodDogJzEwMHZoJywgYmFja2dyb3VuZENvbG9yOiAnIzMzMzMzMycgfX0+XG4gICAgICAgICAgICA8Q29udGFpbmVyXG4gICAgICAgICAgICAgIHN0eWxlPXt7XG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAnMTAwJScsXG4gICAgICAgICAgICAgICAgLy8gYmFja2dyb3VuZENvbG9yOiAnI2ZmZmZmZicsXG4gICAgICAgICAgICAgICAgbWF4V2lkdGg6IDM1MCxcbiAgICAgICAgICAgICAgICB3aWR0aDogMzUwLFxuICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8Q29tcG9uZW50IHsuLi5wYWdlUHJvcHN9IC8+XG4gICAgICAgICAgICA8L0NvbnRhaW5lcj5cbiAgICAgICAgICA8L0NlbnRlcj5cbiAgICAgICAgPC9NYW50aW5lUHJvdmlkZXI+XG4gICAgICA8L1F1ZXJ5Q2xpZW50UHJvdmlkZXI+XG4gICAgPC8+XG4gICk7XG59XG4iXSwibmFtZXMiOlsiSGVhZCIsIkNlbnRlciIsIkNvbnRhaW5lciIsIk1hbnRpbmVQcm92aWRlciIsIlF1ZXJ5Q2xpZW50IiwiUXVlcnlDbGllbnRQcm92aWRlciIsIkFwcCIsInByb3BzIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIiwicXVlcnlDbGllbnQiLCJjbGllbnQiLCJ0aXRsZSIsIm1ldGEiLCJuYW1lIiwiY29udGVudCIsImxpbmsiLCJyZWwiLCJocmVmIiwic2l6ZXMiLCJ0eXBlIiwid2l0aEdsb2JhbFN0eWxlcyIsIndpdGhOb3JtYWxpemVDU1MiLCJ0aGVtZSIsImNvbG9yU2NoZW1lIiwiZm9udEZhbWlseSIsInN0eWxlIiwiaGVpZ2h0IiwiYmFja2dyb3VuZENvbG9yIiwibWF4V2lkdGgiLCJ3aWR0aCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/_app.tsx\n");
 
 /***/ }),
 
-/***/ 2247:
+/***/ "@mantine/core":
+/*!********************************!*\
+  !*** external "@mantine/core" ***!
+  \********************************/
 /***/ ((module) => {
 
 module.exports = require("@mantine/core");
 
 /***/ }),
 
-/***/ 1175:
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/***/ ((module) => {
+
+module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "react-query":
+/*!******************************!*\
+  !*** external "react-query" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("react-query");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ })
 
@@ -130,7 +70,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(14));
+var __webpack_exports__ = (__webpack_exec__("./pages/_app.tsx"));
 module.exports = __webpack_exports__;
 
 })();
