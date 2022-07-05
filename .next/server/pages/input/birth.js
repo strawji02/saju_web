@@ -59,11 +59,12 @@ const Birth = ({ data  })=>{
     });
     const dataValueArr = data.map((d)=>d.value
     );
+    const today = new Date();
     const form = (0,_mantine_form__WEBPACK_IMPORTED_MODULE_3__.useForm)({
         initialValues: {
-            birthplace: "",
+            birthplace: "\uC11C\uC6B8",
             calendar: "solar",
-            birthDay: new Date(),
+            birthDay: new Date(today.setFullYear(today.getFullYear() - 20)),
             birthHour: new Date(),
             intercalation: false
         },
@@ -92,114 +93,118 @@ const Birth = ({ data  })=>{
         })
     , // eslint-disable-next-line react-hooks/exhaustive-deps
     []);
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {
         justify: "center",
         align: "center",
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
-            style: {
-                width: "100%"
-            },
-            onSubmit: form.onSubmit((values)=>{
-                setBirth({
-                    ...values
-                });
-            }),
-            children: [
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+                style: {
+                    height: "40vh"
+                },
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
                     style: {
-                        height: "40vh"
+                        height: "100%"
                     },
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Autocomplete, {
+                        dropdownComponent: "div",
+                        maxDropdownHeight: "30vh",
+                        label: "\uCD9C\uC0DD\uC9C0",
+                        data: data,
+                        onFocus: (e)=>e.target.select()
+                        ,
                         style: {
-                            height: "100%"
+                            width: "100%"
                         },
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Autocomplete, {
-                            dropdownComponent: "div",
-                            maxDropdownHeight: "30vh",
-                            label: "\uCD9C\uC0DD\uC9C0",
-                            data: data,
-                            style: {
-                                width: "100%"
-                            },
-                            limit: 42,
-                            ...form.getInputProps("birthplace"),
-                            required: true
-                        })
+                        limit: 42,
+                        ...form.getInputProps("birthplace"),
+                        required: true
                     })
-                }),
-                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                    style: {
-                        height: "40vh"
-                    },
-                    children: [
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                            style: {
-                                height: "20vh"
-                            },
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.DatePicker, {
-                                allowFreeInput: true,
-                                inputFormat: "YYYY.MM.DD",
-                                labelFormat: "YYYY.MM",
-                                clearable: false,
-                                style: {
-                                    width: "100%"
-                                },
-                                label: "\uC0DD\uB144\uC6D4\uC77C",
-                                firstDayOfWeek: "sunday",
-                                ...form.getInputProps("birthDay")
-                            })
-                        }),
-                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {
+                })
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+                style: {
+                    height: "40vh"
+                },
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
+                        style: {
+                            height: "20vh"
+                        },
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.DatePicker, {
+                            allowFreeInput: true,
+                            inputFormat: "YYYY.MM.DD",
+                            labelFormat: "YYYY.MM",
+                            clearable: false,
+                            onFocus: (e)=>e.target.select()
+                            ,
                             style: {
                                 width: "100%"
                             },
-                            children: [
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                                    span: 6,
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
+                            label: "\uC0DD\uB144\uC6D4\uC77C",
+                            firstDayOfWeek: "sunday",
+                            ...form.getInputProps("birthDay")
+                        })
+                    }),
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {
+                        style: {
+                            width: "100%"
+                        },
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+                                span: 6,
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
+                                    style: {
+                                        height: "100%"
+                                    },
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.TimeInput, {
                                         style: {
-                                            height: "100%"
+                                            width: "100%"
                                         },
-                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.TimeInput, {
-                                            style: {
-                                                width: "100%"
-                                            },
-                                            ...form.getInputProps("birthHour")
-                                        })
-                                    })
-                                }),
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                                    span: 3,
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                                        style: {
-                                            height: "100%"
-                                        },
-                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
-                                            // style={{ marginTop: '20px' }}
-                                            label: "\uC74C\uB825",
-                                            checked: form.values.calendar === "lunar",
-                                            onChange: (event)=>form.setFieldValue("calendar", event.currentTarget.checked ? "lunar" : "solar")
-                                        })
-                                    })
-                                }),
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                                    span: 3,
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                                        style: {
-                                            height: "100%"
-                                        },
-                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
-                                            label: "\uC724\uB2EC",
-                                            disabled: form.values.calendar === "solar",
-                                            ...form.getInputProps("intercalation")
-                                        })
+                                        ...form.getInputProps("birthHour")
                                     })
                                 })
-                            ]
-                        })
-                    ]
+                            }),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+                                span: 3,
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
+                                    style: {
+                                        height: "100%"
+                                    },
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
+                                        // style={{ marginTop: '20px' }}
+                                        label: "\uC74C\uB825",
+                                        checked: form.values.calendar === "lunar",
+                                        onChange: (event)=>form.setFieldValue("calendar", event.currentTarget.checked ? "lunar" : "solar")
+                                    })
+                                })
+                            }),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+                                span: 3,
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
+                                    style: {
+                                        height: "100%"
+                                    },
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
+                                        label: "\uC724\uB2EC",
+                                        disabled: form.values.calendar === "solar",
+                                        ...form.getInputProps("intercalation")
+                                    })
+                                })
+                            })
+                        ]
+                    })
+                ]
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("form", {
+                style: {
+                    width: "100%"
+                },
+                onSubmit: form.onSubmit((values)=>{
+                    setBirth({
+                        ...values
+                    });
                 }),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
                     style: {
                         height: "20vh"
                     },
@@ -216,8 +221,8 @@ const Birth = ({ data  })=>{
                         })
                     })
                 })
-            ]
-        })
+            })
+        ]
     });
 };
 const getServerSideProps = async ()=>{

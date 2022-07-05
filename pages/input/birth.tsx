@@ -40,11 +40,12 @@ const Birth = ({
     }
   );
   const dataValueArr = data.map((d: any) => d.value);
+  const today = new Date();
   const form = useForm<FormValues>({
     initialValues: {
-      birthplace: '',
+      birthplace: '서울',
       calendar: 'solar',
-      birthDay: new Date(),
+      birthDay: new Date(today.setFullYear(today.getFullYear() - 20)),
       birthHour: new Date(),
       intercalation: false,
     },
@@ -84,77 +85,79 @@ const Birth = ({
 
   return (
     <Grid justify="center" align="center">
+      <Grid.Col style={{ height: '40vh' }}>
+        <Center style={{ height: '100%' }}>
+          <Autocomplete
+            dropdownComponent="div"
+            maxDropdownHeight="30vh"
+            label="출생지"
+            data={data}
+            onFocus={(e) => e.target.select()}
+            style={{ width: '100%' }}
+            limit={42}
+            {...form.getInputProps('birthplace')}
+            required
+          />
+        </Center>
+      </Grid.Col>
+      <Grid.Col style={{ height: '40vh' }}>
+        <Center style={{ height: '20vh' }}>
+          <DatePicker
+            allowFreeInput
+            inputFormat="YYYY.MM.DD"
+            labelFormat="YYYY.MM"
+            clearable={false}
+            onFocus={(e) => e.target.select()}
+            style={{ width: '100%' }}
+            label="생년월일"
+            firstDayOfWeek="sunday"
+            {...form.getInputProps('birthDay')}
+          />
+        </Center>
+
+        <Grid style={{ width: '100%' }}>
+          <Grid.Col span={6}>
+            <Center style={{ height: '100%' }}>
+              <TimeInput
+                style={{ width: '100%' }}
+                {...form.getInputProps('birthHour')}
+              />
+            </Center>
+          </Grid.Col>
+          <Grid.Col span={3}>
+            <Center style={{ height: '100%' }}>
+              <Checkbox
+                // style={{ marginTop: '20px' }}
+                label="음력"
+                checked={form.values.calendar === 'lunar'}
+                onChange={(event) =>
+                  form.setFieldValue(
+                    'calendar',
+                    event.currentTarget.checked ? 'lunar' : 'solar'
+                  )
+                }
+              />
+            </Center>
+          </Grid.Col>
+          <Grid.Col span={3}>
+            <Center style={{ height: '100%' }}>
+              <Checkbox
+                label="윤달"
+                disabled={form.values.calendar === 'solar'}
+                {...form.getInputProps('intercalation')}
+                // checked={form.values.intercalation}
+                // onChange={(event) => form.setFieldValue('intercalation', event.currentTarget.checked)}
+              />
+            </Center>
+          </Grid.Col>
+        </Grid>
+      </Grid.Col>
       <form
         style={{ width: '100%' }}
         onSubmit={form.onSubmit((values) => {
           setBirth({ ...values });
         })}
       >
-        <Grid.Col style={{ height: '40vh' }}>
-          <Center style={{ height: '100%' }}>
-            <Autocomplete
-              dropdownComponent="div"
-              maxDropdownHeight="30vh"
-              label="출생지"
-              data={data}
-              style={{ width: '100%' }}
-              limit={42}
-              {...form.getInputProps('birthplace')}
-              required
-            />
-          </Center>
-        </Grid.Col>
-        <Grid.Col style={{ height: '40vh' }}>
-          <Center style={{ height: '20vh' }}>
-            <DatePicker
-              allowFreeInput
-              inputFormat="YYYY.MM.DD"
-              labelFormat="YYYY.MM"
-              clearable={false}
-              style={{ width: '100%' }}
-              label="생년월일"
-              firstDayOfWeek="sunday"
-              {...form.getInputProps('birthDay')}
-            />
-          </Center>
-
-          <Grid style={{ width: '100%' }}>
-            <Grid.Col span={6}>
-              <Center style={{ height: '100%' }}>
-                <TimeInput
-                  style={{ width: '100%' }}
-                  {...form.getInputProps('birthHour')}
-                />
-              </Center>
-            </Grid.Col>
-            <Grid.Col span={3}>
-              <Center style={{ height: '100%' }}>
-                <Checkbox
-                  // style={{ marginTop: '20px' }}
-                  label="음력"
-                  checked={form.values.calendar === 'lunar'}
-                  onChange={(event) =>
-                    form.setFieldValue(
-                      'calendar',
-                      event.currentTarget.checked ? 'lunar' : 'solar'
-                    )
-                  }
-                />
-              </Center>
-            </Grid.Col>
-            <Grid.Col span={3}>
-              <Center style={{ height: '100%' }}>
-                <Checkbox
-                  label="윤달"
-                  disabled={form.values.calendar === 'solar'}
-                  {...form.getInputProps('intercalation')}
-                  // checked={form.values.intercalation}
-                  // onChange={(event) => form.setFieldValue('intercalation', event.currentTarget.checked)}
-                />
-              </Center>
-            </Grid.Col>
-          </Grid>
-        </Grid.Col>
         <Grid.Col style={{ height: '20vh' }}>
           <Center style={{ height: '100%' }}>
             <Button type="submit" style={{ width: '100%' }}>
