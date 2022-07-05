@@ -1,7 +1,11 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/api/hello": "pages/api/hello.js",
+  "/": "pages/index.html",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/input/name": "pages/input/name.js"
+  "/input/name": "pages/input/name.html",
+  "/result/info": "pages/result/info.html",
+  "/input/birth": "pages/input/birth.js",
+  "/404": "pages/404.html"
 }
