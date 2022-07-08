@@ -1,324 +1,142 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 568;
-exports.ids = [568];
+exports.id = "pages/input/birth";
+exports.ids = ["pages/input/birth"];
 exports.modules = {
 
-/***/ 2498:
+/***/ "./pages/input/birth.tsx":
+/*!*******************************!*\
+  !*** ./pages/input/birth.tsx ***!
+  \*******************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2247);
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mantine_core__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mantine_dates__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8277);
-/* harmony import */ var _mantine_dates__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _mantine_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9445);
-/* harmony import */ var _mantine_form__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mantine_form__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2167);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1853);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1175);
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8407);
-/* harmony import */ var zustand_shallow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1561);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_store_store__WEBPACK_IMPORTED_MODULE_7__, zustand_shallow__WEBPACK_IMPORTED_MODULE_8__]);
-([_store_store__WEBPACK_IMPORTED_MODULE_7__, zustand_shallow__WEBPACK_IMPORTED_MODULE_8__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
-
-
-
-
-
-
-
-
-
-
-const Birth = ({ data  })=>{
-    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();
-    const { setSaju  } = (0,_store_store__WEBPACK_IMPORTED_MODULE_7__/* .useSajuState */ .S)();
-    const submitMutate = (0,react_query__WEBPACK_IMPORTED_MODULE_6__.useMutation)((params)=>axios__WEBPACK_IMPORTED_MODULE_4___default().get("//35.84.255.61:8000/result5.php", {
-            params
-        })
-    , {
-        onSuccess: (res)=>{
-            console.log(res);
-            setSaju(res.data);
-            router.push("/result/info");
-        }
-    });
-    const dataValueArr = data.map((d)=>d.value
-    );
-    const today = new Date();
-    const form = (0,_mantine_form__WEBPACK_IMPORTED_MODULE_3__.useForm)({
-        initialValues: {
-            birthplace: "\uC11C\uC6B8",
-            calendar: "solar",
-            birthDay: new Date(today.setFullYear(today.getFullYear() - 20)),
-            birthHour: new Date(),
-            intercalation: false
-        },
-        validate: (values)=>({
-                birthplace: dataValueArr.includes(values.birthplace) ? null : "\uBAA9\uB85D\uC5D0\uC11C \uC120\uD0DD\uD574\uC8FC\uC138\uC694"
-            })
-    });
-    const { setBirth , ...user } = (0,_store_store__WEBPACK_IMPORTED_MODULE_7__/* .useUserState */ .e)();
-    const birthRef = (0,react__WEBPACK_IMPORTED_MODULE_9__.useRef)(_store_store__WEBPACK_IMPORTED_MODULE_7__/* .useUserState.getState */ .e.getState().birth);
-    (0,react__WEBPACK_IMPORTED_MODULE_9__.useEffect)(()=>_store_store__WEBPACK_IMPORTED_MODULE_7__/* .useUserState.subscribe */ .e.subscribe((state)=>birthRef.current = state.birth
-        , (state, prevState)=>{
-            const params = {
-                gender: user.gender === 1 ? "\uB0A8\uC790" : "\uC5EC\uC790",
-                birthplace: state.birthplace,
-                calendar: state.calendar === "lunar" ? "\uC74C\uB825" : "\uC591\uB825",
-                year: state.birthDay.getFullYear(),
-                month: state.birthDay.getMonth() + 1,
-                day: state.birthDay.getDate(),
-                hour: state.birthHour.getHours(),
-                min: state.birthHour.getMinutes(),
-                intercalation: state.intercalation ? "\uC724\uB2EC" : null
-            };
-            submitMutate.mutate(params);
-        }, {
-            equalityFn: zustand_shallow__WEBPACK_IMPORTED_MODULE_8__["default"]
-        })
-    , // eslint-disable-next-line react-hooks/exhaustive-deps
-    []);
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {
-        justify: "center",
-        align: "center",
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                style: {
-                    height: "40vh"
-                },
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                    style: {
-                        height: "100%"
-                    },
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Autocomplete, {
-                        dropdownComponent: "div",
-                        maxDropdownHeight: "30vh",
-                        label: "\uCD9C\uC0DD\uC9C0",
-                        data: data,
-                        onFocus: (e)=>e.target.select()
-                        ,
-                        style: {
-                            width: "100%"
-                        },
-                        limit: 42,
-                        ...form.getInputProps("birthplace"),
-                        required: true
-                    })
-                })
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                style: {
-                    height: "40vh"
-                },
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                        style: {
-                            height: "20vh"
-                        },
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.DatePicker, {
-                            allowFreeInput: true,
-                            inputFormat: "YYYY.MM.DD",
-                            labelFormat: "YYYY.MM",
-                            clearable: false,
-                            onFocus: (e)=>e.target.select()
-                            ,
-                            style: {
-                                width: "100%"
-                            },
-                            label: "\uC0DD\uB144\uC6D4\uC77C",
-                            firstDayOfWeek: "sunday",
-                            ...form.getInputProps("birthDay")
-                        })
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {
-                        style: {
-                            width: "100%"
-                        },
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                                span: 6,
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                                    style: {
-                                        height: "100%"
-                                    },
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.TimeInput, {
-                                        style: {
-                                            width: "100%"
-                                        },
-                                        ...form.getInputProps("birthHour")
-                                    })
-                                })
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                                span: 3,
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                                    style: {
-                                        height: "100%"
-                                    },
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
-                                        // style={{ marginTop: '20px' }}
-                                        label: "\uC74C\uB825",
-                                        checked: form.values.calendar === "lunar",
-                                        onChange: (event)=>form.setFieldValue("calendar", event.currentTarget.checked ? "lunar" : "solar")
-                                    })
-                                })
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                                span: 3,
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                                    style: {
-                                        height: "100%"
-                                    },
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
-                                        label: "\uC724\uB2EC",
-                                        disabled: form.values.calendar === "solar",
-                                        ...form.getInputProps("intercalation")
-                                    })
-                                })
-                            })
-                        ]
-                    })
-                ]
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("form", {
-                style: {
-                    width: "100%"
-                },
-                onSubmit: form.onSubmit((values)=>{
-                    setBirth({
-                        ...values
-                    });
-                }),
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {
-                    style: {
-                        height: "20vh"
-                    },
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {
-                        style: {
-                            height: "100%"
-                        },
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Button, {
-                            type: "submit",
-                            style: {
-                                width: "100%"
-                            },
-                            children: "Submit"
-                        })
-                    })
-                })
-            })
-        ]
-    });
-};
-const getServerSideProps = async ()=>{
-    const res = await axios__WEBPACK_IMPORTED_MODULE_4___default().get("http://35.84.255.61:8000/dosi.php");
-    const resData = await res.data.split("\n");
-    const data = resData.map((d)=>{
-        if (d !== "") {
-            return JSON.parse(d);
-        }
-        return null;
-    }).filter((d)=>d
-    );
-    return {
-        props: {
-            data
-        }
-    };
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Birth);
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mantine/core */ \"@mantine/core\");\n/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mantine_core__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _mantine_dates__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mantine/dates */ \"@mantine/dates\");\n/* harmony import */ var _mantine_dates__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _mantine_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/form */ \"@mantine/form\");\n/* harmony import */ var _mantine_form__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mantine_form__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-query */ \"react-query\");\n/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../store/store */ \"./store/store.ts\");\n/* harmony import */ var zustand_shallow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! zustand/shallow */ \"zustand/shallow\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_store_store__WEBPACK_IMPORTED_MODULE_7__, zustand_shallow__WEBPACK_IMPORTED_MODULE_8__]);\n([_store_store__WEBPACK_IMPORTED_MODULE_7__, zustand_shallow__WEBPACK_IMPORTED_MODULE_8__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);\n\n\n\n\n\n\n\n\n\n\nconst Birth = ({ data  })=>{\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();\n    const { setSaju  } = (0,_store_store__WEBPACK_IMPORTED_MODULE_7__.useSajuState)();\n    const submitMutate = (0,react_query__WEBPACK_IMPORTED_MODULE_6__.useMutation)((params)=>axios__WEBPACK_IMPORTED_MODULE_4___default().get(\"//saju-server.herokuapp.com/result5.php\", {\n            params\n        })\n    , {\n        onSuccess: (res)=>{\n            console.log(res);\n            setSaju(res.data);\n            router.push(\"/result/info\");\n        }\n    });\n    const dataValueArr = data.map((d)=>d.value\n    );\n    const today = new Date();\n    const form = (0,_mantine_form__WEBPACK_IMPORTED_MODULE_3__.useForm)({\n        initialValues: {\n            birthplace: \"\\uC11C\\uC6B8\",\n            calendar: \"solar\",\n            birthDay: new Date(today.setFullYear(today.getFullYear() - 20)),\n            birthHour: new Date(),\n            intercalation: false\n        },\n        validate: (values)=>({\n                birthplace: dataValueArr.includes(values.birthplace) ? null : \"\\uBAA9\\uB85D\\uC5D0\\uC11C \\uC120\\uD0DD\\uD574\\uC8FC\\uC138\\uC694\"\n            })\n    });\n    const { setBirth , ...user } = (0,_store_store__WEBPACK_IMPORTED_MODULE_7__.useUserState)();\n    const birthRef = (0,react__WEBPACK_IMPORTED_MODULE_9__.useRef)(_store_store__WEBPACK_IMPORTED_MODULE_7__.useUserState.getState().birth);\n    (0,react__WEBPACK_IMPORTED_MODULE_9__.useEffect)(()=>_store_store__WEBPACK_IMPORTED_MODULE_7__.useUserState.subscribe((state)=>birthRef.current = state.birth\n        , (state, prevState)=>{\n            const params = {\n                gender: user.gender === 1 ? \"\\uB0A8\\uC790\" : \"\\uC5EC\\uC790\",\n                birthplace: state.birthplace,\n                calendar: state.calendar === \"lunar\" ? \"\\uC74C\\uB825\" : \"\\uC591\\uB825\",\n                year: state.birthDay.getFullYear(),\n                month: state.birthDay.getMonth() + 1,\n                day: state.birthDay.getDate(),\n                hour: state.birthHour.getHours(),\n                min: state.birthHour.getMinutes(),\n                intercalation: state.intercalation ? \"\\uC724\\uB2EC\" : null\n            };\n            submitMutate.mutate(params);\n        }, {\n            equalityFn: zustand_shallow__WEBPACK_IMPORTED_MODULE_8__[\"default\"]\n        })\n    , // eslint-disable-next-line react-hooks/exhaustive-deps\n    []);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {\n        justify: \"center\",\n        align: \"center\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {\n                style: {\n                    height: \"40vh\"\n                },\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {\n                    style: {\n                        height: \"100%\"\n                    },\n                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Autocomplete, {\n                        dropdownComponent: \"div\",\n                        maxDropdownHeight: \"30vh\",\n                        label: \"\\uCD9C\\uC0DD\\uC9C0\",\n                        data: data,\n                        onFocus: (e)=>e.target.select()\n                        ,\n                        style: {\n                            width: \"100%\"\n                        },\n                        limit: 42,\n                        ...form.getInputProps(\"birthplace\"),\n                        required: true\n                    }, void 0, false, {\n                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                        lineNumber: 91,\n                        columnNumber: 11\n                    }, undefined)\n                }, void 0, false, {\n                    fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                    lineNumber: 90,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                lineNumber: 89,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {\n                style: {\n                    height: \"40vh\"\n                },\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {\n                        style: {\n                            height: \"20vh\"\n                        },\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.DatePicker, {\n                            allowFreeInput: true,\n                            inputFormat: \"YYYY.MM.DD\",\n                            labelFormat: \"YYYY.MM\",\n                            clearable: false,\n                            onFocus: (e)=>e.target.select()\n                            ,\n                            style: {\n                                width: \"100%\"\n                            },\n                            label: \"\\uC0DD\\uB144\\uC6D4\\uC77C\",\n                            firstDayOfWeek: \"sunday\",\n                            ...form.getInputProps(\"birthDay\")\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                            lineNumber: 106,\n                            columnNumber: 11\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                        lineNumber: 105,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid, {\n                        style: {\n                            width: \"100%\"\n                        },\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {\n                                span: 6,\n                                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {\n                                    style: {\n                                        height: \"100%\"\n                                    },\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_dates__WEBPACK_IMPORTED_MODULE_2__.TimeInput, {\n                                        style: {\n                                            width: \"100%\"\n                                        },\n                                        ...form.getInputProps(\"birthHour\")\n                                    }, void 0, false, {\n                                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                        lineNumber: 122,\n                                        columnNumber: 15\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                    lineNumber: 121,\n                                    columnNumber: 13\n                                }, undefined)\n                            }, void 0, false, {\n                                fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                lineNumber: 120,\n                                columnNumber: 11\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {\n                                span: 3,\n                                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {\n                                    style: {\n                                        height: \"100%\"\n                                    },\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {\n                                        // style={{ marginTop: '20px' }}\n                                        label: \"\\uC74C\\uB825\",\n                                        checked: form.values.calendar === \"lunar\",\n                                        onChange: (event)=>form.setFieldValue(\"calendar\", event.currentTarget.checked ? \"lunar\" : \"solar\")\n                                    }, void 0, false, {\n                                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                        lineNumber: 130,\n                                        columnNumber: 15\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                    lineNumber: 129,\n                                    columnNumber: 13\n                                }, undefined)\n                            }, void 0, false, {\n                                fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                lineNumber: 128,\n                                columnNumber: 11\n                            }, undefined),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {\n                                span: 3,\n                                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {\n                                    style: {\n                                        height: \"100%\"\n                                    },\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {\n                                        label: \"\\uC724\\uB2EC\",\n                                        disabled: form.values.calendar === \"solar\",\n                                        ...form.getInputProps(\"intercalation\")\n                                    }, void 0, false, {\n                                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                        lineNumber: 145,\n                                        columnNumber: 15\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                    lineNumber: 144,\n                                    columnNumber: 13\n                                }, undefined)\n                            }, void 0, false, {\n                                fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                                lineNumber: 143,\n                                columnNumber: 11\n                            }, undefined)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                        lineNumber: 119,\n                        columnNumber: 9\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                lineNumber: 104,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"form\", {\n                style: {\n                    width: \"100%\"\n                },\n                onSubmit: form.onSubmit((values)=>{\n                    setBirth({\n                        ...values\n                    });\n                }),\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Grid.Col, {\n                    style: {\n                        height: \"20vh\"\n                    },\n                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Center, {\n                        style: {\n                            height: \"100%\"\n                        },\n                        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Button, {\n                            type: \"submit\",\n                            style: {\n                                width: \"100%\"\n                            },\n                            children: \"Submit\"\n                        }, void 0, false, {\n                            fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                            lineNumber: 164,\n                            columnNumber: 13\n                        }, undefined)\n                    }, void 0, false, {\n                        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                        lineNumber: 163,\n                        columnNumber: 11\n                    }, undefined)\n                }, void 0, false, {\n                    fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                    lineNumber: 162,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n                lineNumber: 156,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/Users/strawji/saju_web/saju_web/pages/input/birth.tsx\",\n        lineNumber: 88,\n        columnNumber: 5\n    }, undefined);\n};\nconst getServerSideProps = async ()=>{\n    const res = await axios__WEBPACK_IMPORTED_MODULE_4___default().get(\"https://saju-server.herokuapp.com/dosi.php\");\n    const resData = await res.data.split(\"\\n\");\n    const data = resData.map((d)=>{\n        if (d !== \"\") {\n            return JSON.parse(d);\n        }\n        return null;\n    }).filter((d)=>d\n    );\n    return {\n        props: {\n            data\n        }\n    };\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Birth);\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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TUFBTWtCLGtCQUFrQixHQUF1QixVQUFZO0lBQ2hFLE1BQU16RSxHQUFHLEdBQUcsTUFBTWhCLGdEQUFTLENBQUMsNENBQTRDLENBQUM7SUFDekUsTUFBTTBGLE9BQU8sR0FBRyxNQUFNMUUsR0FBRyxDQUFDUCxJQUFJLENBQUNrRixLQUFLLENBQUMsSUFBSSxDQUFDO0lBQzFDLE1BQU1sRixJQUFJLEdBQUdpRixPQUFPLENBQ2pCckUsR0FBRyxDQUFDLENBQUNDLENBQVMsR0FBSztRQUNsQixJQUFJQSxDQUFDLEtBQUssRUFBRSxFQUFFO1lBQ1osT0FBT3NFLElBQUksQ0FBQ0MsS0FBSyxDQUFDdkUsQ0FBQyxDQUFDLENBQUM7U0FDdEI7UUFDRCxPQUFPLElBQUksQ0FBQztLQUNiLENBQUMsQ0FDRHdFLE1BQU0sQ0FBQyxDQUFDeEUsQ0FBUyxHQUFLQSxDQUFDO0lBQUEsQ0FBQztJQUUzQixPQUFPO1FBQUV5RSxLQUFLLEVBQUU7WUFBRXRGLElBQUk7U0FBRTtLQUFFLENBQUM7Q0FDNUIsQ0FBQztBQUVGLGlFQUFlRCxLQUFLLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zYWp1X3dlYi8uL3BhZ2VzL2lucHV0L2JpcnRoLnRzeD82YzU0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEF1dG9jb21wbGV0ZSwgQnV0dG9uLCBDZW50ZXIsIENoZWNrYm94LCBHcmlkIH0gZnJvbSAnQG1hbnRpbmUvY29yZSc7XG5pbXBvcnQgeyBEYXRlUGlja2VyLCBUaW1lSW5wdXQgfSBmcm9tICdAbWFudGluZS9kYXRlcyc7XG5pbXBvcnQgeyB1c2VGb3JtIH0gZnJvbSAnQG1hbnRpbmUvZm9ybSc7XG5pbXBvcnQgYXhpb3MgZnJvbSAnYXhpb3MnO1xuaW1wb3J0IHsgR2V0U2VydmVyU2lkZVByb3BzLCBJbmZlckdldFNlcnZlclNpZGVQcm9wc1R5cGUgfSBmcm9tICduZXh0JztcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gJ25leHQvcm91dGVyJztcbmltcG9ydCB7IHVzZU11dGF0aW9uIH0gZnJvbSAncmVhY3QtcXVlcnknO1xuaW1wb3J0IHtcbiAgQmlydGhEYXRlLFxuICBCaXJ0aHBsYWNlLFxuICBDYWxlbmRhcixcbiAgSW50ZXJjYWxhdGlvbixcbiAgdXNlU2FqdVN0YXRlLFxuICB1c2VVc2VyU3RhdGUsXG59IGZyb20gJy4uLy4uL3N0b3JlL3N0b3JlJztcbmltcG9ydCBzaGFsbG93IGZyb20gJ3p1c3RhbmQvc2hhbGxvdyc7XG5pbXBvcnQgeyB1c2VFZmZlY3QsIHVzZVJlZiB9IGZyb20gJ3JlYWN0JztcblxuaW50ZXJmYWNlIEZvcm1WYWx1ZXMge1xuICBiaXJ0aHBsYWNlOiBCaXJ0aHBsYWNlO1xuICBjYWxlbmRhcjogQ2FsZW5kYXI7XG4gIGJpcnRoRGF5OiBCaXJ0aERhdGU7XG4gIGJpcnRoSG91cjogQmlydGhEYXRlO1xuICBpbnRlcmNhbGF0aW9uOiBJbnRlcmNhbGF0aW9uO1xufVxuY29uc3QgQmlydGggPSAoe1xuICBkYXRhLFxufTogSW5mZXJHZXRTZXJ2ZXJTaWRlUHJvcHNUeXBlPHR5cGVvZiBnZXRTZXJ2ZXJTaWRlUHJvcHM+KSA9PiB7XG4gIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpO1xuICBjb25zdCB7IHNldFNhanUgfSA9IHVzZVNhanVTdGF0ZSgpO1xuICBjb25zdCBzdWJtaXRNdXRhdGUgPSB1c2VNdXRhdGlvbihcbiAgICAocGFyYW1zOiBhbnkpID0+XG4gICAgICBheGlvcy5nZXQoJy8vc2FqdS1zZXJ2ZXIuaGVyb2t1YXBwLmNvbS9yZXN1bHQ1LnBocCcsIHsgcGFyYW1zIH0pLFxuICAgIHtcbiAgICAgIG9uU3VjY2VzczogKHJlcykgPT4ge1xuICAgICAgICBjb25zb2xlLmxvZyhyZXMpO1xuXG4gICAgICAgIHNldFNhanUocmVzLmRhdGEpO1xuICAgICAgICByb3V0ZXIucHVzaCgnL3Jlc3VsdC9pbmZvJyk7XG4gICAgICB9LFxuICAgIH1cbiAgKTtcbiAgY29uc3QgZGF0YVZhbHVlQXJyID0gZGF0YS5tYXAoKGQ6IGFueSkgPT4gZC52YWx1ZSk7XG4gIGNvbnN0IHRvZGF5ID0gbmV3IERhdGUoKTtcbiAgY29uc3QgZm9ybSA9IHVzZUZvcm08Rm9ybVZhbHVlcz4oe1xuICAgIGluaXRpYWxWYWx1ZXM6IHtcbiAgICAgIGJpcnRocGxhY2U6ICfshJzsmrgnLFxuICAgICAgY2FsZW5kYXI6ICdzb2xhcicsXG4gICAgICBiaXJ0aERheTogbmV3IERhdGUodG9kYXkuc2V0RnVsbFllYXIodG9kYXkuZ2V0RnVsbFllYXIoKSAtIDIwKSksXG4gICAgICBiaXJ0aEhvdXI6IG5ldyBEYXRlKCksXG4gICAgICBpbnRlcmNhbGF0aW9uOiBmYWxzZSxcbiAgICB9LFxuICAgIHZhbGlkYXRlOiAodmFsdWVzKSA9PiAoe1xuICAgICAgYmlydGhwbGFjZTogZGF0YVZhbHVlQXJyLmluY2x1ZGVzKHZhbHVlcy5iaXJ0aHBsYWNlKVxuICAgICAgICA/IG51bGxcbiAgICAgICAgOiAn66qp66Gd7JeQ7IScIOyEoO2Dne2VtOyjvOyEuOyalCcsXG4gICAgfSksXG4gIH0pO1xuICBjb25zdCB7IHNldEJpcnRoLCAuLi51c2VyIH0gPSB1c2VVc2VyU3RhdGUoKTtcbiAgY29uc3QgYmlydGhSZWYgPSB1c2VSZWYodXNlVXNlclN0YXRlLmdldFN0YXRlKCkuYmlydGgpO1xuXG4gIHVzZUVmZmVjdChcbiAgICAoKSA9PlxuICAgICAgdXNlVXNlclN0YXRlLnN1YnNjcmliZShcbiAgICAgICAgKHN0YXRlKSA9PiAoYmlydGhSZWYuY3VycmVudCA9IHN0YXRlLmJpcnRoKSxcbiAgICAgICAgKHN0YXRlLCBwcmV2U3RhdGUpID0+IHtcbiAgICAgICAgICBjb25zdCBwYXJhbXMgPSB7XG4gICAgICAgICAgICBnZW5kZXI6IHVzZXIuZ2VuZGVyID09PSAxID8gJ+uCqOyekCcgOiAn7Jes7J6QJyxcbiAgICAgICAgICAgIGJpcnRocGxhY2U6IHN0YXRlLmJpcnRocGxhY2UsXG4gICAgICAgICAgICBjYWxlbmRhcjogc3RhdGUuY2FsZW5kYXIgPT09ICdsdW5hcicgPyAn7J2M66ClJyA6ICfslpHroKUnLFxuICAgICAgICAgICAgeWVhcjogc3RhdGUuYmlydGhEYXkuZ2V0RnVsbFllYXIoKSxcbiAgICAgICAgICAgIG1vbnRoOiBzdGF0ZS5iaXJ0aERheS5nZXRNb250aCgpICsgMSxcbiAgICAgICAgICAgIGRheTogc3RhdGUuYmlydGhEYXkuZ2V0RGF0ZSgpLFxuICAgICAgICAgICAgaG91cjogc3RhdGUuYmlydGhIb3VyLmdldEhvdXJzKCksXG4gICAgICAgICAgICBtaW46IHN0YXRlLmJpcnRoSG91ci5nZXRNaW51dGVzKCksXG4gICAgICAgICAgICBpbnRlcmNhbGF0aW9uOiBzdGF0ZS5pbnRlcmNhbGF0aW9uID8gJ+ycpOuLrCcgOiBudWxsLFxuICAgICAgICAgIH07XG5cbiAgICAgICAgICBzdWJtaXRNdXRhdGUubXV0YXRlKHBhcmFtcyk7XG4gICAgICAgIH0sXG4gICAgICAgIHsgZXF1YWxpdHlGbjogc2hhbGxvdyB9XG4gICAgICApLFxuICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSByZWFjdC1ob29rcy9leGhhdXN0aXZlLWRlcHNcbiAgICBbXVxuICApO1xuXG4gIHJldHVybiAoXG4gICAgPEdyaWQganVzdGlmeT1cImNlbnRlclwiIGFsaWduPVwiY2VudGVyXCI+XG4gICAgICA8R3JpZC5Db2wgc3R5bGU9e3sgaGVpZ2h0OiAnNDB2aCcgfX0+XG4gICAgICAgIDxDZW50ZXIgc3R5bGU9e3sgaGVpZ2h0OiAnMTAwJScgfX0+XG4gICAgICAgICAgPEF1dG9jb21wbGV0ZVxuICAgICAgICAgICAgZHJvcGRvd25Db21wb25lbnQ9XCJkaXZcIlxuICAgICAgICAgICAgbWF4RHJvcGRvd25IZWlnaHQ9XCIzMHZoXCJcbiAgICAgICAgICAgIGxhYmVsPVwi7Lac7IOd7KeAXCJcbiAgICAgICAgICAgIGRhdGE9e2RhdGF9XG4gICAgICAgICAgICBvbkZvY3VzPXsoZSkgPT4gZS50YXJnZXQuc2VsZWN0KCl9XG4gICAgICAgICAgICBzdHlsZT17eyB3aWR0aDogJzEwMCUnIH19XG4gICAgICAgICAgICBsaW1pdD17NDJ9XG4gICAgICAgICAgICB7Li4uZm9ybS5nZXRJbnB1dFByb3BzKCdiaXJ0aHBsYWNlJyl9XG4gICAgICAgICAgICByZXF1aXJlZFxuICAgICAgICAgIC8+XG4gICAgICAgIDwvQ2VudGVyPlxuICAgICAgPC9HcmlkLkNvbD5cbiAgICAgIDxHcmlkLkNvbCBzdHlsZT17eyBoZWlnaHQ6ICc0MHZoJyB9fT5cbiAgICAgICAgPENlbnRlciBzdHlsZT17eyBoZWlnaHQ6ICcyMHZoJyB9fT5cbiAgICAgICAgICA8RGF0ZVBpY2tlclxuICAgICAgICAgICAgYWxsb3dGcmVlSW5wdXRcbiAgICAgICAgICAgIGlucHV0Rm9ybWF0PVwiWVlZWS5NTS5ERFwiXG4gICAgICAgICAgICBsYWJlbEZvcm1hdD1cIllZWVkuTU1cIlxuICAgICAgICAgICAgY2xlYXJhYmxlPXtmYWxzZX1cbiAgICAgICAgICAgIG9uRm9jdXM9eyhlKSA9PiBlLnRhcmdldC5zZWxlY3QoKX1cbiAgICAgICAgICAgIHN0eWxlPXt7IHdpZHRoOiAnMTAwJScgfX1cbiAgICAgICAgICAgIGxhYmVsPVwi7IOd64WE7JuU7J28XCJcbiAgICAgICAgICAgIGZpcnN0RGF5T2ZXZWVrPVwic3VuZGF5XCJcbiAgICAgICAgICAgIHsuLi5mb3JtLmdldElucHV0UHJvcHMoJ2JpcnRoRGF5Jyl9XG4gICAgICAgICAgLz5cbiAgICAgICAgPC9DZW50ZXI+XG5cbiAgICAgICAgPEdyaWQgc3R5bGU9e3sgd2lkdGg6ICcxMDAlJyB9fT5cbiAgICAgICAgICA8R3JpZC5Db2wgc3Bhbj17Nn0+XG4gICAgICAgICAgICA8Q2VudGVyIHN0eWxlPXt7IGhlaWdodDogJzEwMCUnIH19PlxuICAgICAgICAgICAgICA8VGltZUlucHV0XG4gICAgICAgICAgICAgICAgc3R5bGU9e3sgd2lkdGg6ICcxMDAlJyB9fVxuICAgICAgICAgICAgICAgIHsuLi5mb3JtLmdldElucHV0UHJvcHMoJ2JpcnRoSG91cicpfVxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9DZW50ZXI+XG4gICAgICAgICAgPC9HcmlkLkNvbD5cbiAgICAgICAgICA8R3JpZC5Db2wgc3Bhbj17M30+XG4gICAgICAgICAgICA8Q2VudGVyIHN0eWxlPXt7IGhlaWdodDogJzEwMCUnIH19PlxuICAgICAgICAgICAgICA8Q2hlY2tib3hcbiAgICAgICAgICAgICAgICAvLyBzdHlsZT17eyBtYXJnaW5Ub3A6ICcyMHB4JyB9fVxuICAgICAgICAgICAgICAgIGxhYmVsPVwi7J2M66ClXCJcbiAgICAgICAgICAgICAgICBjaGVja2VkPXtmb3JtLnZhbHVlcy5jYWxlbmRhciA9PT0gJ2x1bmFyJ31cbiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGV2ZW50KSA9PlxuICAgICAgICAgICAgICAgICAgZm9ybS5zZXRGaWVsZFZhbHVlKFxuICAgICAgICAgICAgICAgICAgICAnY2FsZW5kYXInLFxuICAgICAgICAgICAgICAgICAgICBldmVudC5jdXJyZW50VGFyZ2V0LmNoZWNrZWQgPyAnbHVuYXInIDogJ3NvbGFyJ1xuICAgICAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvQ2VudGVyPlxuICAgICAgICAgIDwvR3JpZC5Db2w+XG4gICAgICAgICAgPEdyaWQuQ29sIHNwYW49ezN9PlxuICAgICAgICAgICAgPENlbnRlciBzdHlsZT17eyBoZWlnaHQ6ICcxMDAlJyB9fT5cbiAgICAgICAgICAgICAgPENoZWNrYm94XG4gICAgICAgICAgICAgICAgbGFiZWw9XCLsnKTri6xcIlxuICAgICAgICAgICAgICAgIGRpc2FibGVkPXtmb3JtLnZhbHVlcy5jYWxlbmRhciA9PT0gJ3NvbGFyJ31cbiAgICAgICAgICAgICAgICB7Li4uZm9ybS5nZXRJbnB1dFByb3BzKCdpbnRlcmNhbGF0aW9uJyl9XG4gICAgICAgICAgICAgICAgLy8gY2hlY2tlZD17Zm9ybS52YWx1ZXMuaW50ZXJjYWxhdGlvbn1cbiAgICAgICAgICAgICAgICAvLyBvbkNoYW5nZT17KGV2ZW50KSA9PiBmb3JtLnNldEZpZWxkVmFsdWUoJ2ludGVyY2FsYXRpb24nLCBldmVudC5jdXJyZW50VGFyZ2V0LmNoZWNrZWQpfVxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9DZW50ZXI+XG4gICAgICAgICAgPC9HcmlkLkNvbD5cbiAgICAgICAgPC9HcmlkPlxuICAgICAgPC9HcmlkLkNvbD5cbiAgICAgIDxmb3JtXG4gICAgICAgIHN0eWxlPXt7IHdpZHRoOiAnMTAwJScgfX1cbiAgICAgICAgb25TdWJtaXQ9e2Zvcm0ub25TdWJtaXQoKHZhbHVlcykgPT4ge1xuICAgICAgICAgIHNldEJpcnRoKHsgLi4udmFsdWVzIH0pO1xuICAgICAgICB9KX1cbiAgICAgID5cbiAgICAgICAgPEdyaWQuQ29sIHN0eWxlPXt7IGhlaWdodDogJzIwdmgnIH19PlxuICAgICAgICAgIDxDZW50ZXIgc3R5bGU9e3sgaGVpZ2h0OiAnMTAwJScgfX0+XG4gICAgICAgICAgICA8QnV0dG9uIHR5cGU9XCJzdWJtaXRcIiBzdHlsZT17eyB3aWR0aDogJzEwMCUnIH19PlxuICAgICAgICAgICAgICBTdWJtaXRcbiAgICAgICAgICAgIDwvQnV0dG9uPlxuICAgICAgICAgIDwvQ2VudGVyPlxuICAgICAgICA8L0dyaWQuQ29sPlxuICAgICAgPC9mb3JtPlxuICAgIDwvR3JpZD5cbiAgKTtcbn07XG5cbmV4cG9ydCBjb25zdCBnZXRTZXJ2ZXJTaWRlUHJvcHM6IEdldFNlcnZlclNpZGVQcm9wcyA9IGFzeW5jICgpID0+IHtcbiAgY29uc3QgcmVzID0gYXdhaXQgYXhpb3MuZ2V0KCdodHRwczovL3NhanUtc2VydmVyLmhlcm9rdWFwcC5jb20vZG9zaS5waHAnKTtcbiAgY29uc3QgcmVzRGF0YSA9IGF3YWl0IHJlcy5kYXRhLnNwbGl0KCdcXG4nKTtcbiAgY29uc3QgZGF0YSA9IHJlc0RhdGFcbiAgICAubWFwKChkOiBzdHJpbmcpID0+IHtcbiAgICAgIGlmIChkICE9PSAnJykge1xuICAgICAgICByZXR1cm4gSlNPTi5wYXJzZShkKTtcbiAgICAgIH1cbiAgICAgIHJldHVybiBudWxsO1xuICAgIH0pXG4gICAgLmZpbHRlcigoZDogc3RyaW5nKSA9PiBkKTtcblxuICByZXR1cm4geyBwcm9wczogeyBkYXRhIH0gfTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEJpcnRoO1xuIl0sIm5hbWVzIjpbIkF1dG9jb21wbGV0ZSIsIkJ1dHRvbiIsIkNlbnRlciIsIkNoZWNrYm94IiwiR3JpZCIsIkRhdGVQaWNrZXIiLCJUaW1lSW5wdXQiLCJ1c2VGb3JtIiwiYXhpb3MiLCJ1c2VSb3V0ZXIiLCJ1c2VNdXRhdGlvbiIsInVzZVNhanVTdGF0ZSIsInVzZVVzZXJTdGF0ZSIsInNoYWxsb3ciLCJ1c2VFZmZlY3QiLCJ1c2VSZWYiLCJCaXJ0aCIsImRhdGEiLCJyb3V0ZXIiLCJzZXRTYWp1Iiwic3VibWl0TXV0YXRlIiwicGFyYW1zIiwiZ2V0Iiwib25TdWNjZXNzIiwicmVzIiwiY29uc29sZSIsImxvZyIsInB1c2giLCJkYXRhVmFsdWVBcnIiLCJtYXAiLCJkIiwidmFsdWUiLCJ0b2RheSIsIkRhdGUiLCJmb3JtIiwiaW5pdGlhbFZhbHVlcyIsImJpcnRocGxhY2UiLCJjYWxlbmRhciIsImJpcnRoRGF5Iiwic2V0RnVsbFllYXIiLCJnZXRGdWxsWWVhciIsImJpcnRoSG91ciIsImludGVyY2FsYXRpb24iLCJ2YWxpZGF0ZSIsInZhbHVlcyIsImluY2x1ZGVzIiwic2V0QmlydGgiLCJ1c2VyIiwiYmlydGhSZWYiLCJnZXRTdGF0ZSIsImJpcnRoIiwic3Vic2NyaWJlIiwic3RhdGUiLCJjdXJyZW50IiwicHJldlN0YXRlIiwiZ2VuZGVyIiwieWVhciIsIm1vbnRoIiwiZ2V0TW9udGgiLCJkYXkiLCJnZXREYXRlIiwiaG91ciIsImdldEhvdXJzIiwibWluIiwiZ2V0TWludXRlcyIsIm11dGF0ZSIsImVxdWFsaXR5Rm4iLCJqdXN0aWZ5IiwiYWxpZ24iLCJDb2wiLCJzdHlsZSIsImhlaWdodCIsImRyb3Bkb3duQ29tcG9uZW50IiwibWF4RHJvcGRvd25IZWlnaHQiLCJsYWJlbCIsIm9uRm9jdXMiLCJlIiwidGFyZ2V0Iiwic2VsZWN0Iiwid2lkdGgiLCJsaW1pdCIsImdldElucHV0UHJvcHMiLCJyZXF1aXJlZCIsImFsbG93RnJlZUlucHV0IiwiaW5wdXRGb3JtYXQiLCJsYWJlbEZvcm1hdCIsImNsZWFyYWJsZSIsImZpcnN0RGF5T2ZXZWVrIiwic3BhbiIsImNoZWNrZWQiLCJvbkNoYW5nZSIsImV2ZW50Iiwic2V0RmllbGRWYWx1ZSIsImN1cnJlbnRUYXJnZXQiLCJkaXNhYmxlZCIsIm9uU3VibWl0IiwidHlwZSIsImdldFNlcnZlclNpZGVQcm9wcyIsInJlc0RhdGEiLCJzcGxpdCIsIkpTT04iLCJwYXJzZSIsImZpbHRlciIsInByb3BzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/input/birth.tsx\n");
 
 /***/ }),
 
-/***/ 2247:
+/***/ "./store/store.ts":
+/*!************************!*\
+  !*** ./store/store.ts ***!
+  \************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"useSajuState\": () => (/* binding */ useSajuState),\n/* harmony export */   \"useUserState\": () => (/* binding */ useUserState)\n/* harmony export */ });\n/* harmony import */ var zustand__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zustand */ \"zustand\");\n/* harmony import */ var zustand_middleware__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! zustand/middleware */ \"zustand/middleware\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([zustand__WEBPACK_IMPORTED_MODULE_0__, zustand_middleware__WEBPACK_IMPORTED_MODULE_1__]);\n([zustand__WEBPACK_IMPORTED_MODULE_0__, zustand_middleware__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);\n\n\nconst useUserState = (0,zustand__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()((0,zustand_middleware__WEBPACK_IMPORTED_MODULE_1__.devtools)((0,zustand_middleware__WEBPACK_IMPORTED_MODULE_1__.persist)((0,zustand_middleware__WEBPACK_IMPORTED_MODULE_1__.subscribeWithSelector)((set)=>({\n        name: \"\",\n        setName: (name)=>set(()=>({\n                    name\n                })\n            )\n        ,\n        gender: 1,\n        setGender: (gender)=>set(()=>({\n                    gender\n                })\n            )\n        ,\n        birth: {\n            birthplace: \"\",\n            calendar: \"solar\",\n            birthDay: new Date(),\n            birthHour: new Date(),\n            intercalation: false\n        },\n        setBirth: (birth)=>set(()=>({\n                    birth\n                })\n            )\n    })\n), {\n    name: \"user-storage\",\n    getStorage: ()=>sessionStorage\n})));\nconst useSajuState = (0,zustand__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()((0,zustand_middleware__WEBPACK_IMPORTED_MODULE_1__.devtools)((0,zustand_middleware__WEBPACK_IMPORTED_MODULE_1__.persist)((0,zustand_middleware__WEBPACK_IMPORTED_MODULE_1__.subscribeWithSelector)((set)=>({\n        data: {\n            lunar: \"\",\n            lunar_ss: \"\",\n            solar: \"\",\n            year: \"\",\n            month: \"\",\n            day: \"\",\n            time: \"\",\n            year_kr: \"\",\n            month_kr: \"\",\n            day_kr: \"\",\n            time_kr: \"\",\n            res_str: \"\"\n        },\n        setSaju: (data)=>set(()=>({\n                    data\n                })\n            )\n    })\n), {\n    name: \"saju-storage\",\n    getStorage: ()=>sessionStorage\n})));\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zdG9yZS9zdG9yZS50cy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQTZCO0FBQ2lEO0FBNEN2RSxNQUFNSSxZQUFZLEdBQUdKLG1EQUFNLEVBQWEsQ0FDN0NDLDREQUFRLENBQ05DLDJEQUFPLENBQ0xDLHlFQUFxQixDQUFDLENBQUNFLEdBQUcsR0FBSyxDQUFDO1FBQzlCQyxJQUFJLEVBQUUsRUFBRTtRQUNSQyxPQUFPLEVBQUUsQ0FBQ0QsSUFBSSxHQUFLRCxHQUFHLENBQUMsSUFBTSxDQUFDO29CQUFFQyxJQUFJO2lCQUFFLENBQUM7WUFBQSxDQUFDO1FBQUE7UUFDeENFLE1BQU0sRUFBRSxDQUFDO1FBQ1RDLFNBQVMsRUFBRSxDQUFDRCxNQUFNLEdBQUtILEdBQUcsQ0FBQyxJQUFNLENBQUM7b0JBQUVHLE1BQU07aUJBQUUsQ0FBQztZQUFBLENBQUM7UUFBQTtRQUM5Q0UsS0FBSyxFQUFFO1lBQ0xDLFVBQVUsRUFBRSxFQUFFO1lBQ2RDLFFBQVEsRUFBRSxPQUFPO1lBQ2pCQyxRQUFRLEVBQUUsSUFBSUMsSUFBSSxFQUFFO1lBQ3BCQyxTQUFTLEVBQUUsSUFBSUQsSUFBSSxFQUFFO1lBQ3JCRSxhQUFhLEVBQUUsS0FBSztTQUNyQjtRQUNEQyxRQUFRLEVBQUUsQ0FBQ1AsS0FBSyxHQUFLTCxHQUFHLENBQUMsSUFBTSxDQUFDO29CQUFFSyxLQUFLO2lCQUFFLENBQUM7WUFBQSxDQUFDO0tBQzVDLENBQUM7QUFBQSxDQUFDLEVBQ0g7SUFDRUosSUFBSSxFQUFFLGNBQWM7SUFDcEJZLFVBQVUsRUFBRSxJQUFNQyxjQUFjO0NBQ2pDLENBQ0YsQ0FDRixDQUNGLENBQUM7QUFFSyxNQUFNQyxZQUFZLEdBQUdwQixtREFBTSxFQUFhLENBQzdDQyw0REFBUSxDQUNOQywyREFBTyxDQUNMQyx5RUFBcUIsQ0FBQyxDQUFDRSxHQUFHLEdBQUssQ0FBQztRQUM5QmdCLElBQUksRUFBRTtZQUNKQyxLQUFLLEVBQUUsRUFBRTtZQUNUQyxRQUFRLEVBQUUsRUFBRTtZQUNaQyxLQUFLLEVBQUUsRUFBRTtZQUNUQyxJQUFJLEVBQUUsRUFBRTtZQUNSQyxLQUFLLEVBQUUsRUFBRTtZQUNUQyxHQUFHLEVBQUUsRUFBRTtZQUNQQyxJQUFJLEVBQUUsRUFBRTtZQUNSQyxPQUFPLEVBQUUsRUFBRTtZQUNYQyxRQUFRLEVBQUUsRUFBRTtZQUNaQyxNQUFNLEVBQUUsRUFBRTtZQUNWQyxPQUFPLEVBQUUsRUFBRTtZQUNYQyxPQUFPLEVBQUUsRUFBRTtTQUNaO1FBQ0RDLE9BQU8sRUFBRSxDQUFDYixJQUFJLEdBQUtoQixHQUFHLENBQUMsSUFBTSxDQUFDO29CQUFFZ0IsSUFBSTtpQkFBRSxDQUFDO1lBQUEsQ0FBQztLQUN6QyxDQUFDO0FBQUEsQ0FBQyxFQUNIO0lBQ0VmLElBQUksRUFBRSxjQUFjO0lBQ3BCWSxVQUFVLEVBQUUsSUFBTUMsY0FBYztDQUNqQyxDQUNGLENBQ0YsQ0FDRixDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc2FqdV93ZWIvLi9zdG9yZS9zdG9yZS50cz8xMmU3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjcmVhdGUgZnJvbSAnenVzdGFuZCc7XG5pbXBvcnQgeyBkZXZ0b29scywgcGVyc2lzdCwgc3Vic2NyaWJlV2l0aFNlbGVjdG9yIH0gZnJvbSAnenVzdGFuZC9taWRkbGV3YXJlJztcblxuZXhwb3J0IHR5cGUgTmFtZSA9IHN0cmluZztcbmV4cG9ydCB0eXBlIEdlbmRlciA9IG51bWJlcjtcbmV4cG9ydCB0eXBlIEJpcnRocGxhY2UgPSBzdHJpbmc7XG5leHBvcnQgdHlwZSBDYWxlbmRhciA9ICdsdW5hcicgfCAnc29sYXInO1xuZXhwb3J0IHR5cGUgQmlydGhEYXRlID0gRGF0ZTtcbmV4cG9ydCB0eXBlIEludGVyY2FsYXRpb24gPSBib29sZWFuO1xuXG5leHBvcnQgaW50ZXJmYWNlIEJpcnRoIHtcbiAgYmlydGhwbGFjZTogQmlydGhwbGFjZTtcbiAgY2FsZW5kYXI6IENhbGVuZGFyO1xuICBiaXJ0aERheTogQmlydGhEYXRlO1xuICBiaXJ0aEhvdXI6IEJpcnRoRGF0ZTtcbiAgaW50ZXJjYWxhdGlvbjogSW50ZXJjYWxhdGlvbjtcbn1cbmludGVyZmFjZSBVc2VyU3RhdGUge1xuICBuYW1lOiBOYW1lO1xuICBzZXROYW1lOiAobmFtZTogTmFtZSkgPT4gdm9pZDtcbiAgZ2VuZGVyOiBHZW5kZXI7IC8vMSBvciAyXG4gIHNldEdlbmRlcjogKGdlbmRlcjogR2VuZGVyKSA9PiB2b2lkO1xuICBiaXJ0aDogQmlydGg7XG4gIHNldEJpcnRoOiAoYmlydGg6IEJpcnRoKSA9PiB2b2lkO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFNhanVEYXRhIHtcbiAgbHVuYXI6IHN0cmluZztcbiAgbHVuYXJfc3M6IHN0cmluZztcbiAgc29sYXI6IHN0cmluZztcbiAgeWVhcjogc3RyaW5nO1xuICBtb250aDogc3RyaW5nO1xuICBkYXk6IHN0cmluZztcbiAgdGltZTogc3RyaW5nO1xuICB5ZWFyX2tyOiBzdHJpbmc7XG4gIG1vbnRoX2tyOiBzdHJpbmc7XG4gIGRheV9rcjogc3RyaW5nO1xuICB0aW1lX2tyOiBzdHJpbmc7XG4gIHJlc19zdHI6IHN0cmluZztcbn1cbmludGVyZmFjZSBTYWp1U3RhdGUge1xuICBkYXRhOiBTYWp1RGF0YTtcbiAgc2V0U2FqdTogKGRhdGE6IFNhanVEYXRhKSA9PiB2b2lkO1xufVxuXG5leHBvcnQgY29uc3QgdXNlVXNlclN0YXRlID0gY3JlYXRlPFVzZXJTdGF0ZT4oKShcbiAgZGV2dG9vbHMoXG4gICAgcGVyc2lzdChcbiAgICAgIHN1YnNjcmliZVdpdGhTZWxlY3Rvcigoc2V0KSA9PiAoe1xuICAgICAgICBuYW1lOiAnJyxcbiAgICAgICAgc2V0TmFtZTogKG5hbWUpID0+IHNldCgoKSA9PiAoeyBuYW1lIH0pKSxcbiAgICAgICAgZ2VuZGVyOiAxLFxuICAgICAgICBzZXRHZW5kZXI6IChnZW5kZXIpID0+IHNldCgoKSA9PiAoeyBnZW5kZXIgfSkpLFxuICAgICAgICBiaXJ0aDoge1xuICAgICAgICAgIGJpcnRocGxhY2U6ICcnLFxuICAgICAgICAgIGNhbGVuZGFyOiAnc29sYXInLFxuICAgICAgICAgIGJpcnRoRGF5OiBuZXcgRGF0ZSgpLFxuICAgICAgICAgIGJpcnRoSG91cjogbmV3IERhdGUoKSxcbiAgICAgICAgICBpbnRlcmNhbGF0aW9uOiBmYWxzZSxcbiAgICAgICAgfSxcbiAgICAgICAgc2V0QmlydGg6IChiaXJ0aCkgPT4gc2V0KCgpID0+ICh7IGJpcnRoIH0pKSxcbiAgICAgIH0pKSxcbiAgICAgIHtcbiAgICAgICAgbmFtZTogJ3VzZXItc3RvcmFnZScsXG4gICAgICAgIGdldFN0b3JhZ2U6ICgpID0+IHNlc3Npb25TdG9yYWdlLFxuICAgICAgfVxuICAgIClcbiAgKVxuKTtcblxuZXhwb3J0IGNvbnN0IHVzZVNhanVTdGF0ZSA9IGNyZWF0ZTxTYWp1U3RhdGU+KCkoXG4gIGRldnRvb2xzKFxuICAgIHBlcnNpc3QoXG4gICAgICBzdWJzY3JpYmVXaXRoU2VsZWN0b3IoKHNldCkgPT4gKHtcbiAgICAgICAgZGF0YToge1xuICAgICAgICAgIGx1bmFyOiAnJyxcbiAgICAgICAgICBsdW5hcl9zczogJycsXG4gICAgICAgICAgc29sYXI6ICcnLFxuICAgICAgICAgIHllYXI6ICcnLFxuICAgICAgICAgIG1vbnRoOiAnJyxcbiAgICAgICAgICBkYXk6ICcnLFxuICAgICAgICAgIHRpbWU6ICcnLFxuICAgICAgICAgIHllYXJfa3I6ICcnLFxuICAgICAgICAgIG1vbnRoX2tyOiAnJyxcbiAgICAgICAgICBkYXlfa3I6ICcnLFxuICAgICAgICAgIHRpbWVfa3I6ICcnLFxuICAgICAgICAgIHJlc19zdHI6ICcnLFxuICAgICAgICB9LFxuICAgICAgICBzZXRTYWp1OiAoZGF0YSkgPT4gc2V0KCgpID0+ICh7IGRhdGEgfSkpLFxuICAgICAgfSkpLFxuICAgICAge1xuICAgICAgICBuYW1lOiAnc2FqdS1zdG9yYWdlJyxcbiAgICAgICAgZ2V0U3RvcmFnZTogKCkgPT4gc2Vzc2lvblN0b3JhZ2UsXG4gICAgICB9XG4gICAgKVxuICApXG4pO1xuIl0sIm5hbWVzIjpbImNyZWF0ZSIsImRldnRvb2xzIiwicGVyc2lzdCIsInN1YnNjcmliZVdpdGhTZWxlY3RvciIsInVzZVVzZXJTdGF0ZSIsInNldCIsIm5hbWUiLCJzZXROYW1lIiwiZ2VuZGVyIiwic2V0R2VuZGVyIiwiYmlydGgiLCJiaXJ0aHBsYWNlIiwiY2FsZW5kYXIiLCJiaXJ0aERheSIsIkRhdGUiLCJiaXJ0aEhvdXIiLCJpbnRlcmNhbGF0aW9uIiwic2V0QmlydGgiLCJnZXRTdG9yYWdlIiwic2Vzc2lvblN0b3JhZ2UiLCJ1c2VTYWp1U3RhdGUiLCJkYXRhIiwibHVuYXIiLCJsdW5hcl9zcyIsInNvbGFyIiwieWVhciIsIm1vbnRoIiwiZGF5IiwidGltZSIsInllYXJfa3IiLCJtb250aF9rciIsImRheV9rciIsInRpbWVfa3IiLCJyZXNfc3RyIiwic2V0U2FqdSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./store/store.ts\n");
+
+/***/ }),
+
+/***/ "@mantine/core":
+/*!********************************!*\
+  !*** external "@mantine/core" ***!
+  \********************************/
 /***/ ((module) => {
 
 module.exports = require("@mantine/core");
 
 /***/ }),
 
-/***/ 8277:
+/***/ "@mantine/dates":
+/*!*********************************!*\
+  !*** external "@mantine/dates" ***!
+  \*********************************/
 /***/ ((module) => {
 
 module.exports = require("@mantine/dates");
 
 /***/ }),
 
-/***/ 9445:
+/***/ "@mantine/form":
+/*!********************************!*\
+  !*** external "@mantine/form" ***!
+  \********************************/
 /***/ ((module) => {
 
 module.exports = require("@mantine/form");
 
 /***/ }),
 
-/***/ 2167:
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("axios");
 
 /***/ }),
 
-/***/ 1853:
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("next/router");
 
 /***/ }),
 
-/***/ 6689:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 1175:
+/***/ "react-query":
+/*!******************************!*\
+  !*** external "react-query" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("react-query");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ }),
 
-/***/ 6912:
+/***/ "zustand":
+/*!**************************!*\
+  !*** external "zustand" ***!
+  \**************************/
 /***/ ((module) => {
 
 module.exports = import("zustand");;
 
 /***/ }),
 
-/***/ 3602:
+/***/ "zustand/middleware":
+/*!*************************************!*\
+  !*** external "zustand/middleware" ***!
+  \*************************************/
 /***/ ((module) => {
 
 module.exports = import("zustand/middleware");;
 
 /***/ }),
 
-/***/ 1561:
+/***/ "zustand/shallow":
+/*!**********************************!*\
+  !*** external "zustand/shallow" ***!
+  \**********************************/
 /***/ ((module) => {
 
 module.exports = import("zustand/shallow");;
@@ -332,7 +150,7 @@ module.exports = import("zustand/shallow");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [407], () => (__webpack_exec__(2498)));
+var __webpack_exports__ = (__webpack_exec__("./pages/input/birth.tsx"));
 module.exports = __webpack_exports__;
 
 })();
