@@ -29,8 +29,7 @@ const Birth = ({
   const router = useRouter();
   const { setSaju } = useSajuState();
   const submitMutate = useMutation(
-    (params: any) =>
-      axios.get('//saju-server.herokuapp.com/result5.php', { params }),
+    (params: any) => axios.get('//server.saju60.com/result5.php', { params }),
     {
       onSuccess: (res) => {
         console.log(res);
@@ -172,7 +171,7 @@ const Birth = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await axios.get('https://saju-server.herokuapp.com/dosi.php');
+  const res = await axios.get('https://server.saju60.com/dosi.php');
   const resData = await res.data.split('\n');
   const data = resData
     .map((d: string) => {
