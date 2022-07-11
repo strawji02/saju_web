@@ -14,10 +14,18 @@ export default function App(props: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Head>
           <title>간산 철학원</title>
+          <meta charSet="UTF - 8" />
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
+          <meta name="Keywords" content="Saju" />
+          <meta name="Keywords" content="사주, 사주명리, 명리, 일주" />
+          <meta
+            name="Description"
+            content="생년월일을 기반으로 한 개인의 사주명리 일주"
+          />
+          <meta name="robots" content="index, follow" />
           <link rel="shortcut icon" href="/images/favicon.ico" />
           <link
             rel="apple-touch-icon"
