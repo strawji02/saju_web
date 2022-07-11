@@ -2,7 +2,7 @@ import { Autocomplete, Button, Center, Checkbox, Grid } from '@mantine/core';
 import { DatePicker, TimeInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import axios from 'axios';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 import {
@@ -23,9 +23,7 @@ interface FormValues {
   birthHour: BirthDate;
   intercalation: Intercalation;
 }
-const Birth = ({
-  data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Birth = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const { setSaju } = useSajuState();
   const submitMutate = useMutation(
@@ -160,7 +158,11 @@ const Birth = ({
       >
         <Grid.Col style={{ height: '20vh' }}>
           <Center style={{ height: '100%' }}>
-            <Button type="submit" style={{ width: '100%' }}>
+            <Button
+              type="submit"
+              style={{ width: '100%' }}
+              loading={submitMutate.isLoading}
+            >
               Submit
             </Button>
           </Center>
@@ -170,7 +172,7 @@ const Birth = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await axios.get('https://server.saju60.com/dosi.php');
   const resData = await res.data.split('\n');
   const data = resData
