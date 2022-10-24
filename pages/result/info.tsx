@@ -60,9 +60,7 @@ const Info = () => {
         <Text component="div">양력 생년월일 : {userData?.solar}</Text>
       </Grid.Col>
       <Grid.Col>
-        <Text component="div">
-          음력 생년월일 : {userData?.lunar} {userData?.lunar_ss}시
-        </Text>
+        <Text component="div">음력 생년월일 : {userData?.lunar}</Text>
       </Grid.Col>
       <Grid.Col>
         <Text>
