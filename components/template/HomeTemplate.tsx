@@ -16,7 +16,6 @@ function HomeTemplate({ svg, href }: Props) {
       <Layout color="#eaeaea">
         <Box style={{ backgroundColor: '#f5f5f5' }}>
           <HomeTopBar />
-          <Divider mt={19} mb={70} />
           <HomeDescriptText svg={svg} />
         </Box>
         <HomeStepBox href={href} />

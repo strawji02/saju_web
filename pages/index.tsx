@@ -6,7 +6,7 @@ import TimePicker from '../components/@shared/ios-time-picker/TimePicker';
 import HomeTopBar from '../components/organism/HomeTopBar';
 import HomeDescriptText from '../components/organism/HomeDescriptText';
 import HomeStepBox from '../components/organism/HomeStepBox';
-import tempSvg from '../public/copyleft.svg';
+import svg from '../public/Group 43.svg';
 import HomeTemplate from '../components/template/HomeTemplate';
 
 export default function Home() {
@@ -21,5 +21,5 @@ export default function Home() {
     setValue(timeValue);
   };
 
-  return isBrowser ? <HomeTemplate href="/" svg={tempSvg} /> : null;
+  return isBrowser ? <HomeTemplate href="/step" svg={svg} /> : null;
 }
