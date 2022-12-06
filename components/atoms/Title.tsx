@@ -2,11 +2,16 @@ import { Text } from '@mantine/core';
 import React, { HTMLAttributes } from 'react';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   text: string;
+  fontSize?: number;
 }
 
-function Title({ text, children, ...props }: Props) {
+function Title({ text, fontSize, children, ...props }: Props) {
   return (
-    <Text {...props} style={{ fontFamily: 'Jalnan', ...props.style }}>
+    <Text
+      align="left"
+      {...props}
+      style={{ fontFamily: 'Jalnan', fontSize, ...props.style }}
+    >
       {text}
     </Text>
   );
