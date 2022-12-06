@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { MantineProvider } from '@mantine/core';
+import { ButtonStylesParams, MantineProvider } from '@mantine/core';
 import '../styles/globals.css';
 import Head from 'next/head';
 import CopyrightText from '../components/molecules/CopyrightText';
@@ -16,7 +16,15 @@ export default function App({ Component, pageProps }: AppProps) {
       withNormalizeCSS
       theme={{
         primaryColor: 'dark-blue',
-        // fontFamily: 'Jalnan',
+        components: {
+          Text: {
+            styles: (theme) => ({
+              root: {
+                color: theme.colors['dark-blue'][6],
+              },
+            }),
+          },
+        },
         globalStyles: (theme) => ({
           body: {
             ...theme.fn.fontStyles(),
@@ -50,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
             margin: 0,
           },
         }),
-        black: '#2d2da8',
+        // black: '#2d2da8',
         colors: {
           'dark-blue': [
             '#7272d9',
