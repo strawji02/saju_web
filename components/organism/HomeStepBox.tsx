@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Stack } from '@mantine/core';
 import Link from 'next/link';
 import React from 'react';
+import NextButton from '../atoms/NextButton';
 import Title from '../atoms/Title';
 import CopyrightText from '../molecules/CopyrightText';
 import StepBox from '../molecules/StepBox';
@@ -33,16 +34,7 @@ function HomeStepBox({ href }: Props) {
             body="생년월일시와 윤달여부를 선택해주세요."
           />
           <StepBox title="STEP 03" body="결과를 확인해주세요." />
-          <Button
-            component={Link}
-            href={href}
-            sx={{ boxShadow: '3px 3px 9.62px 0 rgba(91, 91, 91, 0.61)' }}
-            mt="xs"
-            radius="xl"
-            size="xl"
-          >
-            출발하기
-          </Button>
+          <NextButton href={href} btnText="출발하기" />
         </Stack>
       </Box>
     </Stack>

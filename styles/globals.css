@@ -24,6 +24,16 @@ a {
   font-family: 'Jalnan';
   src: url('/fonts/Jalnan.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: bold;
+}
 
 /* @font-face {
   font-family: "InkLipquid";
