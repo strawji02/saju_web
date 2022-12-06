@@ -34,7 +34,7 @@ function HomeStepBox({ href }: Props) {
             body="생년월일시와 윤달여부를 선택해주세요."
           />
           <StepBox title="STEP 03" body="결과를 확인해주세요." />
-          <NextButton href={href} btnText="출발하기" />
+          <NextButton disabled={false} href={href} btnText="출발하기" />
         </Stack>
       </Box>
     </Stack>
