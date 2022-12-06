@@ -10,7 +10,6 @@ function Step() {
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
-  console.log(step);
 
   useEffect(() => {
     if (_.isEmpty(router.query) && queryStep) router.replace('/');
