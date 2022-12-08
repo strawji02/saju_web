@@ -7,7 +7,6 @@ import Form from './Form';
 
 interface Props {
   href: string;
-  disabled: boolean;
   step: number;
   title: StepTitleType;
   form: UseFormReturnType<
@@ -16,7 +15,7 @@ interface Props {
   >;
 }
 
-function StepInput({ href, disabled, step, title, form }: Props) {
+function StepInput({ href, step, title, form }: Props) {
   return (
     <Stack spacing={0}>
       <StepTitle step={step} {...title} />

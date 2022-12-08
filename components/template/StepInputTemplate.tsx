@@ -7,7 +7,7 @@ import GenderSelectButton from '../atoms/GenderSelectButton';
 import GenderSelector from '../molecules/GenderSelector';
 import Topbar from '../molecules/Topbar';
 import StepInput from '../organism/StepInput';
-import { StepInputFormType, StepTitleType } from '../types/StepInput';
+import { Dosi, StepInputFormType, StepTitleType } from '../types/StepInput';
 
 interface Props {
   step: number;
@@ -26,7 +26,6 @@ function StepInputTemplate({ step, title, form }: Props) {
         <StepInput
           form={form}
           step={step}
-          disabled={false}
           href={`?step=${step + 1}`}
           title={title}
         />

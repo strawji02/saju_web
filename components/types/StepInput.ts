@@ -15,3 +15,5 @@ export interface StepInputFormType {
   intercalation: boolean;
   termsOfService: boolean;
 }
+
+export type Dosi = { value: string; label: string }[];
