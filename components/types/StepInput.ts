@@ -3,6 +3,15 @@ export interface StepTitleType {
   description?: string;
 }
 
-export type RenderInputType = { form: React.ReactNode; title: StepTitleType };
-
 export type Gender = '남자' | '여자';
+
+export interface StepInputFormType {
+  name: string;
+  gender: Gender | undefined;
+  birthPlace: string;
+  birthDate: Date;
+  birthTime: Date;
+  calendar: boolean;
+  intercalation: boolean;
+  termsOfService: boolean;
+}

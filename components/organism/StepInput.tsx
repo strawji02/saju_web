@@ -1,24 +1,36 @@
 import { Box, Stack } from '@mantine/core';
+import { UseFormReturnType } from '@mantine/form';
 import NextButton from '../atoms/NextButton';
 import StepTitle from '../molecules/StepTitle';
-import { StepTitleType } from '../types/StepInput';
+import { StepInputFormType, StepTitleType } from '../types/StepInput';
+import Form from './Form';
 
 interface Props {
-  form: React.ReactNode;
   href: string;
   disabled: boolean;
   step: number;
   title: StepTitleType;
+  form: UseFormReturnType<
+    StepInputFormType,
+    (values: StepInputFormType) => StepInputFormType
+  >;
 }
 
-function StepInput({ form, href, disabled, step, title }: Props) {
+function StepInput({ href, disabled, step, title, form }: Props) {
   return (
-    <Stack mt={50} mx={27} spacing={0}>
+    <Stack spacing={0}>
       <StepTitle step={step} {...title} />
       <Box mt={30} mb={64}>
-        {form}
+        <Form form={form} step={step} />
       </Box>
-      <NextButton disabled={disabled} href={href} btnText="다음" />
+      <NextButton
+        onClick={(e) => {
+          if (form.validate().hasErrors) e.preventDefault();
+        }}
+        disabled={!form.isValid()}
+        href={href}
+        btnText="다음"
+      />
     </Stack>
   );
 }
