@@ -8,9 +8,10 @@ interface Props {
   btnText: string;
   disabled: boolean;
   onClick?: MouseEventHandler<HTMLAnchorElement> | undefined;
+  isLoading?: boolean;
 }
 
-function NextButton({ href, btnText, disabled, onClick }: Props) {
+function NextButton({ href, btnText, disabled, onClick, isLoading }: Props) {
   return (
     <Button
       disabled={disabled}
@@ -29,6 +30,7 @@ function NextButton({ href, btnText, disabled, onClick }: Props) {
       mt="xs"
       radius="xl"
       size="xl"
+      loading={isLoading}
     >
       {btnText}
     </Button>
