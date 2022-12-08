@@ -1,5 +1,7 @@
 import { useForm } from '@mantine/form';
+import axios from 'axios';
 import _ from 'lodash';
+import { InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import StepInputTemplate from '../components/template/StepInputTemplate';
@@ -8,7 +10,9 @@ import {
   StepTitleType,
 } from '../components/types/StepInput';
 
-function Step() {
+function Step({ dosi }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log(dosi);
+
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
@@ -68,6 +72,21 @@ function Step() {
       <StepInputTemplate step={step} title={title[step - 1]} form={form} />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const res = await axios.get('https://server.saju60.com/dosi.php');
+  const resData = await res.data.split('\n');
+  const dosi: { value: string; label: string }[] = resData
+    .map((d: string) => {
+      if (d !== '') {
+        return JSON.parse(d);
+      }
+      return null;
+    })
+    .filter((d: string) => d);
+
+  return { props: { dosi } };
 }
 
 export default Step;

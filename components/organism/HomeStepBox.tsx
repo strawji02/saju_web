@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Stack } from '@mantine/core';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import NextButton from '../atoms/NextButton';
 import Title from '../atoms/Title';
 import CopyrightText from '../molecules/CopyrightText';
@@ -11,6 +11,7 @@ interface Props {
 }
 
 function HomeStepBox({ href }: Props) {
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <Stack
       px={22}
@@ -34,7 +35,13 @@ function HomeStepBox({ href }: Props) {
             body="생년월일시와 윤달여부를 선택해주세요."
           />
           <StepBox title="STEP 03" body="결과를 확인해주세요." />
-          <NextButton disabled={false} href={href} btnText="출발하기" />
+          <NextButton
+            isLoading={isLoading}
+            onClick={() => setIsLoading(true)}
+            disabled={false}
+            href={href}
+            btnText="출발하기"
+          />
         </Stack>
       </Box>
     </Stack>
