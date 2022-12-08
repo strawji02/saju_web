@@ -1,4 +1,5 @@
 import { Image, Paper, Stack, Text, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconGenderFemale, IconGenderMale } from '@tabler/icons';
 import { MouseEventHandler } from 'react';
 import { Gender } from '../types/StepInput';
@@ -10,6 +11,8 @@ interface Props {
 }
 
 function GenderSelectButton({ gender, selected, onClick }: Props) {
+  const matches = useMediaQuery('(min-width: 425px)');
+
   const theme = useMantineTheme();
   const mainColor = selected
     ? theme.colors['dark-blue'][6]
@@ -27,8 +30,8 @@ function GenderSelectButton({ gender, selected, onClick }: Props) {
           backgroundColor: theme.colors.gray[1],
         },
       })}
-      w={174}
-      h={174}
+      w={matches ? 174 : 120}
+      h={matches ? 174 : 120}
       radius="xl"
       withBorder
       shadow="sm"
