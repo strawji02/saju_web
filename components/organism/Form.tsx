@@ -1,7 +1,8 @@
 import { TextInput } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
+import BirthPlaceSelector from '../molecules/BirthPlaceSelector';
 import GenderSelector from '../molecules/GenderSelector';
-import { StepInputFormType } from '../types/StepInput';
+import { Dosi, StepInputFormType } from '../types/StepInput';
 
 interface Props {
   step: number;
@@ -31,7 +32,11 @@ function Form({ step, form }: Props) {
         </>
       );
     case 3:
-      return <></>;
+      return (
+        <>
+          <BirthPlaceSelector form={form} />
+        </>
+      );
     case 4:
       return <></>;
     default:
