@@ -1,15 +1,44 @@
-import { ActionIcon, useMantineTheme } from '@mantine/core';
-import { IconArrowLeft } from '@tabler/icons';
-import { url } from 'inspector';
+import { useForm } from '@mantine/form';
 import _ from 'lodash';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import StepInputTemplate from '../components/template/StepInputTemplate';
+import {
+  StepInputFormType,
+  StepTitleType,
+} from '../components/types/StepInput';
 
 function Step() {
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
+
+  const form = useForm<StepInputFormType>({
+    initialValues: {
+      name: '',
+      gender: undefined,
+      birthPlace: '',
+      birthDate: new Date(),
+      birthTime: new Date(),
+      calendar: false,
+      intercalation: false,
+      termsOfService: false,
+    },
+    validate: (values) => {
+      switch (step) {
+        case 1:
+          return {
+            name: values.name.length < 1 ? true : null,
+          };
+        case 2:
+          return {
+            gender: values.gender ? null : '성별을 선택해주세요',
+          };
+        default:
+          return {};
+      }
+    },
+  });
 
   useEffect(() => {
     if (_.isEmpty(router.query) && queryStep) router.replace('/');
@@ -18,9 +47,25 @@ function Step() {
   }, [router.query, queryStep, step]);
   if (!step) return <></>;
 
+  const title: StepTitleType[] = [
+    {
+      questionText: '당신의 이름은 무엇인가요?',
+      description: '별명을 입력해주셔도 괜찮습니다.',
+    },
+    {
+      questionText: '당신의 성별을 선택해주세요.',
+    },
+    {
+      questionText: '당신의 출생지를 선택해주세요.',
+    },
+    {
+      questionText: '생년월일시를 선택해주세요.',
+    },
+  ];
+
   return (
     <div>
-      <StepInputTemplate step={step} />
+      <StepInputTemplate step={step} title={title[step - 1]} form={form} />
     </div>
   );
 }
