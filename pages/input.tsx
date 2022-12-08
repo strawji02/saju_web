@@ -10,9 +10,7 @@ import {
   StepTitleType,
 } from '../components/types/StepInput';
 
-function Step({ dosi }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(dosi);
-
+function Step() {
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
@@ -37,6 +35,10 @@ function Step({ dosi }: InferGetStaticPropsType<typeof getStaticProps>) {
         case 2:
           return {
             gender: values.gender ? null : '성별을 선택해주세요',
+          };
+        case 3:
+          return {
+            birthPlace: values.birthPlace ? null : true,
           };
         default:
           return {};
@@ -72,21 +74,6 @@ function Step({ dosi }: InferGetStaticPropsType<typeof getStaticProps>) {
       <StepInputTemplate step={step} title={title[step - 1]} form={form} />
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const res = await axios.get('https://server.saju60.com/dosi.php');
-  const resData = await res.data.split('\n');
-  const dosi: { value: string; label: string }[] = resData
-    .map((d: string) => {
-      if (d !== '') {
-        return JSON.parse(d);
-      }
-      return null;
-    })
-    .filter((d: string) => d);
-
-  return { props: { dosi } };
 }
 
 export default Step;
