@@ -2,6 +2,7 @@
 import { Modal } from '@mantine/core';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import ResTemplate from '../components/template/ResTemplate';
 import { useUserResultState } from '../utils/state';
 
 function Result() {
@@ -19,11 +20,10 @@ function Result() {
       fullScreen
       opened={true}
       onClose={() => {
-        removeUserData();
         removeResult();
       }}
     >
-      Enter
+      <ResTemplate result={result} userData={userData} />
     </Modal>
   );
 }
