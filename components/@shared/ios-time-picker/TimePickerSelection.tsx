@@ -71,19 +71,7 @@ function TimePickerSelection({
 
   return (
     <div className="react-ios-time-picker  react-ios-time-picker-transition">
-      {controllers && (
-        <div className="react-ios-time-picker-btn-container">
-          <button
-            className="react-ios-time-picker-btn react-ios-time-picker-btn-cancel"
-            onClick={handleCancel}
-          >
-            {cancelButtonText}
-          </button>
-          <button className="react-ios-time-picker-btn" onClick={handleSave}>
-            {saveButtonText}
-          </button>
-        </div>
-      )}
+      <div className="react-ios-time-picker-topbar">시간을 선택하세요.</div>
       <div
         className="react-ios-time-picker-container"
         style={{ height: `${height * 5 + 40}px` }}
@@ -100,6 +88,19 @@ function TimePickerSelection({
         {seperator && <div className="react-ios-time-picker-colon">:</div>}
         <MinuteWheel {...params} />
       </div>
+      {controllers && (
+        <div className="react-ios-time-picker-btn-container">
+          <button className="react-ios-time-picker-btn " onClick={handleCancel}>
+            {cancelButtonText}
+          </button>
+          <button
+            className="react-ios-time-picker-btn react-ios-time-picker-btn-save"
+            onClick={handleSave}
+          >
+            {saveButtonText}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
