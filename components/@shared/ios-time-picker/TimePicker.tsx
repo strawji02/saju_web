@@ -1,10 +1,12 @@
+import { TextInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { Portal } from 'react-portal';
 import TimePickerSelection from './TimePickerSelection';
 
 function TimePicker({
+  label,
   value: initialValue = null,
-  cellHeight = 28,
+  cellHeight = 40,
   placeHolder = 'Select Time',
   pickerDefaultValue = '10:00',
   onChange = () => {},
@@ -14,18 +16,42 @@ function TimePicker({
   disabled = false,
   isOpen: initialIsOpenValue = false,
   required = false,
-  cancelButtonText = 'Cancel',
-  saveButtonText = 'Save',
+  cancelButtonText = '취소',
+  saveButtonText = '확인',
   controllers = true,
   seperator = true,
-  id = null,
+  id,
   use12Hours = false,
   onAmPmChange = () => {},
-  name = null,
+  name,
   onOpen = () => {},
-  popupClassName = null,
-  inputClassName = null,
-}: any) {
+  popupClassName,
+  inputClassName,
+}: {
+  label?: string | React.ReactNode;
+  value: any;
+  cellHeight?: number;
+  placeHolder?: string;
+  pickerDefaultValue?: string;
+  onChange: any;
+  onFocus?: () => void;
+  onSave?: () => void;
+  onCancel?: () => void;
+  disabled?: boolean;
+  isOpen?: boolean;
+  required?: boolean;
+  cancelButtonText?: string;
+  saveButtonText?: string;
+  controllers?: boolean;
+  seperator?: boolean;
+  id?: string;
+  use12Hours?: boolean;
+  onAmPmChange?: () => void;
+  name?: string;
+  onOpen?: () => void;
+  popupClassName?: string;
+  inputClassName?: string;
+}) {
   const [isOpen, setIsOpen] = useState(initialIsOpenValue);
   const [height, setHeight] = useState(cellHeight);
   const [inputValue, setInputValue] = useState(initialValue);
@@ -39,7 +65,7 @@ function TimePicker({
     onOpen();
   };
 
-  let finalValue = inputValue;
+  let finalValue = `${inputValue} 오전`;
 
   if (initialValue === null && use12Hours) {
     finalValue = `${pickerDefaultValue} 오전`;
@@ -67,7 +93,7 @@ function TimePicker({
   return (
     <>
       <div className="react-ios-time-picker-main" onClick={handleClick}>
-        <input
+        {/* <input
           id={id}
           name={name}
           className={`react-ios-time-picker-input ${inputClassName || ''}`}
@@ -78,6 +104,24 @@ function TimePicker({
           disabled={disabled}
           required={required}
           onFocus={handleFocus}
+        /> */}
+        <TextInput
+          id={id}
+          name={name}
+          value={initialValue}
+          label={label}
+          placeholder={placeHolder}
+          readOnly
+          disabled={disabled}
+          required={required}
+          onFocus={handleFocus}
+          size="lg"
+          radius="md"
+          styles={{
+            root: {
+              textAlign: 'left',
+            },
+          }}
         />
       </div>
       {isOpen && !disabled && (
