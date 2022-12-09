@@ -16,8 +16,6 @@ interface Props {
 }
 
 function Form({ step, form }: Props) {
-  console.log(form.values);
-
   switch (step) {
     case 1:
       return (

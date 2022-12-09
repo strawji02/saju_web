@@ -9,9 +9,17 @@ interface Props {
   disabled: boolean;
   onClick?: MouseEventHandler<HTMLAnchorElement> | undefined;
   isLoading?: boolean;
+  as?: string | UrlObject | undefined;
 }
 
-function NextButton({ href, btnText, disabled, onClick, isLoading }: Props) {
+function NextButton({
+  href,
+  btnText,
+  disabled,
+  onClick,
+  isLoading,
+  as,
+}: Props) {
   return (
     <Button
       disabled={disabled}
@@ -27,6 +35,7 @@ function NextButton({ href, btnText, disabled, onClick, isLoading }: Props) {
           },
         },
       }}
+      as={as}
       mt="xs"
       radius="xl"
       size="xl"

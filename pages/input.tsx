@@ -9,22 +9,33 @@ import {
   StepInputFormType,
   StepTitleType,
 } from '../components/types/StepInput';
+import { useUserResultState } from '../utils/state';
 
 function Step() {
+  const { result, removeResult, userData, setUserData, removeUserData } =
+    useUserResultState();
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
+  console.log(result);
 
   useEffect(() => {
-    router.push({
-      query: { step: 1 },
-    });
+    if (step !== 4)
+      router.push({
+        query: { step: 1 },
+      });
+    if (step === 4 && result) {
+      router.replace('/');
+      removeResult();
+      removeUserData();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const today = new Date();
 
   const form = useForm<StepInputFormType>({
-    initialValues: {
+    initialValues: userData || {
       name: '',
       gender: undefined,
       birthPlace: '',
@@ -55,6 +66,11 @@ function Step() {
       }
     },
   });
+
+  useEffect(() => {
+    setUserData(form.values);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.values]);
 
   useEffect(() => {
     if (_.isEmpty(router.query) && queryStep) router.replace('/');
