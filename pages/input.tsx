@@ -15,13 +15,21 @@ function Step() {
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
 
+  useEffect(() => {
+    router.push({
+      query: { step: 1 },
+    });
+  }, []);
+
+  const today = new Date();
+
   const form = useForm<StepInputFormType>({
     initialValues: {
       name: '',
       gender: undefined,
       birthPlace: '',
-      birthDate: new Date(),
-      birthTime: new Date(),
+      birthDate: new Date(today.setFullYear(today.getFullYear() - 20)),
+      birthTime: today,
       calendar: false,
       intercalation: false,
       termsOfService: false,
@@ -41,7 +49,9 @@ function Step() {
             birthPlace: values.birthPlace ? null : true,
           };
         default:
-          return {};
+          return {
+            termsOfService: values.termsOfService ? null : true,
+          };
       }
     },
   });
