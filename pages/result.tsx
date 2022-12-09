@@ -6,7 +6,8 @@ import { useUserResultState } from '../utils/state';
 
 function Result() {
   const router = useRouter();
-  const { result, removeResult } = useUserResultState();
+  const { result, removeResult, userData, removeUserData } =
+    useUserResultState();
   console.log(result);
 
   useEffect(() => {
@@ -14,7 +15,14 @@ function Result() {
   }, [result]);
 
   return (
-    <Modal fullScreen opened={true} onClose={() => removeResult()}>
+    <Modal
+      fullScreen
+      opened={true}
+      onClose={() => {
+        removeUserData();
+        removeResult();
+      }}
+    >
       Enter
     </Modal>
   );
