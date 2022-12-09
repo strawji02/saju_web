@@ -1,4 +1,5 @@
 import { TextInput } from '@mantine/core';
+import { useScrollLock } from '@mantine/hooks';
 import React, { useEffect, useState } from 'react';
 import { Portal } from 'react-portal';
 import TimePickerSelection from './TimePickerSelection';
@@ -55,8 +56,10 @@ function TimePicker({
   const [isOpen, setIsOpen] = useState(initialIsOpenValue);
   const [height, setHeight] = useState(cellHeight);
   const [inputValue, setInputValue] = useState(initialValue);
+  const [scrollLocked, setScrollLocked] = useScrollLock();
 
   const handleClick = () => {
+    setScrollLocked(!isOpen);
     setIsOpen(!isOpen);
   };
 
