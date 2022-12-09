@@ -20,10 +20,12 @@ function Step() {
   console.log(result);
 
   useEffect(() => {
-    if (step !== 4)
+    if (step !== 4) {
+      removeUserData();
       router.push({
         query: { step: 1 },
       });
+    }
     if (step === 4 && result) {
       router.replace('/');
       removeResult();
@@ -35,7 +37,7 @@ function Step() {
   const today = new Date();
 
   const form = useForm<StepInputFormType>({
-    initialValues: userData || {
+    initialValues: {
       name: '',
       gender: undefined,
       birthPlace: '',
