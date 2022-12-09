@@ -17,3 +17,33 @@ export interface StepInputFormType {
 }
 
 export type Dosi = { value: string; label: string }[];
+
+export interface ResultParams {
+  gender: string;
+  birthplace: string;
+  calendar: string;
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  min: number;
+  intercalation: string | null;
+}
+
+export interface ResultType {
+  no: string;
+  solar: string;
+  query: string;
+  lunar: string;
+  lunar_ss: string;
+  time: string;
+  day: string;
+  month: string;
+  year: string;
+  time_kr: string;
+  day_kr: string;
+  month_kr: string;
+  year_kr: string;
+  temp: string;
+  res_str: string;
+}

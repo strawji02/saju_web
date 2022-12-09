@@ -3,9 +3,11 @@ import {
   MantineProvider,
   MantineThemeOverride,
   Modal,
+  ModalStylesNames,
   Stack,
   Styles,
   Text,
+  useMantineTheme,
 } from '@mantine/core';
 import { DatePicker, DatePickerStylesNames } from '@mantine/dates';
 import { UseFormReturnType } from '@mantine/form';
@@ -24,65 +26,6 @@ interface Props {
   >;
 }
 
-const providerTheme: MantineThemeOverride = {
-  components: {
-    Paper: {
-      styles: (theme) => ({
-        root: {
-          backgroundColor: 'red',
-          borderRadius: 15,
-        },
-      }),
-    },
-    Modal: {
-      defaultProps: {
-        centered: true,
-      },
-
-      styles: (theme) => ({
-        modal: {
-          backgroundColor: '#eaeaea',
-          padding: '0px !important',
-        },
-        header: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 33,
-          padding: 22,
-          width: '100%',
-          borderBottom: 'solid',
-          borderBottomColor: '#dbdbdb',
-          borderBottomWidth: 2,
-        },
-        title: {
-          textAlign: 'center',
-          flex: 1,
-          marginRight: 0,
-          fontFamily: 'Jalnan',
-          fontSize: 28,
-          fontWeight: 'normal',
-          fontStretch: 'normal',
-          fontStyle: 'normal',
-        },
-        body: {
-          padding: 22,
-        },
-      }),
-    },
-    Checkbox: {
-      styles: {
-        label: {
-          fontSize: 15,
-          fontWeight: 600,
-          fontStretch: 'normal',
-          fontStyle: 'normal',
-        },
-      },
-    },
-  },
-};
-
 const datePickerTheme: Styles<DatePickerStylesNames, Record<string, any>> = (
   theme
 ) => ({
@@ -91,6 +34,8 @@ const datePickerTheme: Styles<DatePickerStylesNames, Record<string, any>> = (
     margin: -22,
     marginBottom: 20,
     borderRadius: '10px 10px 0 0',
+    padding: 10,
+    paddingTop: 14,
   },
   calendarHeaderLevel: {
     color: 'white',
@@ -107,7 +52,84 @@ const datePickerTheme: Styles<DatePickerStylesNames, Record<string, any>> = (
   root: {
     textAlign: 'left',
   },
+  required: {
+    backgroundColor: 'red',
+  },
 });
+
+const modalTheme: Styles<ModalStylesNames, Record<string, any>> = (theme) => ({
+  modal: {
+    backgroundColor: '#f5f5f5',
+    padding: '0px !important',
+  },
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 33,
+    padding: 22,
+    width: '100%',
+    borderBottom: 'solid',
+    borderBottomColor: '#dbdbdb',
+    borderBottomWidth: 2,
+  },
+  title: {
+    textAlign: 'center',
+    flex: 1,
+    marginRight: 0,
+    fontFamily: 'Jalnan',
+    fontSize: 28,
+    fontWeight: 'normal',
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    color: 'black',
+  },
+  body: {
+    padding: 22,
+  },
+});
+
+const providerTheme: MantineThemeOverride = {
+  components: {
+    Text: {
+      styles: {
+        root: {
+          color: 'black',
+        },
+      },
+    },
+    Paper: {
+      styles: {
+        root: {
+          borderRadius: 15,
+        },
+      },
+    },
+    Modal: {
+      defaultProps: {
+        centered: true,
+      },
+      styles: (theme) => ({
+        modal: {
+          backgroundColor: '#ffffff',
+        },
+      }),
+    },
+    Checkbox: {
+      styles: {
+        label: {
+          fontSize: 15,
+          fontWeight: 600,
+          fontStretch: 'normal',
+          fontStyle: 'normal',
+        },
+      },
+    },
+  },
+  globalStyles: (theme) => ({
+    ...theme.globalStyles,
+  }),
+};
 
 function ServiceLabel({
   setIsModalOpen,
@@ -188,72 +210,75 @@ function BirthInput({ form }: Props) {
   }, [value]);
 
   return (
-    <MantineProvider theme={providerTheme} inherit>
-      <Stack spacing={25} style={{ textAlign: 'left' }}>
-        <DatePicker
-          styles={datePickerTheme}
-          dropdownType="modal"
-          placeholder="이곳을 눌러 선택해주세요."
-          size="lg"
-          radius="md"
-          initialLevel="year"
-          locale="ko"
-          firstDayOfWeek="sunday"
-          inputFormat="YYYY/MM/DD"
-          labelFormat="YYYY/MM"
-          label={
-            <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
-              생년월일
-            </Text>
-          }
-          {...form.getInputProps('birthDate')}
-        />
-        <TimePicker
-          label={
-            <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
-              시간
-            </Text>
-          }
-          value={value}
-          onChange={(value: string) => {
-            // setValue();
-            setValue(timeParser(value));
-          }}
-          use12Hours
-        />
-        <Checkbox
-          mt={'xs'}
-          size="lg"
-          label="음력생일이에요."
-          w={'100%'}
-          {...form.getInputProps('calendar')}
-        />
-        <Checkbox
-          mb={'xl'}
-          size="lg"
-          label="윤달입니다."
-          {...form.getInputProps('intercalation')}
-        />
-        <Checkbox
-          size="lg"
-          label={
-            <ServiceLabel
-              setIsModalOpen={setIsModalOpen}
-              setModalType={setModalType}
-            />
-          }
-          {...form.getInputProps('termsOfService')}
-        />
-      </Stack>
+    <>
+      <MantineProvider theme={providerTheme} inherit>
+        <Stack spacing={25} style={{ textAlign: 'left' }}>
+          <DatePicker
+            styles={datePickerTheme}
+            dropdownType="modal"
+            placeholder="이곳을 눌러 선택해주세요."
+            size="lg"
+            radius="md"
+            initialLevel="year"
+            locale="ko"
+            firstDayOfWeek="sunday"
+            inputFormat="YYYY.MM.DD"
+            labelFormat="YYYY.MM"
+            label={
+              <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
+                생년월일
+              </Text>
+            }
+            {...form.getInputProps('birthDate')}
+          />
+          <TimePicker
+            label={
+              <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
+                시간
+              </Text>
+            }
+            value={value}
+            onChange={(value: string) => {
+              // setValue();
+              setValue(timeParser(value));
+            }}
+            use12Hours
+          />
+          <Checkbox
+            mt={'xs'}
+            size="lg"
+            label="음력생일이에요."
+            w={'100%'}
+            {...form.getInputProps('calendar')}
+          />
+          <Checkbox
+            mb={'xl'}
+            size="lg"
+            label="윤달입니다."
+            {...form.getInputProps('intercalation')}
+          />
+          <Checkbox
+            size="lg"
+            label={
+              <ServiceLabel
+                setIsModalOpen={setIsModalOpen}
+                setModalType={setModalType}
+              />
+            }
+            {...form.getInputProps('termsOfService')}
+          />
+        </Stack>
+      </MantineProvider>
       <Modal
         opened={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title={modalType}
         fullScreen
+        styles={modalTheme}
       >
         {loremIpsem}
       </Modal>
-    </MantineProvider>
+    </>
   );
 }
 

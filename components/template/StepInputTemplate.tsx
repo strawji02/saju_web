@@ -37,7 +37,7 @@ function StepInputTemplate({ step, title, form }: Props) {
         <StepInput
           form={form}
           step={step}
-          href={`?step=${step + 1}`}
+          href={{ query: { step: step + 1 } }}
           title={title}
         />
       </Box>
