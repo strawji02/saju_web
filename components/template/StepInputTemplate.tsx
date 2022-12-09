@@ -1,6 +1,7 @@
 import { ActionIcon, Box, Input, Step, useMantineTheme } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
 import { IconArrowLeft } from '@tabler/icons';
+import { useRouter } from 'next/router';
 import React, { HTMLAttributes } from 'react';
 import ArrowLeftButton from '../atoms/ArrowLeftButton';
 import GenderSelectButton from '../atoms/GenderSelectButton';
@@ -19,9 +20,19 @@ interface Props {
 }
 
 function StepInputTemplate({ step, title, form }: Props) {
+  const router = useRouter();
   return (
     <>
-      <Topbar title="사주보기" leftArea={<ArrowLeftButton />} />
+      <Topbar
+        title="사주보기"
+        leftArea={
+          <ArrowLeftButton
+            onClick={() =>
+              router.push(step === 1 ? '/' : { query: { step: step - 1 } })
+            }
+          />
+        }
+      />
       <Box mt={50} mx={27}>
         <StepInput
           form={form}

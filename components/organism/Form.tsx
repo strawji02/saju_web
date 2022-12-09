@@ -1,8 +1,11 @@
-import { TextInput } from '@mantine/core';
+import { MantineProvider, Stack, Text, TextInput } from '@mantine/core';
+import { DatePicker } from '@mantine/dates';
 import { UseFormReturnType } from '@mantine/form';
 import BirthPlaceSelector from '../molecules/BirthPlaceSelector';
 import GenderSelector from '../molecules/GenderSelector';
+import BirthInput from './BirthInput';
 import { Dosi, StepInputFormType } from '../types/StepInput';
+import 'dayjs/locale/ko';
 
 interface Props {
   step: number;
@@ -38,7 +41,11 @@ function Form({ step, form }: Props) {
         </>
       );
     case 4:
-      return <></>;
+      return (
+        <>
+          <BirthInput form={form} />
+        </>
+      );
     default:
       return <></>;
   }

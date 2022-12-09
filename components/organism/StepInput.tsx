@@ -28,7 +28,7 @@ function StepInput({ href, step, title, form }: Props) {
         }}
         disabled={!form.isValid()}
         href={href}
-        btnText="다음"
+        btnText={step === 4 ? '결과보기' : '다음'}
       />
     </Stack>
   );
