@@ -13,7 +13,7 @@ function ResTemplate({ result, userData }: Props) {
     <Stack>
       <Title
         text={`${new Date(userData?.birthDate || '0').getFullYear()}년 ${
-          new Date(userData?.birthDate || '0').getMonth() || 0 + 1
+          new Date(userData?.birthDate || '0').getMonth() + 1 || 0
         }월 ${new Date(userData?.birthDate || '0').getDate()}일 (${
           userData?.calendar ? '음력' : '양력'
         }) ${new Date(userData?.birthTime || '0').getHours()}시 
