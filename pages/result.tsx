@@ -9,7 +9,6 @@ function Result() {
   const router = useRouter();
   const { result, removeResult, userData, removeUserData } =
     useUserResultState();
-  console.log(result);
 
   useEffect(() => {
     if (!result) router.replace('/');
