@@ -63,6 +63,10 @@ function TimePicker({
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    setScrollLocked(isOpen);
+  }, [isOpen]);
+
   const handleFocus = () => {
     onFocus();
     onOpen();
