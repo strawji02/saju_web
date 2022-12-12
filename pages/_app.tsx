@@ -59,7 +59,7 @@ export default function App({ Component, pageProps }: AppProps) {
         width: '100%',
         height: '100%',
         // display: 'block',
-        overflow: 'auto',
+        // overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
         textAlign: 'center',
