@@ -1,8 +1,12 @@
 import { Center, Loader } from '@mantine/core';
 
-function Loading() {
+interface Props {
+  height?: number;
+}
+
+function Loading({ height }: Props) {
   return (
-    <Center h={80} w={'100%'}>
+    <Center h={height || 80} w={'100%'}>
       <Loader />
     </Center>
   );
