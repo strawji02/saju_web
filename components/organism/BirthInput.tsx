@@ -224,6 +224,7 @@ function BirthInput({ form }: Props) {
             firstDayOfWeek="sunday"
             inputFormat="YYYY.MM.DD"
             labelFormat="YYYY.MM"
+            clearable={false}
             label={
               <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
                 생년월일
