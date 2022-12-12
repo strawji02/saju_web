@@ -34,7 +34,7 @@ function Form({ step, form }: Props) {
   const [, scrollTo] = useWindowScroll();
 
   function onFocusScroll() {
-    setTimeout(() => scrollTo({ y: 200 }), 200);
+    setTimeout(() => scrollTo({ y: 160 }), 200);
   }
 
   switch (step) {
