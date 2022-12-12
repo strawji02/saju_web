@@ -200,7 +200,7 @@ function BirthInput({ form }: Props) {
   }, [routerModalOpened]);
 
   useEffect(() => {
-    const date = new Date(`2022-0${value}`);
+    const date = new Date(`2000-01-01T${value}`);
     if (dateIsValid(date)) {
       form.setValues({ birthTime: date });
     } else {

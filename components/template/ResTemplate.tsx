@@ -7,8 +7,6 @@ interface Props {
   userData: StepInputFormType | undefined;
 }
 function ResTemplate({ result, userData }: Props) {
-  console.log(userData);
-
   return (
     <Stack>
       <Title
