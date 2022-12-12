@@ -7,6 +7,7 @@ import ArrowLeftButton from '../atoms/ArrowLeftButton';
 import GenderSelectButton from '../atoms/GenderSelectButton';
 import GenderSelector from '../molecules/GenderSelector';
 import Topbar from '../molecules/Topbar';
+import Form from '../organism/Form';
 import StepInput from '../organism/StepInput';
 import { Dosi, StepInputFormType, StepTitleType } from '../types/StepInput';
 
@@ -33,13 +34,15 @@ function StepInputTemplate({ step, title, form }: Props) {
           />
         }
       />
-      <Box mt={50} mx={27}>
+      <Box mt={50} mb={300} mx={27}>
         <StepInput
           form={form}
           step={step}
           href={{ query: { step: step + 1 } }}
           title={title}
-        />
+        >
+          <Form form={form} step={step} />
+        </StepInput>
       </Box>
     </>
   );

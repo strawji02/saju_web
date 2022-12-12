@@ -14,7 +14,7 @@ import {
   StepTitleType,
 } from '../types/StepInput';
 import Form from './Form';
-import { useEffect } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 
 interface Props {
   href: string | UrlObject;
@@ -26,7 +26,13 @@ interface Props {
   >;
 }
 
-function StepInput({ href, step, title, form }: Props) {
+function StepInput({
+  href,
+  step,
+  title,
+  form,
+  children,
+}: PropsWithChildren<Props>) {
   const router = useRouter();
   const { setResult } = useUserResultState();
 
@@ -59,7 +65,7 @@ function StepInput({ href, step, title, form }: Props) {
     <Stack spacing={0}>
       <StepTitle step={step} {...title} />
       <Box mt={30} mb={64}>
-        <Form form={form} step={step} />
+        {children}
       </Box>
       <NextButton
         onClick={(e) => {
