@@ -52,21 +52,14 @@ export default function App({ Component, pageProps }: AppProps) {
         alignItems: 'center',
       },
       '#__next': {
-        // maxWidth: '425px',
-        // border: 'solid',
-        // borderTop: 'none',
-        // borderBottom: 'none',
         width: '100%',
         height: '100%',
-        // display: 'block',
-        // overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
         textAlign: 'center',
         margin: 0,
       },
     }),
-    // black: '#2d2da8',
     colors: {
       'dark-blue': [
         '#7272d9',
@@ -86,7 +79,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+      <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
         <>
           <Head>
             <title>Create Next App</title>

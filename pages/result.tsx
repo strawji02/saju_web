@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
 import { getResult } from '../components/api/result';
 import Loading from '../components/atoms/Loading';
+import ErrorTemplate from '../components/template/ErrorTemplate';
 import ResTemplate from '../components/template/ResTemplate';
 import { ResultParams } from '../components/types/StepInput';
 import { useUserResultState } from '../utils/state';
@@ -53,6 +54,8 @@ function Result() {
     >
       {resultMutate.data ? (
         <ResTemplate result={resultMutate.data} userData={userData} />
+      ) : resultMutate.isError ? (
+        <ErrorTemplate />
       ) : (
         <Loading />
       )}
