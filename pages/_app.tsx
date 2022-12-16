@@ -9,6 +9,7 @@ import Head from 'next/head';
 import CopyrightText from '../components/molecules/CopyrightText';
 import { useRouter } from 'next/router';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Font from '../components/@shared/Font';
 // import '../styles/react-ios-time-picker.css';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -89,6 +90,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
           <main>
             <Component {...pageProps} />
+            <Font />
           </main>
 
           <footer>
