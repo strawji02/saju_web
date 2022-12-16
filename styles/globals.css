@@ -20,9 +20,13 @@ a {
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Jalnan';
   src: url('/fonts/Jalnan.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Haenam';
+  src: url('/fonts/Haenam.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Montserrat';
@@ -33,7 +37,7 @@ a {
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
   font-weight: bold;
-}
+} */
 
 /* @font-face {
   font-family: "InkLipquid";

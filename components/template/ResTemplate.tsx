@@ -1,5 +1,6 @@
-import { Stack, Text } from '@mantine/core';
+import { Divider, Mark, Stack, Text } from '@mantine/core';
 import Title from '../atoms/Title';
+import UnderLinedText from '../atoms/UnderLinedText';
 import { ResultType, StepInputFormType } from '../types/StepInput';
 
 interface Props {
@@ -25,6 +26,28 @@ function ResTemplate({ result, userData }: Props) {
       <Text align="center" c="dark">
         {result?.day_kr}
       </Text>
+      <Text align="center" c="gray">
+        건조한 땅에서도 꿋꿋한 큰 소나무
+      </Text>
+      <Divider />
+      <Text weight={800} size={17} align="center" c="dark">
+        오늘 태어난{' '}
+        <UnderLinedText>
+          {result?.day}({result?.day_kr})
+        </UnderLinedText>{' '}
+        일주 출생자
+      </Text>
+      <Text
+        style={{
+          fontFamily: 'LotteMartDream',
+        }}
+        size={18}
+        align="center"
+        c="dark"
+      >
+        어려운 여건 속에서도 때를 기다리고 있으니, 마음의 여유를 가져라.
+      </Text>
+      <Divider />
       <Text align="center" c="dark">
         {result?.res_str}
       </Text>
