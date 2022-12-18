@@ -6,19 +6,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   weight?: number;
   size?: number;
   align?: React.CSSProperties['textAlign'];
-  fontFamily?: string;
   left?: boolean;
 }
-function DefaultText({ color, left, fontFamily, children, ...props }: Props) {
+function DefaultText({ color, left, children, ...props }: Props) {
   return (
-    <Text
-      align={left ? 'left' : 'center'}
-      sx={{
-        fontFamily,
-      }}
-      {...props}
-      c={color || 'dark'}
-    >
+    <Text align={left ? 'left' : 'center'} {...props} c={color || 'dark'}>
       {children}
     </Text>
   );

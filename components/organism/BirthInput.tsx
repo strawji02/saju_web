@@ -15,6 +15,7 @@ import _ from 'lodash';
 import { useRouter } from 'next/router';
 import { SetStateAction } from 'react';
 import { Dispatch, useEffect, useState } from 'react';
+import { jalnan } from '../../utils/fonts';
 import { dateIsValid, loremIpsem, timeParser } from '../../utils/utils';
 import TimePicker from '../@shared/ios-time-picker/TimePicker';
 import { StepInputFormType } from '../types/StepInput';
@@ -77,7 +78,6 @@ const modalTheme: Styles<ModalStylesNames, Record<string, any>> = (theme) => ({
     textAlign: 'center',
     flex: 1,
     marginRight: 0,
-    fontFamily: 'Jalnan',
     fontSize: 28,
     fontWeight: 'normal',
     fontStretch: 'normal',
@@ -226,7 +226,11 @@ function BirthInput({ form }: Props) {
             labelFormat="YYYY.MM"
             clearable={false}
             label={
-              <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
+              <Text
+                mb={2}
+                className={jalnan.className}
+                style={{ fontSize: 15 }}
+              >
                 생년월일
               </Text>
             }
@@ -234,7 +238,11 @@ function BirthInput({ form }: Props) {
           />
           <TimePicker
             label={
-              <Text mb={2} style={{ fontFamily: 'Jalnan', fontSize: 15 }}>
+              <Text
+                mb={2}
+                className={jalnan.className}
+                style={{ fontSize: 15 }}
+              >
                 시간
               </Text>
             }
@@ -273,7 +281,17 @@ function BirthInput({ form }: Props) {
       <Modal
         opened={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={modalType}
+        title={
+          <Text
+            sx={{
+              color: 'black',
+            }}
+            align="center"
+            className={jalnan.className}
+          >
+            modalType
+          </Text>
+        }
         fullScreen
         styles={modalTheme}
       >

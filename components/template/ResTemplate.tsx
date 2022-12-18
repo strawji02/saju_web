@@ -1,6 +1,7 @@
 import { Center, Divider, Mark, Stack, Text } from '@mantine/core';
 import { padStart } from 'lodash';
 import Image from 'next/image';
+import { lotteMart } from '../../utils/fonts';
 import DefaultText from '../atoms/DefaultText';
 import Title from '../atoms/Title';
 import UnderLinedText from '../atoms/UnderLinedText';
@@ -42,7 +43,7 @@ function ResTemplate({ result, userData }: Props) {
         </UnderLinedText>{' '}
         일주 출생자
       </DefaultText>
-      <DefaultText fontFamily={'LotteMartDream'} size={18}>
+      <DefaultText className={lotteMart.className} size={18}>
         {result?.advice}
       </DefaultText>
       <Divider />
