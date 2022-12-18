@@ -48,9 +48,7 @@ function ResTemplate({ result, userData }: Props) {
         {result?.advice}
       </Text>
       <Divider />
-      <Text align="center" c="dark">
-        {result?.res_str}
-      </Text>
+      <Text c="dark">{result?.res_str}</Text>
     </Stack>
   );
 }
