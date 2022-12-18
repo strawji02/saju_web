@@ -48,4 +48,5 @@ export interface ResultType {
   res_str: string;
   image: string;
   advice: string;
+  s_no: string;
 }
