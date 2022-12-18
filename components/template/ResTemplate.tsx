@@ -1,5 +1,6 @@
-import { Center, Divider, Image, Mark, Stack, Text } from '@mantine/core';
+import { Center, Divider, Mark, Stack, Text } from '@mantine/core';
 import { padStart } from 'lodash';
+import Image from 'next/image';
 import DefaultText from '../atoms/DefaultText';
 import Title from '../atoms/Title';
 import UnderLinedText from '../atoms/UnderLinedText';
@@ -18,11 +19,9 @@ function ResTemplate({ result, userData }: Props) {
   const min = new Date(userData?.birthTime || '0').getMinutes();
   const name = userData?.name;
 
-  const no = result?.s_no
-    ? padStart(String(parseInt(result.s_no) + 1))
+  const src = result?.s_no
+    ? `/images/${padStart(String(parseInt(result.s_no) + 1))}@3x.png`
     : undefined;
-
-  console.log(no);
 
   return (
     <Stack px="xs">
@@ -31,11 +30,9 @@ function ResTemplate({ result, userData }: Props) {
         ${min}분 ${name}님`}
         style={{ color: 'black', textAlign: 'center' }}
       />
-      {no && (
-        <Center>
-          <Image alt="사주 이미지" src={`/images/${no}@3x.png`} />
-        </Center>
-      )}
+      <Center>
+        {src && <Image alt="사주 이미지" src={src} width={320} height={320} />}
+      </Center>
       <DefaultText color="gray">{result?.image}</DefaultText>
       <Divider />
       <DefaultText weight={800} size={17}>
