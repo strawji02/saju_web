@@ -1,4 +1,5 @@
 import { Box, Text } from '@mantine/core';
+import { montserrat } from '../../utils/fonts';
 import Stepper from '../atoms/Stepper';
 import Title from '../atoms/Title';
 
@@ -16,12 +17,12 @@ function StepTitle({ step, questionText, description }: Props) {
       {description && (
         <Text
           align="left"
-          style={{
-            fontFamily: 'Montserrat',
+          sx={{
             fontWeight: 'normal',
             color: 'black',
             fontSize: 15,
           }}
+          className={montserrat.className}
         >
           {description}
         </Text>
