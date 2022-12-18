@@ -46,4 +46,6 @@ export interface ResultType {
   year_kr: string;
   temp: string;
   res_str: string;
+  image: string;
+  advice: string;
 }

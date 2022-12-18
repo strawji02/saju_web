@@ -27,7 +27,7 @@ function ResTemplate({ result, userData }: Props) {
         {result?.day_kr}
       </Text>
       <Text align="center" c="gray">
-        건조한 땅에서도 꿋꿋한 큰 소나무
+        {result?.image}
       </Text>
       <Divider />
       <Text weight={800} size={17} align="center" c="dark">
@@ -45,7 +45,7 @@ function ResTemplate({ result, userData }: Props) {
         align="center"
         c="dark"
       >
-        어려운 여건 속에서도 때를 기다리고 있으니, 마음의 여유를 가져라.
+        {result?.advice}
       </Text>
       <Divider />
       <Text align="center" c="dark">
