@@ -12,7 +12,7 @@ function StepBox({ title, body }: Props) {
     <Paper withBorder radius="lg" shadow="xs" p="md">
       <Group>
         <Title text={title} style={{ fontSize: 13 }} />
-        <Text>{body}</Text>
+        <Text style={{ fontSize: 14 }}>{body}</Text>
       </Group>
     </Paper>
   );
