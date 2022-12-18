@@ -16,11 +16,7 @@ function Result() {
 
   const [params, setParams] = useState<ResultParams>();
 
-  const resultMutate = useMutation(
-    'get-result',
-    async (params: ResultParams) => getResult(params),
-    {}
-  );
+  const resultMutate = useMutation('get-result', getResult, {});
 
   useEffect(() => {
     if (userData) {
