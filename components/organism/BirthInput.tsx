@@ -289,7 +289,7 @@ function BirthInput({ form }: Props) {
             align="center"
             className={jalnan.className}
           >
-            modalType
+            {modalType}
           </Text>
         }
         fullScreen
