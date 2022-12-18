@@ -20,31 +20,6 @@ a {
   box-sizing: border-box;
 }
 
-/* @font-face {
-  font-family: 'Jalnan';
-  src: url('/fonts/Jalnan.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Haenam';
-  src: url('/fonts/Haenam.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
-  font-weight: bold;
-} */
-
-/* @font-face {
-  font-family: "InkLipquid";
-  font-weight: 200;
-  src: url("/fonts/InkLipquidFonts.ttf") format("truetype");
-} */
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -177,7 +152,7 @@ input:focus {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   user-select: none;
   transition: all 100ms linear;
@@ -186,7 +161,7 @@ input:focus {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   user-select: none;
   transition: all 100ms linear;
@@ -195,7 +170,7 @@ input:focus {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   user-select: none;
   transition: all 100ms linear;
@@ -210,7 +185,7 @@ input:focus {
   line-height: 35px;
   text-align: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   font-size: 16px;
   font-weight: 800;
@@ -227,7 +202,7 @@ input:focus {
   line-height: 35px;
   text-align: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   font-size: 16px;
   font-weight: 800;
@@ -244,7 +219,7 @@ input:focus {
   line-height: 35px;
   text-align: center;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   font-size: 16px;
   font-weight: 800;

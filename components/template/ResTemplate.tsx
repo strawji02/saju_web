@@ -21,7 +21,7 @@ function ResTemplate({ result, userData }: Props) {
   const name = userData?.name;
 
   const src = result?.s_no
-    ? `/images/${padStart(String(parseInt(result.s_no) + 1))}@3x.png`
+    ? `/images/${String(parseInt(result.s_no) + 1).padStart(2, '0')}@3x.png`
     : undefined;
 
   return (
