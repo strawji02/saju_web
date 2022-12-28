@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Overview
 
-## Getting Started
+Next.js, MAntine UI 프레임워크를 이용한 웹 어플리케이션입니다. 사용자의 일주와
+그에 맞는 일주 해석을 보여줍니다.
 
-First, run the development server:
+아직 개발 단계에 있습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### LIVE LINK : [https://www.saju60.com/](https://www.saju60.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Program service config
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 🖥️ 프론트엔드
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- 프레임워크 - `Next.js`
+  - UI 라이브러리 - `Mantine`
+  - server state 관리 - `react-query`
+  - global state 관리 - `zustand`
+- 배포
+  - 이용중인 서비스 - `Vercel`
+  - 도메인 - `AWS Route53` 에서 구매 - saju60.com(개발용 임시도메인)
+  - 저장소 - github 개인 repository
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 💾 백엔드
 
-## Learn More
+<aside>
+💡 PM에게 생년월일을 input시 사주를 보여주는 php 소스코드를 제공받아서 사용했습니다.
+</aside>
 
-To learn more about Next.js, take a look at the following resources:
+- 사용 언어 - `APM (Apache + PHP + Maria DB)`
+  - PHP 7.2.34
+  - Maria DB 10.2
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<aside>
+📌 제공 소스가 원래는 php를 이용한 프론트엔드 올인원이어서 apm 구성을 한 뒤 php에서 json 형식으로 출력해주고 그걸 백엔드처럼 사용하고 있습니다.
+</aside>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> 프론트엔드 request에서 query string으로 유저 정보를 보내주면 사주 계산 후 결과
+> 를 json으로 보내줍니다
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 배포
+  - AWS EC2 Amazone Linux 2
+  - https ssl 인증서를 위해 Amazone CloudeFront 이용
+  - vercel 웹 배포를 위해 https 필요
+  > Front ←→ Route53 [`server.saju60.com`](http://server.saju60.com/) ←→
+  > CloudeFront (ssl) `[bak.saju60.com](http://bak.saju60.com)` ←→ EC2

@@ -25,9 +25,8 @@ function Step() {
         query: { step: 1 },
       });
     }
-    if (step === 4 && result) {
+    if (step === 4 && userData) {
       router.replace('/');
-      removeResult();
       removeUserData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
