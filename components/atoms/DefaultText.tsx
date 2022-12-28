@@ -7,10 +7,26 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   size?: number;
   align?: React.CSSProperties['textAlign'];
   left?: boolean;
+  disallowDrag?: boolean;
 }
-function DefaultText({ color, left, children, ...props }: Props) {
+function DefaultText({ color, left, children, disallowDrag, ...props }: Props) {
   return (
-    <Text align={left ? 'left' : 'center'} {...props} c={color || 'dark'}>
+    <Text
+      align={left ? 'left' : 'center'}
+      sx={
+        disallowDrag
+          ? {
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+              msUserSelect: 'none',
+              MozUserSelect: 'none',
+            }
+          : undefined
+      }
+      {...props}
+      c={color || 'dark'}
+    >
       {children}
     </Text>
   );

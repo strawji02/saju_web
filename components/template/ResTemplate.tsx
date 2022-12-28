@@ -43,11 +43,11 @@ function ResTemplate({ result, userData }: Props) {
         </UnderLinedText>{' '}
         일주 출생자
       </DefaultText>
-      <DefaultText className={lotteMart.className} size={18}>
+      <DefaultText disallowDrag className={lotteMart.className} size={18}>
         {result?.advice}
       </DefaultText>
       <Divider />
-      <DefaultText weight={500} size={17} left>
+      <DefaultText disallowDrag weight={500} size={17} left>
         {result?.res_str}
       </DefaultText>
     </Stack>
