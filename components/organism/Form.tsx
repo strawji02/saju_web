@@ -1,5 +1,9 @@
 import {
+  Avatar,
+  Badge,
   Button,
+  Chip,
+  Group,
   MantineProvider,
   Select,
   Stack,
@@ -13,7 +17,7 @@ import BirthInput from './BirthInput';
 import { Dosi, StepInputFormType } from '../types/StepInput';
 import 'dayjs/locale/ko';
 import { useWindowScroll } from '@mantine/hooks';
-import { useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { useQuery } from 'react-query';
 import { getDosiNames } from '../api/dosi';
 import Loading from '../atoms/Loading';
@@ -25,6 +29,29 @@ interface Props {
     (values: StepInputFormType) => StepInputFormType
   >;
 }
+interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
+  label: string;
+  'data-selected': any;
+}
+
+const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
+  ({ label, 'aria-selected': AS, ...others }: ItemProps, ref) => {
+    return (
+      <div ref={ref} {...others} data-selected={undefined}>
+        <Chip
+          size="sm"
+          checked={others['data-selected']}
+          variant="filled"
+          style={{ width: undefined }}
+        >
+          {label}
+        </Chip>
+      </div>
+    );
+  }
+);
+
+SelectItem.displayName = 'SelectItem';
 
 function Form({ step, form }: Props) {
   const { data } = useQuery('get-dosi', getDosiNames);
@@ -66,6 +93,25 @@ function Form({ step, form }: Props) {
             placeholder="이곳을 눌러 검색해주세요"
             searchable
             maxDropdownHeight={300}
+            itemComponent={SelectItem}
+            styles={{
+              itemsWrapper: {
+                boxSizing: 'border-box',
+                display: 'flex',
+                flexFlow: 'row wrap',
+                WebkitBoxAlign: 'center',
+                alignItems: 'center',
+                WebkitBoxPack: 'start',
+                justifyContent: 'center',
+                gap: 10,
+                flexDirection: 'row !important',
+                padding: 10,
+              },
+              item: {
+                width: 'fit-content',
+                padding: 2,
+              },
+            }}
             mt={32}
             radius="md"
             size="xl"
