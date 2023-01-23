@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Modal } from '@mantine/core';
+import { ActionIcon, Box, Group, Modal, Stack } from '@mantine/core';
+import { IconX } from '@tabler/icons';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
@@ -12,11 +13,13 @@ import { useUserResultState } from '../utils/state';
 
 function Result() {
   const router = useRouter();
-  const { userData } = useUserResultState();
+  const { userData, setError, error } = useUserResultState();
 
   const [params, setParams] = useState<ResultParams>();
 
-  const resultMutate = useMutation('get-result', getResult, {});
+  const resultMutate = useMutation('get-result', getResult, {
+    onError: () => setError(),
+  });
 
   useEffect(() => {
     if (userData) {
@@ -41,22 +44,22 @@ function Result() {
   }, [params]);
 
   return (
-    <Modal
-      fullScreen
-      overflow="outside"
-      opened={true}
-      onClose={() => {
-        router.push('/');
-      }}
-    >
-      {resultMutate.data ? (
-        <ResTemplate result={resultMutate.data} userData={userData} />
-      ) : resultMutate.isError ? (
-        <ErrorTemplate />
-      ) : (
-        <Loading />
-      )}
-    </Modal>
+    <Stack p="lg">
+      <Group position="right">
+        <ActionIcon onClick={() => router.push('/')}>
+          <IconX size={18} />
+        </ActionIcon>
+      </Group>
+      <Box>
+        {resultMutate.data ? (
+          <ResTemplate result={resultMutate.data} userData={userData} />
+        ) : resultMutate.isError ? (
+          <ErrorTemplate />
+        ) : (
+          <Loading />
+        )}
+      </Box>
+    </Stack>
   );
 }
 

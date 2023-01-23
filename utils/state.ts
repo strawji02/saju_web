@@ -3,10 +3,10 @@ import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 interface UserResultState {
-  result: ResultType | undefined;
+  error: boolean | undefined;
   userData: StepInputFormType | undefined;
-  setResult: (data: ResultType) => void;
-  removeResult: () => void;
+  setError: () => void;
+  removeError: () => void;
   setUserData: (data: StepInputFormType) => void;
   removeUserData: () => void;
 }
@@ -14,10 +14,10 @@ interface UserResultState {
 export const useUserResultState = create<UserResultState>()(
   devtools(
     persist((set) => ({
-      result: undefined,
+      error: undefined,
       userData: undefined,
-      setResult: (data) => set(() => ({ result: data })),
-      removeResult: () => set(() => ({ result: undefined })),
+      setError: () => set(() => ({ error: true })),
+      removeError: () => set(() => ({ error: undefined })),
       setUserData: (data) => set(() => ({ userData: data })),
       removeUserData: () => set(() => ({ userData: undefined })),
     }))

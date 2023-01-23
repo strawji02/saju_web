@@ -98,6 +98,8 @@ export default function App({ Component, pageProps }: AppProps) {
                   ? theme.colors?.dark?.[7]
                   : router.asPath === '/' || router.asPath.includes('home')
                   ? '#eaeaea'
+                  : router.asPath.includes('result')
+                  ? '#fff'
                   : '#f5f5f5',
             }}
           >
