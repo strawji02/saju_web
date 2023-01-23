@@ -31,24 +31,6 @@ export function toStringByFormatting({
   return [year, month, day].join(delimiter);
 }
 
-export function timeParser(value: string) {
-  const splitValue = value.split(':');
-  const hour = splitValue[0];
-  const [min, amPm] = splitValue[1].split(' ');
-  return `${(
-    parseInt(hour) +
-    (amPm === '오전'
-      ? parseInt(hour) === 12
-        ? -12
-        : 0
-      : parseInt(hour) === 12
-      ? 0
-      : 12)
-  )
-    .toString()
-    .padStart(2, '0')}:${min}`;
-}
-
 export const loremIpsem = ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
