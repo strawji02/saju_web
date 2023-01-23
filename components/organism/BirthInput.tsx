@@ -17,8 +17,7 @@ import { useRouter } from 'next/router';
 import { SetStateAction } from 'react';
 import { Dispatch, useEffect, useState } from 'react';
 import { jalnan } from '../../utils/fonts';
-import { dateIsValid, loremIpsem, timeParser } from '../../utils/utils';
-import TimePicker from '../@shared/ios-time-picker/TimePicker';
+import { dateIsValid, loremIpsem } from '../../utils/utils';
 import { StepInputFormType } from '../types/StepInput';
 
 interface Props {
