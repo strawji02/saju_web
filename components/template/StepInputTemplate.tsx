@@ -34,7 +34,7 @@ function StepInputTemplate({ step, title, form }: Props) {
           />
         }
       />
-      <Box mt={50} mb={300} mx={27}>
+      <Box mt={50} mx={27}>
         <StepInput
           form={form}
           step={step}
