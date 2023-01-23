@@ -13,25 +13,11 @@ import { useUserResultState } from '../utils/state';
 import { toStringByFormatting } from '../utils/utils';
 
 function Step() {
-  const { result, removeResult, userData, setUserData, removeUserData } =
+  const { error, removeError, userData, setUserData, removeUserData } =
     useUserResultState();
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
-
-  useEffect(() => {
-    if (step !== 4) {
-      removeUserData();
-      router.push({
-        query: { step: 1 },
-      });
-    }
-    if (step === 4 && userData) {
-      router.replace('/');
-      removeUserData();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const today = new Date();
 
@@ -71,7 +57,31 @@ function Step() {
   });
 
   useEffect(() => {
-    setUserData(form.values);
+    if (step !== 4) {
+      removeUserData();
+      router.push({
+        query: { step: 1 },
+      });
+    }
+    if (step === 4 && userData) {
+      if (error) {
+        removeError();
+        form.setValues({
+          ...userData,
+          calendar: false,
+          intercalation: false,
+          termsOfService: false,
+        });
+      } else {
+        router.replace('/');
+        removeUserData();
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (form.values.gender !== undefined) setUserData(form.values);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.values]);
 
@@ -80,6 +90,7 @@ function Step() {
     if (step !== undefined && (step > 4 || step < 1)) router.replace('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query, queryStep, step]);
+
   if (!step) return <></>;
 
   const title: StepTitleType[] = [
