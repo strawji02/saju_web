@@ -1,5 +1,6 @@
 import {
   Checkbox,
+  Input,
   MantineProvider,
   MantineThemeOverride,
   Modal,
@@ -171,7 +172,6 @@ function ServiceLabel({
 }
 
 function BirthInput({ form }: Props) {
-  const [value, setValue] = useState('10:00');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<string>();
   const router = useRouter();
@@ -199,63 +199,27 @@ function BirthInput({ form }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [routerModalOpened]);
 
-  useEffect(() => {
-    const date = new Date(`2000-01-01T${value}`);
-    if (dateIsValid(date)) {
-      form.setValues({ birthTime: date });
-    } else {
-      setValue('10:00');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
-
   return (
     <>
       <MantineProvider theme={providerTheme} inherit>
         <Stack spacing={25} style={{ textAlign: 'left' }}>
-          <DatePicker
-            styles={datePickerTheme}
-            dropdownType="modal"
-            placeholder="이곳을 눌러 선택해주세요."
+          <Input
             size="lg"
             radius="md"
-            initialLevel="year"
-            locale="ko"
-            firstDayOfWeek="sunday"
-            inputFormat="YYYY.MM.DD"
-            labelFormat="YYYY.MM"
-            clearable={false}
-            label={
-              <Text
-                mb={2}
-                className={jalnan.className}
-                style={{ fontSize: 15 }}
-              >
-                생년월일
-              </Text>
-            }
+            type="date"
+            min="1938-01-01"
+            max="2050-12-31"
             {...form.getInputProps('birthDate')}
           />
-          <TimePicker
-            label={
-              <Text
-                mb={2}
-                className={jalnan.className}
-                style={{ fontSize: 15 }}
-              >
-                시간
-              </Text>
-            }
-            value={value}
-            onChange={(value: string) => {
-              // setValue();
-              setValue(timeParser(value));
-            }}
-            use12Hours
+          <Input
+            size="lg"
+            radius="md"
+            type="time"
+            {...form.getInputProps('birthTime')}
           />
           <Checkbox
-            mt={'xs'}
             size="lg"
+            mt={'xs'}
             label="음력생일이에요."
             w={'100%'}
             {...form.getInputProps('calendar')}
