@@ -16,8 +16,8 @@ function ResTemplate({ result, userData }: Props) {
   const month = new Date(userData?.birthDate || '0').getMonth() + 1 || 0;
   const day = new Date(userData?.birthDate || '0').getDate();
   const cal = userData?.calendar ? '음력' : '양력';
-  const hour = new Date(userData?.birthTime || '0').getHours();
-  const min = new Date(userData?.birthTime || '0').getMinutes();
+  const hour = new Date(`2000-01-01T${userData?.birthTime}` || '0').getHours();
+  const min = new Date(`2000-01-01T${userData?.birthTime}` || '0').getMinutes();
   const name = userData?.name;
 
   const src = result?.s_no

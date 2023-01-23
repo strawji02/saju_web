@@ -27,8 +27,8 @@ function Result() {
         year: new Date(userData.birthDate || '0').getFullYear(),
         month: new Date(userData.birthDate || '0').getMonth() + 1,
         day: new Date(userData.birthDate || '0').getDate(),
-        hour: new Date(userData.birthTime || '0').getHours(),
-        min: new Date(userData.birthTime || '0').getMinutes(),
+        hour: new Date(`2000-01-01T${userData.birthTime}` || '0').getHours(),
+        min: new Date(`2000-01-01T${userData.birthTime}` || '0').getMinutes(),
         intercalation: userData.intercalation ? '윤달' : null,
       });
     } else {
@@ -43,6 +43,7 @@ function Result() {
   return (
     <Modal
       fullScreen
+      overflow="outside"
       opened={true}
       onClose={() => {
         router.push('/');

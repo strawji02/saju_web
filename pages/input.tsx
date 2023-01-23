@@ -10,6 +10,7 @@ import {
   StepTitleType,
 } from '../components/types/StepInput';
 import { useUserResultState } from '../utils/state';
+import { toStringByFormatting } from '../utils/utils';
 
 function Step() {
   const { result, removeResult, userData, setUserData, removeUserData } =
@@ -39,8 +40,10 @@ function Step() {
       name: '',
       gender: undefined,
       birthPlace: '',
-      birthDate: new Date(today.setFullYear(today.getFullYear() - 20)),
-      birthTime: today,
+      birthDate: toStringByFormatting({
+        source: new Date(today.setFullYear(today.getFullYear() - 20)),
+      }),
+      birthTime: toStringByFormatting({ source: today, isTime: true }),
       calendar: false,
       intercalation: false,
       termsOfService: false,

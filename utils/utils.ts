@@ -2,6 +2,35 @@ export function dateIsValid(date: any) {
   return !isNaN(date) && date instanceof Date;
 }
 
+function leftPad(value: number) {
+  if (value >= 10) {
+    return value;
+  }
+
+  return `0${value}`;
+}
+
+export function toStringByFormatting({
+  source,
+  delimiter = '-',
+  isDay,
+  isTime,
+}: {
+  source: Date;
+  delimiter?: string | undefined;
+  isDay?: boolean;
+  isTime?: boolean;
+}) {
+  const year = source.getFullYear();
+  const month = leftPad(source.getMonth() + 1);
+  const day = leftPad(source.getDate());
+  const hour = leftPad(source.getHours());
+  const min = leftPad(source.getMinutes());
+  if (isDay || isTime)
+    return isDay ? [year, month, day].join(delimiter) : [hour, min].join(':');
+  return [year, month, day].join(delimiter);
+}
+
 export function timeParser(value: string) {
   const splitValue = value.split(':');
   const hour = splitValue[0];

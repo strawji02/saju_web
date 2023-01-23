@@ -9,8 +9,8 @@ export interface StepInputFormType {
   name: string;
   gender: Gender | undefined;
   birthPlace: string;
-  birthDate: Date;
-  birthTime: Date;
+  birthDate: string;
+  birthTime: string;
   calendar: boolean;
   intercalation: boolean;
   termsOfService: boolean;
