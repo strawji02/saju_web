@@ -1,4 +1,5 @@
 import {
+  Box,
   Checkbox,
   Input,
   MantineProvider,
@@ -8,6 +9,7 @@ import {
   Stack,
   Styles,
   Text,
+  TextInput,
   useMantineTheme,
 } from '@mantine/core';
 import { DatePicker, DatePickerStylesNames } from '@mantine/dates';
@@ -18,6 +20,8 @@ import { SetStateAction } from 'react';
 import { Dispatch, useEffect, useState } from 'react';
 import { jalnan } from '../../utils/fonts';
 import { dateIsValid, loremIpsem } from '../../utils/utils';
+import InputLabelText from '../atoms/InputLabelText';
+import SubCheckbox from '../molecules/SubCheckbox';
 import { StepInputFormType } from '../types/StepInput';
 
 interface Props {
@@ -173,6 +177,9 @@ function ServiceLabel({
 function BirthInput({ form }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<string>();
+  const state = useState(false);
+  const [checked] = state;
+
   const router = useRouter();
   const routerModalOpened = router.query['modal'];
 
@@ -198,23 +205,37 @@ function BirthInput({ form }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [routerModalOpened]);
 
+  useEffect(() => {
+    if (checked) {
+      form.setValues({ birthTime: '10:00' });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checked]);
+
   return (
     <>
       <MantineProvider theme={providerTheme} inherit>
         <Stack spacing={25} style={{ textAlign: 'left' }}>
-          <Input
+          <TextInput
             size="lg"
             radius="md"
             type="date"
             min="1938-01-01"
             max="2050-12-31"
+            label={<InputLabelText text="생년월일" />}
             {...form.getInputProps('birthDate')}
           />
-          <Input
+          <TextInput
             size="lg"
             radius="md"
             type="time"
+            label={<InputLabelText text="시간" />}
             {...form.getInputProps('birthTime')}
+            disabled={checked}
+            description={
+              <SubCheckbox state={state} text="태어난 시간을 잘 모르겠어요." />
+            }
+            inputWrapperOrder={['label', 'input', 'description']}
           />
           <Checkbox
             size="lg"
