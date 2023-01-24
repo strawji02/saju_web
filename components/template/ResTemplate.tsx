@@ -1,4 +1,4 @@
-import { Center, Divider, Mark, Stack, Text } from '@mantine/core';
+import { Center, Divider, List, Mark, Stack, Text } from '@mantine/core';
 import { padStart } from 'lodash';
 import Image from 'next/image';
 import { lotteMart } from '../../utils/fonts';
@@ -6,6 +6,8 @@ import DefaultText from '../atoms/DefaultText';
 import Title from '../atoms/Title';
 import UnderLinedText from '../atoms/UnderLinedText';
 import { ResultType, StepInputFormType } from '../types/StepInput';
+import stringReplace from 'react-string-replace';
+import UnderLinedDescription from '../molecules/UnderLinedDescription';
 
 interface Props {
   result: ResultType | undefined;
@@ -23,6 +25,8 @@ function ResTemplate({ result, userData }: Props) {
   const src = result?.s_no
     ? `/images/${String(parseInt(result.s_no) + 1).padStart(2, '0')}@3x.png`
     : undefined;
+
+  const splitText = '\n \n\n ';
 
   return (
     <Stack px="xs">
@@ -47,9 +51,17 @@ function ResTemplate({ result, userData }: Props) {
         {result?.advice}
       </DefaultText>
       <Divider />
-      <DefaultText disallowDrag weight={500} size={17} left>
-        {result?.res_str}
-      </DefaultText>
+      {result && (
+        <DefaultText disallowDrag weight={500} size={17} left>
+          <List>
+            {result.res_str.split(splitText).map((text, index) => (
+              <UnderLinedDescription key={`res-description-${index}`}>
+                {text}
+              </UnderLinedDescription>
+            ))}
+          </List>
+        </DefaultText>
+      )}
     </Stack>
   );
 }
