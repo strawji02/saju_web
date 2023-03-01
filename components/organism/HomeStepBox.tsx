@@ -20,13 +20,8 @@ function HomeStepBox({ href }: Props) {
       w="100%"
       // style={{ height: '55vh' }}
     >
-      <Box>
-        <Title
-          text="너와나의 하루의 여정을 소개합니다."
-          style={{ fontSize: 17 }}
-        />
-        <Stack mt="lg" spacing="lg" justify="space-around">
-          <StepBox
+      {/* <Stack mt="lg" spacing="lg" justify="space-around"> */}
+      {/* <StepBox
             title="STEP 01"
             body="별명 또는 이름과 성별을 선택해주세요."
           />
@@ -34,16 +29,15 @@ function HomeStepBox({ href }: Props) {
             title="STEP 02"
             body="생년월일시와 윤달여부를 선택해주세요."
           />
-          <StepBox title="STEP 03" body="결과를 확인해주세요." />
-          <NextButton
-            isLoading={isLoading}
-            onClick={() => setIsLoading(true)}
-            disabled={false}
-            href={href}
-            btnText="출발하기"
-          />
-        </Stack>
-      </Box>
+          <StepBox title="STEP 03" body="결과를 확인해주세요." /> */}
+      <NextButton
+        isLoading={isLoading}
+        onClick={() => setIsLoading(true)}
+        disabled={false}
+        href={href}
+        btnText="출발하기"
+      />
+      {/* </Stack> */}
     </Stack>
   );
 }

@@ -34,6 +34,12 @@ export default function App({ Component, pageProps }: AppProps) {
         styles: (theme) => ({
           root: {
             color: theme.colors['dark-blue'][6],
+            fontFamily: 'NotoSansCJKKR',
+            fontSize: 15,
+            fontWeight: 'normal',
+            fontStretch: 'normal',
+            fontStyle: 'normal',
+            wordBreak: 'keep-all',
           },
         }),
       },
