@@ -1,4 +1,5 @@
 import { Box, Divider, Flex, Image, Stack, Text } from '@mantine/core';
+import ShortDivider from '../atoms/ShortDivider';
 import Title from '../atoms/Title';
 
 interface Props {
@@ -8,23 +9,44 @@ interface Props {
 function HomeDescriptText({ svg }: Props) {
   return (
     <Stack ml={28} mt={70} spacing={26} align="flex-start">
-      <Divider
-        w={24}
-        style={{ borderTopWidth: 2, borderTopColor: '#2d2da8' }}
-      />
+      <ShortDivider />
       <Box>
-        <Title text="너와 나의 하루는" style={{ fontSize: 18 }} />
-        <Title text="당신의 삶이 궁금합니다." style={{ fontSize: 18 }} />
+        <Title text="너와 나의 하루는" fontSize={18} />
+        <Title text="당신의 삶이 궁금합니다." fontSize={18} />
+      </Box>
+      <Text align="left">
+        <Text component="span" fw="bold">
+          당신의 생년월일
+        </Text>
+        과{' '}
+        <Text component="span" fw="bold">
+          태어난 시간
+        </Text>
+        을 입력하세요.
+        <br /> 생년월일과 시간만으로도 <br /> 당신의 성향과 심리를 빠르게 파악할
+        수 있답니다. <br /> MBTI보다 자세하고 섬세하게 당신을 설명하고 있어요.
+      </Text>
+
+      <ShortDivider my={25} />
+      <Box>
+        <Title text="너와 나의 하루는" fontSize={18} />
+        <Title text="당신과 상대방의 관계가 궁금합니다." fontSize={18} />
       </Box>
       <Flex w={'100%'}>
-        <Text align="left" mb={50} w={255} style={{ fontSize: 15 }}>
-          헌법재판소 재판관은 탄핵 또는 금고 이상의 형의 선고에 의하지
-          아니하고는 파면되지 아니한다. 모든 국민은 근로의 권리를 가진다. 국가는
-          사회적·경제적 방법으로 근로자의 고용의진과 적정임금의 보장에
-          노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야
-          한다.
-        </Text>
-        <Flex align="flex-end" style={{ flexGrow: 1 }}>
+        <Stack justify="space-between">
+          <Text align="left">
+            당신과 상대방 두 사람의{' '}
+            <Text component="span" fw="bold">
+              관계적합도
+            </Text>
+            를 5단계로 구분하여 알려드려요.
+          </Text>
+          <Text align="left" fz={12} mb="lg">
+            본 서비스는 [(증보신판)] [간산 사주명리 일주론]에 수록된 내용을
+            기초로 작성했어요.
+          </Text>
+        </Stack>
+        <Flex align="flex-end" style={{}}>
           {svg ? (
             <Image {...svg} alt="graphic svg" />
           ) : (

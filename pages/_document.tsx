@@ -9,7 +9,12 @@ export default class _Document extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body style={{ minHeight: '100vh' }}>
           <Main />
           <NextScript />
