@@ -18,7 +18,7 @@ function Topbar({ leftArea, rightArea, title }: Props) {
         </Grid.Col>
         <Grid.Col p={0} span={8}>
           <Center>
-            <Title text={title} fontSize={28} />
+            <Title text={title} fz={28} />
           </Center>
         </Grid.Col>
         <Grid.Col p={0} span="auto">

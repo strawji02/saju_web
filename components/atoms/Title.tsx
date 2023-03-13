@@ -1,21 +1,22 @@
-import { Text } from '@mantine/core';
+import { Text, TextProps } from '@mantine/core';
 import React, { HTMLAttributes } from 'react';
-import { jalnan } from '../../utils/fonts';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  text: string;
+interface Props extends TextProps {
+  text?: string;
   fontSize?: number;
+  component?: any;
 }
 
-function Title({ text, fontSize, children, ...props }: Props) {
+function Title({ text, fontSize, children, component, ...props }: Props) {
   return (
     <Text
       align="left"
       {...props}
-      style={{ fontSize, ...props.style }}
-      className={jalnan.className}
+      sx={{ fontSize, fontFamily: 'Jalnan', ...props.sx }}
+      component={component}
+      // className={jalnan.className}
     >
-      {text}
+      {text || children}
     </Text>
   );
 }
