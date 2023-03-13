@@ -11,8 +11,8 @@ function HomeDescriptText({ svg }: Props) {
     <Stack ml={28} mt={70} spacing={26} align="flex-start">
       <ShortDivider />
       <Box>
-        <Title text="너와 나의 하루는" fontSize={18} />
-        <Title text="당신의 삶이 궁금합니다." fontSize={18} />
+        <Title text="너와 나의 하루는" fz={18} />
+        <Title text="당신의 삶이 궁금합니다." fz={18} />
       </Box>
       <Text align="left">
         <Text component="span" fw="bold">
@@ -29,8 +29,8 @@ function HomeDescriptText({ svg }: Props) {
 
       <ShortDivider my={25} />
       <Box>
-        <Title text="너와 나의 하루는" fontSize={18} />
-        <Title text="당신과 상대방의 관계가 궁금합니다." fontSize={18} />
+        <Title text="너와 나의 하루는" fz={18} />
+        <Title text="당신과 상대방의 관계가 궁금합니다." fz={18} />
       </Box>
       <Flex w={'100%'}>
         <Stack justify="space-between">

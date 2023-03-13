@@ -1,7 +1,6 @@
-import { Text } from '@mantine/core';
-import { HTMLAttributes } from 'react';
+import { Text, TextProps } from '@mantine/core';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+interface Props extends TextProps {}
 
 function UnderLinedText({ children, ...props }: Props) {
   return (
@@ -11,6 +10,10 @@ function UnderLinedText({ children, ...props }: Props) {
       sx={(theme) => ({
         boxShadow: `inset 0 -0.55em 0 0 ${theme.fn.rgba('#2d2da8', 0.18)}`,
       })}
+      fz={17}
+      ff="NotoSansCJKKR"
+      fw="bold"
+      {...props}
     >
       {children}
     </Text>

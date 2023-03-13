@@ -1,7 +1,7 @@
-import { Center, Divider, List, Mark, Stack, Text } from '@mantine/core';
+import { Box, Center, Divider, List, Mark, Stack, Text } from '@mantine/core';
 import { padStart } from 'lodash';
 import Image from 'next/image';
-import { lotteMart } from '../../utils/fonts';
+// import { lotteMart } from '../../utils/fonts';
 import DefaultText from '../atoms/DefaultText';
 import Title from '../atoms/Title';
 import UnderLinedText from '../atoms/UnderLinedText';
@@ -30,29 +30,42 @@ function ResTemplate({ result, userData }: Props) {
 
   return (
     <Stack px="xs">
-      <Title
-        text={`${year}년 ${month}월 ${day}일 (${cal}) ${hour}시 
-        ${min}분 ${name}님`}
-        style={{ color: 'black', textAlign: 'center' }}
-      />
+      <Box>
+        <Title
+          text={`${year}년 ${month}월 ${day}일 (${cal}) ${hour}시 
+        ${min}분에 태어난`}
+          c="dark"
+          align="center"
+        />
+        <Title c="dark" align="center">
+          <DefaultText component="span" fw={800} fz={17}>
+            <UnderLinedText>
+              {result?.day}({result?.day_kr})
+            </UnderLinedText>{' '}
+            일주
+          </DefaultText>{' '}
+          {name}님의 느낌은
+        </Title>
+      </Box>
+      <DefaultText fw="lighter" fz={16} c="gray.9" align="center">
+        {result?.image}
+      </DefaultText>
       <Center>
         {src && <Image alt="사주 이미지" src={src} width={320} height={320} />}
       </Center>
-      <DefaultText color="gray">{result?.image}</DefaultText>
       <Divider />
-      <DefaultText weight={800} size={17}>
-        오늘 태어난{' '}
+      <DefaultText fw={800} fz={17}>
         <UnderLinedText>
           {result?.day}({result?.day_kr})
         </UnderLinedText>{' '}
         일주 출생자
       </DefaultText>
-      <DefaultText disallowDrag className={lotteMart.className} size={18}>
+      <DefaultText disallowDrag size={18}>
         {result?.advice}
       </DefaultText>
       <Divider />
       {result && (
-        <DefaultText disallowDrag weight={500} size={17} left>
+        <DefaultText disallowDrag weight={500} size={17} align="left">
           <List>
             {result.res_str.split(splitText).map((text, index) => (
               <UnderLinedDescription key={`res-description-${index}`}>

@@ -1,18 +1,13 @@
-import { Text } from '@mantine/core';
-import { HTMLAttributes } from 'react';
+import { Text, TextProps } from '@mantine/core';
+import { ElementType, HTMLAttributes } from 'react';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  color?: string;
-  weight?: number;
-  size?: number;
-  align?: React.CSSProperties['textAlign'];
-  left?: boolean;
+interface Props extends TextProps {
   disallowDrag?: boolean;
+  component?: any;
 }
-function DefaultText({ color, left, children, disallowDrag, ...props }: Props) {
+function DefaultText({ color, children, disallowDrag, ...props }: Props) {
   return (
     <Text
-      align={left ? 'left' : 'center'}
       sx={
         disallowDrag
           ? {

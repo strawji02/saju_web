@@ -10,7 +10,6 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
-import { DatePicker } from '@mantine/dates';
 import { UseFormReturnType } from '@mantine/form';
 import GenderSelector from '../molecules/GenderSelector';
 import BirthInput from './BirthInput';

@@ -13,7 +13,7 @@ function SubCheckbox({
 }: Props) {
   return (
     <Checkbox
-      color="gray"
+      color="gray.8"
       size="xs"
       mt="md"
       ml="md"
@@ -21,7 +21,7 @@ function SubCheckbox({
       onChange={(event) => setChecked(event.currentTarget.checked)}
       styles={{
         label: {
-          color: 'gray',
+          color: 'gray.7',
           fontWeight: 'normal',
         },
       }}

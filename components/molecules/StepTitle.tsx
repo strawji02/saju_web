@@ -13,15 +13,13 @@ function StepTitle({ step, questionText, description }: Props) {
   return (
     <Box>
       <Stepper step={step} />
-      <Title text={questionText} style={{ color: 'black' }} fontSize={22} />
+      <Title text={questionText} c="dark" fontSize={22} />
       {description && (
         <Text
           align="left"
-          sx={{
-            fontWeight: 'normal',
-            color: 'black',
-            fontSize: 15,
-          }}
+          fw="normal"
+          c="dark"
+          fz={15}
           className={montserrat.className}
         >
           {description}
