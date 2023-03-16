@@ -18,7 +18,6 @@ import _ from 'lodash';
 import { useRouter } from 'next/router';
 import { SetStateAction } from 'react';
 import { Dispatch, useEffect, useState } from 'react';
-import { jalnan } from '../../utils/fonts';
 import { dateIsValid, loremIpsem } from '../../utils/utils';
 import InputLabelText from '../atoms/InputLabelText';
 import SubCheckbox from '../molecules/SubCheckbox';
@@ -269,9 +268,9 @@ function BirthInput({ form }: Props) {
           <Text
             sx={{
               color: 'black',
+              fontFamily: 'Jalnan',
             }}
             align="center"
-            className={jalnan.className}
           >
             {modalType}
           </Text>

@@ -1,4 +1,13 @@
-import { Box, Center, Divider, List, Mark, Stack, Text } from '@mantine/core';
+import {
+  Box,
+  Center,
+  Divider,
+  List,
+  Mark,
+  Paper,
+  Stack,
+  Text,
+} from '@mantine/core';
 import { padStart } from 'lodash';
 import Image from 'next/image';
 // import { lotteMart } from '../../utils/fonts';
@@ -30,6 +39,28 @@ function ResTemplate({ result, userData }: Props) {
 
   return (
     <Stack px="xs">
+      <Paper
+        sx={{ borderColor: '#2d2da8' }}
+        shadow="xl"
+        withBorder
+        ta="center"
+        p="lg"
+        radius="md"
+        mb="xl"
+      >
+        <Text fz={16} fw={400}>
+          인간의 운명을 지배하는 4개의 기둥
+        </Text>
+        <Text fz={16} fw={400}>
+          (四柱=년주+월주+”일주”+시주)인 사주에서
+        </Text>
+        <Text fz={16} fw={400}>
+          당신의 [성향/성격/심리]를 가장 잘 보여주는 것이
+        </Text>
+        <Text fz={16} fw={400}>
+          “일주(日柱)”랍니다.
+        </Text>
+      </Paper>
       <Box>
         <Title
           text={`${year}년 ${month}월 ${day}일 (${cal}) ${hour}시 
@@ -54,16 +85,17 @@ function ResTemplate({ result, userData }: Props) {
         {src && <Image alt="사주 이미지" src={src} width={320} height={320} />}
       </Center>
       <Divider />
-      <DefaultText fw={800} fz={17}>
-        <UnderLinedText>
-          {result?.day}({result?.day_kr})
-        </UnderLinedText>{' '}
-        일주 출생자
-      </DefaultText>
-      <DefaultText disallowDrag size={18}>
-        {result?.advice}
-      </DefaultText>
-      <Divider />
+      <Box>
+        <DefaultText ta="center" fw={800} fz={17}>
+          <UnderLinedText>
+            {result?.day}({result?.day_kr})
+          </UnderLinedText>{' '}
+          일주 {name}님
+        </DefaultText>
+        <DefaultText ta="center" fw={800} fz={17}>
+          당신의 성향과 심리 그리고 운세
+        </DefaultText>
+      </Box>
       {result && (
         <DefaultText disallowDrag weight={500} size={17} align="left">
           <List>
@@ -75,6 +107,21 @@ function ResTemplate({ result, userData }: Props) {
           </List>
         </DefaultText>
       )}
+      <Divider />
+      <Box>
+        <DefaultText ta="center" fw={800} fz={17}>
+          <UnderLinedText>
+            {result?.day}({result?.day_kr})
+          </UnderLinedText>{' '}
+          일주 {name}님
+        </DefaultText>
+        <DefaultText ta="center" fw={800} fz={17}>
+          당신의 성장을 위한 팁
+        </DefaultText>
+      </Box>
+      <DefaultText ff="haenam" ta="center" disallowDrag size={18}>
+        {result?.advice}
+      </DefaultText>
     </Stack>
   );
 }

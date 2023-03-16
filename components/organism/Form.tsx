@@ -20,6 +20,7 @@ import { forwardRef, useRef } from 'react';
 import { useQuery } from 'react-query';
 import { getDosiNames } from '../api/dosi';
 import Loading from '../atoms/Loading';
+import { useRouter } from 'next/router';
 
 interface Props {
   step: number;
@@ -53,7 +54,10 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
 SelectItem.displayName = 'SelectItem';
 
 function Form({ step, form }: Props) {
-  const { data } = useQuery('get-dosi', getDosiNames);
+  const router = useRouter();
+  const { data } = useQuery('get-dosi', getDosiNames, {
+    onError: (data) => router.push('/error'),
+  });
 
   const title = useRef<HTMLInputElement | null>(null);
 
