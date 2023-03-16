@@ -1,14 +1,14 @@
-import { Text } from '@mantine/core';
+import { Text, TextProps } from '@mantine/core';
 import { HTMLAttributes } from 'react';
-import { jalnan } from '../../utils/fonts';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props extends TextProps {
   text?: string;
+  fontSize?: number;
 }
 
-function InputLabelText({ children, text, ...props }: Props) {
+function InputLabelText({ children, fontSize = 15, text, ...props }: Props) {
   return (
-    <Text mb={2} className={jalnan.className} style={{ fontSize: 15 }}>
+    <Text mb={2} sx={{ fontSize, fontFamily: 'Jalnan', ...props.sx }}>
       {children || text}
     </Text>
   );

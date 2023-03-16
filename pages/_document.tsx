@@ -18,6 +18,10 @@ export default class _Document extends Document {
             href="https://webfontworld.github.io/goodchoice/Jalnan.css"
             rel="stylesheet"
           />
+          <link
+            href="https://webfontworld.github.io/haenam/haenam.css"
+            rel="stylesheet"
+          />
         </Head>
         <body style={{ minHeight: '100vh' }}>
           <Main />
