@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import NextButton from '../atoms/NextButton';
 import Title from '../atoms/Title';
 import CopyrightText from '../molecules/CopyrightText';
-import StepBox from '../molecules/StepBox';
 
 interface Props {
   href: string;
