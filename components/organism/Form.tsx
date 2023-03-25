@@ -107,7 +107,7 @@ function Form({ step, form }: Props) {
                 WebkitBoxPack: 'start',
                 justifyContent: 'center',
                 gap: 10,
-                flexDirection: 'row !important',
+                flexDirection: 'row!important' as any,
                 padding: 10,
               },
               item: {
