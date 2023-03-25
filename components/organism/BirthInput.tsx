@@ -211,6 +211,14 @@ function BirthInput({ form }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked]);
 
+  // useEffect(() => {
+  //   if (!form.values.calendar) {
+  //     form.setValues({ intercalation: false });
+  //     form.setValues({ birthTime: '20:00' });
+  //     console.log(form.getInputProps('intercalation'));
+  //   }
+  // }, [form.values.calendar]);
+
   return (
     <>
       <MantineProvider theme={providerTheme} inherit>
@@ -242,12 +250,18 @@ function BirthInput({ form }: Props) {
             label="음력생일이에요."
             w={'100%'}
             {...form.getInputProps('calendar')}
+            onChange={(e) => {
+              form.getInputProps('calendar').onChange(e.target.checked);
+              form.setValues({ intercalation: false });
+            }}
           />
           <Checkbox
             mb={'xl'}
             size="lg"
-            label="윤달입니다."
+            label="음력 윤달입니다."
             {...form.getInputProps('intercalation')}
+            checked={form.getInputProps('intercalation').value}
+            disabled={!form.values.calendar}
           />
           <Checkbox
             size="lg"

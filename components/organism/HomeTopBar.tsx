@@ -3,9 +3,11 @@ import Title from '../atoms/Title';
 import { IconMenu2 } from '@tabler/icons';
 import { useState } from 'react';
 import MenuButton from '../atoms/MenuButton';
+import { useRouter } from 'next/router';
 
 function HomeTopBar() {
   const [opened, setOpened] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -25,11 +27,19 @@ function HomeTopBar() {
         size="md"
       >
         <Stack px={12} py={30}>
-          <MenuButton>Home</MenuButton>
+          <MenuButton onClick={() => setOpened(false)}>Home</MenuButton>
           <Divider size={3} sx={{ borderTopColor: '#f3f3f3' }} />
-          <MenuButton>서비스 소개</MenuButton>
+          <MenuButton onClick={() => router.push('/service')}>
+            서비스 소개
+          </MenuButton>
           <Divider size={3} sx={{ borderTopColor: '#f3f3f3' }} />
-          <MenuButton>제휴 문의</MenuButton>
+          <MenuButton
+            onClick={() =>
+              router.push({ pathname: '/service', query: { contect: true } })
+            }
+          >
+            제휴 문의
+          </MenuButton>
         </Stack>
       </Drawer>
     </>

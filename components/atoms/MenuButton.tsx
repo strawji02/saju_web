@@ -3,6 +3,7 @@ import React from 'react';
 
 interface Props extends UnstyledButtonProps {
   children?: React.ReactNode;
+  onClick?: () => void;
 }
 
 function MenuButton({ children, ...props }: Props) {

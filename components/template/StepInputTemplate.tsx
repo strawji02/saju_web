@@ -25,7 +25,7 @@ function StepInputTemplate({ step, title, form }: Props) {
   return (
     <>
       <Topbar
-        title="사주보기"
+        title="당신을 알려주세요"
         leftArea={
           <ArrowLeftButton
             onClick={() =>
