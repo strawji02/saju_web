@@ -463,10 +463,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:^13.0.7":
-  version: 13.0.7
-  resolution: "@next/font@npm:13.0.7"
-  checksum: 88324e483561ed1372b97d434b98cff3c3adfeafc4217b45ff96f429c42ea4c6eebb089b34d8ef353aaf6413aa5f6d918a2ea83701ad129d2cc6f6751184d82a
+"@next/font@npm:^13.0.5":
+  version: 13.2.4
+  resolution: "@next/font@npm:13.2.4"
+  checksum: f5319c895b6a6633b181f1c17d52dd98753dd7706db27644bf12383e0fa164f5223b8c5c70eb28edb9b9a113cdfb04a995accc16dba1655b850c9db8a05036b7
   languageName: node
   linkType: hard
 
@@ -3391,7 +3391,7 @@ __metadata:
     "@mantine/hooks": ^5.8.3
     "@mantine/next": ^5.8.3
     "@mantine/notifications": ^5.8.3
-    "@next/font": ^13.0.7
+    "@next/font": ^13.0.5
     "@tabler/icons": ^1.114.0
     "@types/lodash": ^4.14.191
     "@types/node": 18.11.9
@@ -3410,7 +3410,7 @@ __metadata:
     react-query: ^3.39.2
     react-string-replace: ^1.1.0
     typescript: 4.9.3
-    zustand: ^4.1.5
+    zustand: 4.1.5
   languageName: unknown
   linkType: soft
 
@@ -3931,7 +3931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:^4.1.5":
+"zustand@npm:4.1.5":
   version: 4.1.5
   resolution: "zustand@npm:4.1.5"
   dependencies:
