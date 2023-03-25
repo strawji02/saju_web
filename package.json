@@ -39,5 +39,6 @@
   "devDependencies": {
     "@types/lodash": "^4.14.191",
     "@types/react-portal": "^4.0.4"
-  }
+  },
+  "packageManager": "yarn@1.22.10"
 }
