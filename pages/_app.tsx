@@ -43,6 +43,11 @@ export default function App({ Component, pageProps }: AppProps) {
           },
         }),
       },
+      Button: {
+        defaultProps: {
+          radius: 'xl',
+        },
+      },
     },
     globalStyles: (theme) => ({
       body: {

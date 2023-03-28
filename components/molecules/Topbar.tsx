@@ -9,7 +9,7 @@ interface Props {
 
 function Topbar({ leftArea, rightArea, title }: Props) {
   return (
-    <>
+    <div>
       <Grid pt={56} px={22} m={0}>
         <Grid.Col p={0} span="auto">
           <Flex align={'center'} justify={'flex-start'} h={'100%'} w={'100%'}>
@@ -28,7 +28,7 @@ function Topbar({ leftArea, rightArea, title }: Props) {
         </Grid.Col>
       </Grid>
       <Divider mt={21} />
-    </>
+    </div>
   );
 }
 

@@ -49,4 +49,6 @@ export interface ResultType {
   image: string;
   advice: string;
   s_no: string;
+  negative: string;
+  positive: string;
 }

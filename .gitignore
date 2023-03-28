@@ -12,7 +12,7 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
+.yarnrc.*
 
 # testing
 /coverage
