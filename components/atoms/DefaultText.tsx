@@ -4,6 +4,7 @@ import { ElementType, HTMLAttributes } from 'react';
 interface Props extends TextProps {
   disallowDrag?: boolean;
   component?: any;
+  onClick?: () => void;
 }
 function DefaultText({ color, children, disallowDrag, ...props }: Props) {
   return (

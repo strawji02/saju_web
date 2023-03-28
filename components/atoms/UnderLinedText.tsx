@@ -10,9 +10,7 @@ function UnderLinedText({ children, ...props }: Props) {
       sx={(theme) => ({
         boxShadow: `inset 0 -0.55em 0 0 ${theme.fn.rgba('#2d2da8', 0.18)}`,
       })}
-      fz={17}
-      ff="NotoSansCJKKR"
-      fw="bold"
+      {...(!props.inherit && { fz: 17, ff: 'NotoSansCJKKR', fw: 'bold' })}
       {...props}
     >
       {children}
