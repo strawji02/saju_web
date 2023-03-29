@@ -20,6 +20,8 @@ import stringReplace from 'react-string-replace';
 import UnderLinedDescription from '../molecules/UnderLinedDescription';
 import { SAJU_60 } from '../../utils/utils';
 import { useRouter } from 'next/router';
+import { useCallback, useRef } from 'react';
+import { toPng } from 'html-to-image';
 
 interface Props {
   result: ResultType | undefined;
@@ -27,6 +29,7 @@ interface Props {
 }
 function ResTemplate({ result, userData }: Props) {
   const router = useRouter();
+  const ref = useRef<HTMLDivElement>(null);
 
   const year = new Date(userData?.birthDate || '0').getFullYear();
   const month = new Date(userData?.birthDate || '0').getMonth() + 1 || 0;
@@ -42,11 +45,28 @@ function ResTemplate({ result, userData }: Props) {
 
   const splitText = '\n \n\n ';
 
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'my-image-name.png';
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
+
   // console.log(SAJU_60[0]);
 
   return (
     <>
-      <Stack px="xs">
+      <Stack px="xs" my="lg" ref={ref} bg="#fff">
         <Paper
           sx={{ borderColor: '#2d2da8' }}
           shadow="xl"
@@ -152,7 +172,7 @@ function ResTemplate({ result, userData }: Props) {
         >
           나와 맞는 / 안맞는 일주
         </Button>
-        <Button color="gray.5" size="md">
+        <Button onClick={onButtonClick} color="gray.5" size="md">
           이미지로 저장하기
         </Button>
       </Stack>
