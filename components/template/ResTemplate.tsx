@@ -20,7 +20,7 @@ import stringReplace from 'react-string-replace';
 import UnderLinedDescription from '../molecules/UnderLinedDescription';
 import { SAJU_60 } from '../../utils/utils';
 import { useRouter } from 'next/router';
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { toPng } from 'html-to-image';
 
 interface Props {
@@ -29,6 +29,7 @@ interface Props {
 }
 function ResTemplate({ result, userData }: Props) {
   const router = useRouter();
+  const [downloadLoading, setDownloadLoading] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const year = new Date(userData?.birthDate || '0').getFullYear();
@@ -49,13 +50,14 @@ function ResTemplate({ result, userData }: Props) {
     if (ref.current === null) {
       return;
     }
-
+    setDownloadLoading(true);
     toPng(ref.current, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement('a');
-        link.download = 'my-image-name.png';
+        link.download = 'saju-result.png';
         link.href = dataUrl;
         link.click();
+        setDownloadLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -172,7 +174,12 @@ function ResTemplate({ result, userData }: Props) {
         >
           나와 맞는 / 안맞는 일주
         </Button>
-        <Button onClick={onButtonClick} color="gray.5" size="md">
+        <Button
+          loading={downloadLoading}
+          onClick={onButtonClick}
+          color="gray.5"
+          size="md"
+        >
           이미지로 저장하기
         </Button>
       </Stack>
