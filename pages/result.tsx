@@ -7,16 +7,20 @@ import { useMutation } from 'react-query';
 import { getResult } from '../components/api/result';
 import Loading from '../components/atoms/Loading';
 import DescriptionText from '../components/molecules/DescriptionText';
+import RelationView from '../components/organism/RelationView';
 import ResultButtons from '../components/organism/ResultButtons';
 import ResultIljuDescription from '../components/organism/ResultIljuDescription';
 import ErrorTemplate from '../components/template/ErrorTemplate';
-import ResTemplate from '../components/template/ResTemplate';
+import ResTemplate, {
+  ResTemplateProps,
+} from '../components/template/ResTemplate';
 import { ResultParams } from '../components/types/StepInput';
-import { useUserResultState } from '../utils/state';
+import { useShareParamState, useUserResultState } from '../utils/state';
 
 function Result() {
   const router = useRouter();
   const { userData, setError, error } = useUserResultState();
+  const { ilju, username } = useShareParamState();
   const ref = useRef<HTMLDivElement>(null);
 
   const [params, setParams] = useState<ResultParams>();
@@ -44,51 +48,53 @@ function Result() {
   }, [userData]);
 
   useEffect(() => {
-    if (params) resultMutate.mutate(params);
+    if (params) resultMutate.mutate({ ...params, target: ilju });
   }, [params]);
 
+  console.log(ilju, username);
+
+  const resTemplateProps: Omit<ResTemplateProps, 'hasRelation'> = {
+    descriptionTextComponent: (
+      <DescriptionText
+        texts={[
+          '인간의 운명을 지배하는 4개의 기둥',
+          '(四柱=년주+월주+”일주”+시주)인 사주에서',
+          '당신의 [성향/성격/심리]를 가장 잘 보여주는 것이',
+          '“일주(日柱)”랍니다.',
+        ]}
+      />
+    ),
+    iljuDescriptionTextComponent: (
+      <ResultIljuDescription result={resultMutate.data} userData={userData} />
+    ),
+    resultbuttonsComponent: (
+      <ResultButtons
+        userData={userData}
+        imgRef={ref}
+        result={resultMutate.data}
+      />
+    ),
+    relationModalComponent: (
+      <RelationView
+        result={resultMutate.data}
+        targetIlju={ilju}
+        targetName={username}
+        userData={userData}
+      />
+    ),
+    imgRef: ref,
+  };
+
   return (
-    <Stack p="lg">
-      <Group position="right">
-        <ActionIcon onClick={() => router.push('/')}>
-          <IconX size={18} />
-        </ActionIcon>
-      </Group>
-      <Box>
-        {resultMutate.data ? (
-          <ResTemplate
-            descriptionTextComponent={
-              <DescriptionText
-                texts={[
-                  '인간의 운명을 지배하는 4개의 기둥',
-                  '(四柱=년주+월주+”일주”+시주)인 사주에서',
-                  '당신의 [성향/성격/심리]를 가장 잘 보여주는 것이',
-                  '“일주(日柱)”랍니다.',
-                ]}
-              />
-            }
-            iljuDescriptionTextComponent={
-              <ResultIljuDescription
-                result={resultMutate.data}
-                userData={userData}
-              />
-            }
-            resultbuttonsComponent={
-              <ResultButtons
-                userData={userData}
-                imgRef={ref}
-                result={resultMutate.data}
-              />
-            }
-            imgRef={ref}
-          />
-        ) : resultMutate.isError ? (
-          <ErrorTemplate />
-        ) : (
-          <Loading />
-        )}
-      </Box>
-    </Stack>
+    <>
+      {resultMutate.data ? (
+        <ResTemplate {...resTemplateProps} relation={username} />
+      ) : resultMutate.isError ? (
+        <ErrorTemplate />
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 }
 

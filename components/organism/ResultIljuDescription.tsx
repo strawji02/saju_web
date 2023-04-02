@@ -1,6 +1,7 @@
 import { Box, Center, Divider, List } from '@mantine/core';
 import Image from 'next/image';
 import DefaultText from '../atoms/DefaultText';
+import SajuImage from '../atoms/SajuImage';
 import Title from '../atoms/Title';
 import UnderLinedText from '../atoms/UnderLinedText';
 import UnderLinedDescription from '../molecules/UnderLinedDescription';
@@ -23,10 +24,6 @@ function ResultIljuDescription({
   const hour = new Date(`2000-01-01T${userData?.birthTime}` || '0').getHours();
   const min = new Date(`2000-01-01T${userData?.birthTime}` || '0').getMinutes();
   const name = userData?.name;
-
-  const src = result?.s_no
-    ? `/images/${String(parseInt(result.s_no) + 1).padStart(2, '0')}@3x.png`
-    : undefined;
 
   const splitText = '\n \n\n ';
   return (
@@ -52,7 +49,8 @@ function ResultIljuDescription({
         {result?.image}
       </DefaultText>
       <Center>
-        {src && <Image alt="사주 이미지" src={src} width={320} height={320} />}
+        {/* {src && <Image alt="사주 이미지" src={src} width={320} height={320} />} */}
+        <SajuImage sajuNo={result?.s_no || ''} />
       </Center>
       <Divider />
       <Box>

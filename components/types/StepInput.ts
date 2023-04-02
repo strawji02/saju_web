@@ -28,6 +28,7 @@ export interface ResultParams {
   hour: number;
   min: number;
   intercalation: string | null;
+  target?: number;
 }
 
 export interface ResultType {
@@ -51,4 +52,6 @@ export interface ResultType {
   s_no: string;
   negative: string;
   positive: string;
+  relation_score: string;
+  relation_reverse_score: string;
 }

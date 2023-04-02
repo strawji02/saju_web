@@ -3,11 +3,34 @@ import svg from '../public/Group 43.svg';
 import HomeTemplate from '../components/template/HomeTemplate';
 import { useWindowScroll } from '@mantine/hooks';
 import { Box, Button, Text } from '@mantine/core';
+import HomeTopBar from '../components/organism/HomeTopBar';
+import HomeDescriptText from '../components/organism/HomeDescriptText';
+import HomeStepBox from '../components/organism/HomeStepBox';
+import { useRouter } from 'next/router';
+import { useShareParamState } from '../utils/state';
 
 export default function Home() {
+  const router = useRouter();
+
+  const { setData, ilju } = useShareParamState();
+  useEffect(() => {
+    if ('ilju' in router.query && 'username' in router.query) {
+      console.log(router.query);
+      setData({
+        ilju: parseInt(router.query.ilju as string),
+        username: router.query.username as string,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query]);
+
   return (
     <>
-      <HomeTemplate href="/input?step=1" svg={svg} />
+      <HomeTemplate
+        topBarComponent={<HomeTopBar />}
+        descriptionTextComponent={<HomeDescriptText svg={svg} />}
+        nextButtonComponent={<HomeStepBox href={`/input?step=1`} />}
+      />
     </>
   );
 }
