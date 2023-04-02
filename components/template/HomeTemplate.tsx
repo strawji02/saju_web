@@ -1,24 +1,30 @@
-import { Box, Divider } from '@mantine/core';
-import React from 'react';
+import { Box, Divider, Modal } from '@mantine/core';
+import React, { useState } from 'react';
 import Layout from '../layout/Layout';
 import HomeDescriptText from '../organism/HomeDescriptText';
 import HomeStepBox from '../organism/HomeStepBox';
 import HomeTopBar from '../organism/HomeTopBar';
 
 interface Props {
-  svg: any;
-  href: string;
+  // svg: any;
+  // href: string;
+  topBarComponent: React.ReactNode;
+  descriptionTextComponent: React.ReactNode;
+  nextButtonComponent: React.ReactNode;
 }
 
-function HomeTemplate({ svg, href }: Props) {
+function HomeTemplate({ ...components }: Props) {
+  const { descriptionTextComponent, nextButtonComponent, topBarComponent } =
+    components;
+
   return (
     <>
       <Layout color="#eaeaea">
         <Box style={{ backgroundColor: '#f5f5f5' }}>
-          <HomeTopBar />
-          <HomeDescriptText svg={svg} />
+          {topBarComponent}
+          {descriptionTextComponent}
         </Box>
-        <HomeStepBox href={href} />
+        {nextButtonComponent}
       </Layout>
     </>
   );
