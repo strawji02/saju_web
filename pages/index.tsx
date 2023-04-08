@@ -8,6 +8,7 @@ import HomeDescriptText from '../components/organism/HomeDescriptText';
 import HomeStepBox from '../components/organism/HomeStepBox';
 import { useRouter } from 'next/router';
 import { useShareParamState } from '../utils/state';
+import LayoutTemplate from '../components/template/LayoutTemplate';
 
 export default function Home() {
   const router = useRouter();
@@ -26,11 +27,13 @@ export default function Home() {
 
   return (
     <>
-      <HomeTemplate
-        topBarComponent={<HomeTopBar />}
-        descriptionTextComponent={<HomeDescriptText svg={svg} />}
-        nextButtonComponent={<HomeStepBox href={`/input?step=1`} />}
-      />
+      <LayoutTemplate color="#eaeaea">
+        <HomeTemplate
+          topBarComponent={<HomeTopBar />}
+          descriptionTextComponent={<HomeDescriptText svg={svg} />}
+          nextButtonComponent={<HomeStepBox href={`/input?step=1`} />}
+        />
+      </LayoutTemplate>
     </>
   );
 }

@@ -2,7 +2,7 @@ import { Box } from '@mantine/core';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ArrowLeftButton from '../components/atoms/ArrowLeftButton';
-import Layout from '../components/layout/Layout';
+import LayoutTemplate from '../components/template/LayoutTemplate';
 import Topbar from '../components/molecules/Topbar';
 import CompatibilityIlju, {
   CompatibilityIljuProps,

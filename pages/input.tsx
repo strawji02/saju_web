@@ -4,13 +4,21 @@ import _ from 'lodash';
 import { InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import StepInputTemplate from '../components/template/StepInputTemplate';
+import StepInputTemplate, {
+  StepInputTemplateProps,
+} from '../components/template/StepInputTemplate';
 import {
   StepInputFormType,
   StepTitleType,
 } from '../components/types/StepInput';
 import { useUserResultState } from '../utils/state';
 import { toStringByFormatting } from '../utils/utils';
+import LayoutTemplate from '../components/template/LayoutTemplate';
+import Topbar from '../components/molecules/Topbar';
+import ArrowLeftButton from '../components/atoms/ArrowLeftButton';
+import StepTitle from '../components/molecules/StepTitle';
+import Form from '../components/organism/Form';
+import NextButton from '../components/atoms/NextButton';
 
 function Step() {
   const { error, removeError, userData, setUserData, removeUserData } =
@@ -18,6 +26,7 @@ function Step() {
   const router = useRouter();
   const queryStep = router.query['step'];
   const step = typeof queryStep === 'string' ? parseInt(queryStep) : undefined;
+  const isLastStep = step === 4;
 
   const today = new Date();
 
@@ -109,10 +118,37 @@ function Step() {
     },
   ];
 
+  const stepInputTemplateProps: StepInputTemplateProps = {
+    topBarComponent: (
+      <Topbar
+        title="당신을 알려주세요"
+        leftArea={
+          <ArrowLeftButton
+            onClick={() =>
+              router.push(step === 1 ? '/' : { query: { step: step - 1 } })
+            }
+          />
+        }
+      />
+    ),
+    stepTitleComponent: <StepTitle step={step} {...title[step - 1]} />,
+    formComponent: <Form form={form} step={step} />,
+    nextButtonComponent: (
+      <NextButton
+        onClick={(e) => {
+          if (form.validate().hasErrors) e.preventDefault();
+        }}
+        disabled={!form.isValid()}
+        href={isLastStep ? '/result' : { query: { step: step + 1 } }}
+        btnText={isLastStep ? '결과보기' : '다음'}
+      />
+    ),
+  };
+
   return (
-    <div>
-      <StepInputTemplate step={step} title={title[step - 1]} form={form} />
-    </div>
+    <LayoutTemplate>
+      <StepInputTemplate {...stepInputTemplateProps} />
+    </LayoutTemplate>
   );
 }
 

@@ -7,7 +7,7 @@ interface Props {
   color?: string;
 }
 
-function Layout({ children, color }: Props) {
+function LayoutTemplate({ children, color }: Props) {
   return (
     <Stack
       style={{ height: '100%', backgroundColor: color }}
@@ -18,4 +18,4 @@ function Layout({ children, color }: Props) {
   );
 }
 
-export default Layout;
+export default LayoutTemplate;

@@ -1,48 +1,47 @@
-import { ActionIcon, Box, Input, Step, useMantineTheme } from '@mantine/core';
+import {
+  ActionIcon,
+  Box,
+  Input,
+  Stack,
+  Step,
+  useMantineTheme,
+} from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
-import { IconArrowLeft } from '@tabler/icons';
 import { useRouter } from 'next/router';
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import ArrowLeftButton from '../atoms/ArrowLeftButton';
-import GenderSelectButton from '../atoms/GenderSelectButton';
-import GenderSelector from '../molecules/GenderSelector';
 import Topbar from '../molecules/Topbar';
 import Form from '../organism/Form';
-import StepInput from '../organism/StepInput';
 import { Dosi, StepInputFormType, StepTitleType } from '../types/StepInput';
+import StepTitle from '../molecules/StepTitle';
+import NextButton from '../atoms/NextButton';
 
-interface Props {
-  step: number;
-  title: StepTitleType;
-  form: UseFormReturnType<
-    StepInputFormType,
-    (values: StepInputFormType) => StepInputFormType
-  >;
+export interface StepInputTemplateProps {
+  topBarComponent: React.ReactNode;
+  stepTitleComponent: React.ReactNode;
+  formComponent: React.ReactNode;
+  nextButtonComponent: React.ReactNode;
 }
 
-function StepInputTemplate({ step, title, form }: Props) {
-  const router = useRouter();
+function StepInputTemplate({ ...component }: StepInputTemplateProps) {
+  const {
+    topBarComponent,
+    stepTitleComponent,
+    formComponent,
+    nextButtonComponent,
+  } = component;
+
   return (
     <>
-      <Topbar
-        title="당신을 알려주세요"
-        leftArea={
-          <ArrowLeftButton
-            onClick={() =>
-              router.push(step === 1 ? '/' : { query: { step: step - 1 } })
-            }
-          />
-        }
-      />
+      {topBarComponent}
       <Box mt={50} mx={27}>
-        <StepInput
-          form={form}
-          step={step}
-          href={{ query: { step: step + 1 } }}
-          title={title}
-        >
-          <Form form={form} step={step} />
-        </StepInput>
+        <Stack spacing={0}>
+          {stepTitleComponent}
+          <Box mt={30} mb={64}>
+            {formComponent}
+          </Box>
+          {nextButtonComponent}
+        </Stack>
       </Box>
     </>
   );
