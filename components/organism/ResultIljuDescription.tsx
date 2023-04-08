@@ -28,41 +28,57 @@ function ResultIljuDescription({
   const splitText = '\n \n\n ';
   return (
     <>
-      <Box>
-        <Title
-          text={`${year}년 ${month}월 ${day}일 (${cal}) ${hour}시 
+      <Title
+        text={`${year}년 ${month}월 ${day}일 (${cal}) ${hour}시 
         ${min}분에 태어난`}
-          c="dark"
-          align="center"
-        />
-        <Title c="dark" align="center">
-          <DefaultText component="span" fw={800} fz={17}>
-            <UnderLinedText>
-              {result?.day}({result?.day_kr})
-            </UnderLinedText>{' '}
-            일주
-          </DefaultText>{' '}
-          {name}님의 느낌은
-        </Title>
-      </Box>
-      <DefaultText fw="lighter" fz={16} c="gray.9" align="center">
-        {result?.image}
-      </DefaultText>
-      <Center>
-        {/* {src && <Image alt="사주 이미지" src={src} width={320} height={320} />} */}
-        <SajuImage sajuNo={result?.s_no || ''} />
-      </Center>
-      <Divider />
-      <Box>
-        <DefaultText ta="center" fw={800} fz={17}>
+        c="dark"
+        align="center"
+      />
+      <Box ml="xs" mt="sm">
+        <DefaultText component="span" fw={800} fz={17}>
           <UnderLinedText>
             {result?.day}({result?.day_kr})
           </UnderLinedText>{' '}
-          일주 {name}님
+          일주
         </DefaultText>
-        <DefaultText ta="center" fw={800} fz={17}>
-          당신의 성향과 심리 그리고 운세
+        <Title fz={22} c="dark">
+          <Title fz={22} component="span">
+            {name}
+          </Title>
+          님의{' '}
+          <Title fz={22} component="span">
+            느낌은
+          </Title>
+        </Title>
+      </Box>
+      <DefaultText fw="lighter" fz={30} c="gray.9" align="center">
+        {result?.image}
+      </DefaultText>
+      <Center>
+        <SajuImage sajuNo={result?.s_no || ''} />
+      </Center>
+      <Divider />
+      <Box ml="xs">
+        <DefaultText fw={800} fz={17}>
+          <UnderLinedText>
+            {result?.day}({result?.day_kr})
+          </UnderLinedText>{' '}
+          일주
         </DefaultText>
+        <Title fz={22} c="dark">
+          <Title fz={22} component="span">
+            {name}
+          </Title>
+          님{' '}
+          <Title fz={22} component="span">
+            당신의 성향과 심리
+          </Title>
+          <br />
+          그리고{' '}
+          <Title fz={22} component="span">
+            운세
+          </Title>
+        </Title>
       </Box>
       {result && (
         <DefaultText disallowDrag weight={500} size={17} align="left">

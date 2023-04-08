@@ -1,6 +1,6 @@
-import { Box } from '@mantine/core';
+import { Box, Modal } from '@mantine/core';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import ArrowLeftButton from '../components/atoms/ArrowLeftButton';
 import LayoutTemplate from '../components/template/LayoutTemplate';
 import Topbar from '../components/molecules/Topbar';
@@ -9,6 +9,7 @@ import CompatibilityIlju, {
 } from '../components/organism/CompatibilityIlju';
 import CompatibilityTemplate from '../components/template/CompatibilityTemplate';
 import { SAJU_60 } from '../utils/utils';
+import IljuModalContents from '../components/organism/IljuModalContents';
 
 function Compatibility() {
   const router = useRouter();
@@ -17,9 +18,14 @@ function Compatibility() {
   const positive = pos?.split(',').map(Number);
   const negative = neg?.split(',').map(Number);
 
+  const [iljuModalState, setIljuModalState] = useState<number>();
+
   console.log(positive, negative);
 
-  const compatibilityIljuPropsArr: CompatibilityIljuProps[] = [
+  const compatibilityIljuPropsArr: Omit<
+    CompatibilityIljuProps,
+    'setIljuModalState'
+  >[] = [
     {
       iljuIndex: positive,
       isPositive: true,
@@ -31,15 +37,29 @@ function Compatibility() {
   ];
 
   return (
-    <CompatibilityTemplate>
-      <Topbar
-        title="나랑 맞는/안맞는 일주"
-        leftArea={<ArrowLeftButton onClick={() => router.back()} />}
-      />
-      {compatibilityIljuPropsArr.map((props, index) => (
-        <CompatibilityIlju {...props} key={`compatibility-${index}`} />
-      ))}
-    </CompatibilityTemplate>
+    <>
+      <CompatibilityTemplate>
+        <Topbar
+          title="나랑 맞는/안맞는 일주"
+          leftArea={<ArrowLeftButton onClick={() => router.back()} />}
+        />
+        {compatibilityIljuPropsArr.map((props, index) => (
+          <CompatibilityIlju
+            setIljuModalState={setIljuModalState}
+            {...props}
+            key={`compatibility-${index}`}
+          />
+        ))}
+      </CompatibilityTemplate>
+      <Modal
+        opened={!!iljuModalState}
+        onClose={() => setIljuModalState(undefined)}
+        centered
+        radius="xl"
+      >
+        <IljuModalContents ilju={iljuModalState} />
+      </Modal>
+    </>
   );
 }
 
