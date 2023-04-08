@@ -1,9 +1,5 @@
 import { Box, Divider, Modal } from '@mantine/core';
 import React, { useState } from 'react';
-import Layout from '../layout/Layout';
-import HomeDescriptText from '../organism/HomeDescriptText';
-import HomeStepBox from '../organism/HomeStepBox';
-import HomeTopBar from '../organism/HomeTopBar';
 
 interface Props {
   // svg: any;
@@ -19,13 +15,11 @@ function HomeTemplate({ ...components }: Props) {
 
   return (
     <>
-      <Layout color="#eaeaea">
-        <Box style={{ backgroundColor: '#f5f5f5' }}>
-          {topBarComponent}
-          {descriptionTextComponent}
-        </Box>
-        {nextButtonComponent}
-      </Layout>
+      <Box style={{ backgroundColor: '#f5f5f5' }}>
+        {topBarComponent}
+        {descriptionTextComponent}
+      </Box>
+      {nextButtonComponent}
     </>
   );
 }

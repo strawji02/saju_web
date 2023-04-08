@@ -1,5 +1,6 @@
 import { Box, Center, Divider, Flex, Grid, Group } from '@mantine/core';
 import Title from '../atoms/Title';
+import { useMediaQuery } from '@mantine/hooks';
 
 interface Props {
   leftArea?: React.ReactNode;
@@ -8,6 +9,9 @@ interface Props {
 }
 
 function Topbar({ leftArea, rightArea, title }: Props) {
+  const isMini = useMediaQuery('(max-width: 425px)');
+  // console.log(isMini);
+
   return (
     <div>
       <Grid pt={56} px={22} m={0}>
@@ -17,8 +21,8 @@ function Topbar({ leftArea, rightArea, title }: Props) {
           </Flex>
         </Grid.Col>
         <Grid.Col p={0} span={8}>
-          <Center>
-            <Title text={title} fz={28} />
+          <Center h="100%">
+            <Title text={title} fz={isMini ? 22 : 28} />
           </Center>
         </Grid.Col>
         <Grid.Col p={0} span="auto">
