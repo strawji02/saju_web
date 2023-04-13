@@ -6,7 +6,7 @@ interface Props {
   svg?: any;
 }
 
-function HomeDescriptText({ svg }: Props) {
+function HomeDescriptText({ svg: SvgComp }: Props) {
   return (
     <Stack ml={28} mt={70} spacing={26} align="flex-start">
       <ShortDivider />
@@ -47,8 +47,8 @@ function HomeDescriptText({ svg }: Props) {
           </Text>
         </Stack>
         <Flex align="flex-end" style={{}}>
-          {svg ? (
-            <Image {...svg} alt="graphic svg" />
+          {SvgComp ? (
+            <SvgComp />
           ) : (
             <Box w={130} h={137} style={{ border: 'solid' }} />
           )}
