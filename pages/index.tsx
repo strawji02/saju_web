@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import svg from '../public/Group 43.svg';
+import svg from '../components/assets/Group.svg';
 import HomeTemplate from '../components/template/HomeTemplate';
 import { useWindowScroll } from '@mantine/hooks';
 import { Box, Button, Text } from '@mantine/core';
