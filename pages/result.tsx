@@ -47,26 +47,41 @@ function Result() {
   const [downloadLoading, setDownloadLoading] = useState(false);
   const [imgUrl, setImgUrl] = useState<string>();
 
-  const onButtonClick = useCallback(() => {
+  const onButtonClick = useCallback(async () => {
     if (imgRef.current === null) {
       return;
     }
     setDownloadLoading(true);
-    toPng(imgRef.current, { cacheBust: true })
-      .then((dataUrl) => {
-        console.log(dataUrl);
-        setImgUrl(dataUrl);
+    // toPng(imgRef.current, { cacheBust: true })
+    //   .then((dataUrl) => {
+    //     console.log(dataUrl);
+    //     setImgUrl(dataUrl);
 
-        const link = document.createElement('a');
-        link.download = 'saju-result.png';
-        link.href = dataUrl;
-        link.click();
+    //     const link = document.createElement('a');
+    //     link.download = 'saju-result.png';
+    //     link.href = dataUrl;
+    //     link.click();
 
-        setDownloadLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    //     setDownloadLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    await toPng(imgRef.current, { cacheBust: true });
+    // await toPng(imgRef.current, { cacheBust: true });
+    // await toPng(imgRef.current, { cacheBust: true });
+
+    const dataUrl = await toPng(imgRef.current, { cacheBust: true });
+    console.log(dataUrl);
+    setImgUrl(dataUrl);
+
+    const link = document.createElement('a');
+    link.download = 'saju-result.png';
+    link.href = dataUrl;
+    link.click();
+
+    setDownloadLoading(false);
   }, [imgRef]);
 
   useEffect(() => {
