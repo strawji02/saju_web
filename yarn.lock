@@ -3026,10 +3026,10 @@ html-react-parser@1.4.12:
     react-property "2.0.0"
     style-to-js "1.1.0"
 
-html-to-image@^1.11.11:
-  version "1.11.11"
-  resolved "https://registry.yarnpkg.com/html-to-image/-/html-to-image-1.11.11.tgz#c0f8a34dc9e4b97b93ff7ea286eb8562642ebbea"
-  integrity sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==
+html-to-image@1.11.5:
+  version "1.11.5"
+  resolved "https://registry.yarnpkg.com/html-to-image/-/html-to-image-1.11.5.tgz#94e0b980969f5f7286ac5b49973497a7bfe9cca6"
+  integrity sha512-c04Q92Bmdmf03YfhyvnEGd17ZSBOuDFWs1EZtLE+HKczlOiMGjvnf+qDBKhTkn6UEVX6lkgUi7gs0Iu6WEOBvg==
 
 html-tokenize@^2.0.0:
   version "2.0.1"
