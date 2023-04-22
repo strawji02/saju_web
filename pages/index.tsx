@@ -7,20 +7,20 @@ import HomeTopBar from '../components/organism/HomeTopBar';
 import HomeDescriptText from '../components/organism/HomeDescriptText';
 import HomeStepBox from '../components/organism/HomeStepBox';
 import { useRouter } from 'next/router';
-import { useShareParamState } from '../utils/state';
 import LayoutTemplate from '../components/template/LayoutTemplate';
 
 export default function Home() {
   const router = useRouter();
 
-  const { setData, ilju } = useShareParamState();
   useEffect(() => {
     if ('ilju' in router.query && 'username' in router.query) {
-      console.log(router.query);
-      setData({
-        ilju: parseInt(router.query.ilju as string),
-        username: router.query.username as string,
-      });
+      sessionStorage.setItem(
+        'shared-ilju',
+        JSON.stringify({
+          ilju: router.query.ilju,
+          username: router.query.username,
+        })
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query]);
