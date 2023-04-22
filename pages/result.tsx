@@ -15,21 +15,32 @@ import ResTemplate, {
   ResTemplateProps,
 } from '../components/template/ResTemplate';
 import { ResultParams } from '../components/types/StepInput';
-import { useShareParamState, useUserResultState } from '../utils/state';
+import { useUserResultState } from '../utils/state';
+
+export interface ShareParamData {
+  ilju: number | undefined;
+  username: string | undefined;
+}
 
 function Result() {
   const router = useRouter();
   const { userData, setError, error } = useUserResultState();
-  const { ilju, username } = useShareParamState();
+  // const { ilju, username } = useShareParamState();
   const ref = useRef<HTMLDivElement>(null);
 
   const [params, setParams] = useState<ResultParams>();
+  const [shareParam, setShareParam] = useState<ShareParamData>();
 
   const resultMutate = useMutation('get-result', getResult, {
     onError: () => setError(),
   });
 
   useEffect(() => {
+    if (sessionStorage.getItem('shared-ilju')) {
+      setShareParam(
+        JSON.parse(sessionStorage.getItem('shared-ilju') as string)
+      );
+    }
     if (userData) {
       setParams({
         gender: userData.gender || '',
@@ -48,10 +59,10 @@ function Result() {
   }, [userData]);
 
   useEffect(() => {
-    if (params) resultMutate.mutate({ ...params, target: ilju });
+    if (params) resultMutate.mutate({ ...params, target: shareParam?.ilju });
   }, [params]);
 
-  console.log(ilju, username);
+  console.log(shareParam);
 
   const resTemplateProps: Omit<ResTemplateProps, 'hasRelation'> = {
     descriptionTextComponent: (
@@ -77,8 +88,8 @@ function Result() {
     relationModalComponent: (
       <RelationView
         result={resultMutate.data}
-        targetIlju={ilju}
-        targetName={username}
+        targetIlju={shareParam?.ilju}
+        targetName={shareParam?.username}
         userData={userData}
       />
     ),
@@ -88,7 +99,7 @@ function Result() {
   return (
     <>
       {resultMutate.data ? (
-        <ResTemplate {...resTemplateProps} relation={username} />
+        <ResTemplate {...resTemplateProps} relation={shareParam?.username} />
       ) : resultMutate.isError ? (
         <ErrorTemplate />
       ) : (

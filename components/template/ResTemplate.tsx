@@ -52,10 +52,11 @@ function ResTemplate({ imgRef, relation, ...components }: ResTemplateProps) {
     router.push({ query: state ? { modal: true } : {} });
 
   useEffect(() => {
-    if (relation) {
+    if (relation && !sessionStorage.getItem('opened')) {
       setTimeout(() => {
         setRelationModalOpened(true);
       }, 500);
+      sessionStorage.setItem('opened', 'true');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

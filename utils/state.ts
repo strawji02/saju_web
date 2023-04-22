@@ -26,24 +26,3 @@ export const useUserResultState = create<UserResultState>()(
     )
   )
 );
-
-export interface ShareParamData {
-  ilju: number | undefined;
-  username: string | undefined;
-}
-interface ShareParamState extends ShareParamData {
-  setData: (data: ShareParamData) => void;
-  removeData: () => void;
-}
-
-export const useShareParamState = create<ShareParamState>()(
-  devtools(
-    (set) => ({
-      ilju: undefined,
-      username: undefined,
-      setData: (data) => set(() => ({ ...data })),
-      removeData: () => set(() => ({ ilju: undefined, username: undefined })),
-    }),
-    { name: 'share-param-store' }
-  )
-);
