@@ -107,9 +107,10 @@ function ResultIljuDescription({
           당신의 성장을 위한 팁
         </Title>
       </Box>
-      <DefaultText mb="lg" ff="haenam" ta="center" disallowDrag size={18}>
+      <DefaultText ff="haenam" ta="center" disallowDrag size={18}>
         {result?.advice}
       </DefaultText>
+      <Box h={40} />
     </>
   );
 }

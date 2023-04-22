@@ -8,42 +8,21 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { ResultType, StepInputFormType } from '../types/StepInput';
 
 export interface ResultButtonsProps {
-  imgRef: RefObject<HTMLDivElement>;
   result: ResultType | undefined;
   userData: StepInputFormType | undefined;
+  loading: boolean;
+  onButtonClick: () => void;
 }
 
 function ResultButtons({
-  imgRef,
   result,
   userData,
+  loading,
+  onButtonClick,
   ...props
 }: ResultButtonsProps) {
   const router = useRouter();
 
-  const [downloadLoading, setDownloadLoading] = useState(false);
-
-  const onButtonClick = useCallback(() => {
-    if (imgRef.current === null) {
-      return;
-    }
-    setDownloadLoading(true);
-    toPng(imgRef.current, { cacheBust: true })
-      .then((dataUrl) => {
-        console.log(dataUrl);
-
-        // const link = document.createElement('a');
-        // link.download = 'saju-result.png';
-        // link.href = dataUrl;
-        // link.click();
-        download(dataUrl, 'my-node.png');
-
-        setDownloadLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [imgRef]);
   const text = `${userData?.name}님과의 궁합을 사주 해석과 함께 확인해보세요!`;
   const url = `${document.location.origin}/?ilju=${result?.s_no}&username=${userData?.name}`;
 
@@ -87,7 +66,7 @@ function ResultButtons({
         나와 맞는 / 안맞는 일주
       </Button>
       <Button
-        loading={downloadLoading}
+        loading={loading}
         onClick={onButtonClick}
         color="gray.6"
         size="lg"

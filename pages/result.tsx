@@ -1,11 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ActionIcon, Box, Group, Modal, Stack } from '@mantine/core';
-import { IconX } from '@tabler/icons';
+import {
+  ActionIcon,
+  Box,
+  Group,
+  Modal,
+  Paper,
+  Stack,
+  Text,
+} from '@mantine/core';
+import { toPng } from 'html-to-image';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useMutation } from 'react-query';
 import { getResult } from '../components/api/result';
 import Loading from '../components/atoms/Loading';
+import Title from '../components/atoms/Title';
 import DescriptionText from '../components/molecules/DescriptionText';
 import RelationView from '../components/organism/RelationView';
 import ResultButtons from '../components/organism/ResultButtons';
@@ -26,7 +35,7 @@ function Result() {
   const router = useRouter();
   const { userData, setError, error } = useUserResultState();
   // const { ilju, username } = useShareParamState();
-  const ref = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
 
   const [params, setParams] = useState<ResultParams>();
   const [shareParam, setShareParam] = useState<ShareParamData>();
@@ -34,6 +43,31 @@ function Result() {
   const resultMutate = useMutation('get-result', getResult, {
     onError: () => setError(),
   });
+
+  const [downloadLoading, setDownloadLoading] = useState(false);
+  const [imgUrl, setImgUrl] = useState<string>();
+
+  const onButtonClick = useCallback(() => {
+    if (imgRef.current === null) {
+      return;
+    }
+    setDownloadLoading(true);
+    toPng(imgRef.current, { cacheBust: true })
+      .then((dataUrl) => {
+        console.log(dataUrl);
+        setImgUrl(dataUrl);
+
+        const link = document.createElement('a');
+        link.download = 'saju-result.png';
+        link.href = dataUrl;
+        link.click();
+
+        setDownloadLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [imgRef]);
 
   useEffect(() => {
     if (sessionStorage.getItem('shared-ilju')) {
@@ -81,8 +115,9 @@ function Result() {
     resultbuttonsComponent: (
       <ResultButtons
         userData={userData}
-        imgRef={ref}
         result={resultMutate.data}
+        loading={downloadLoading}
+        onButtonClick={onButtonClick}
       />
     ),
     relationModalComponent: (
@@ -93,18 +128,29 @@ function Result() {
         userData={userData}
       />
     ),
-    imgRef: ref,
+    imgRef: imgRef,
+    relation: shareParam?.username,
   };
 
   return (
     <>
       {resultMutate.data ? (
-        <ResTemplate {...resTemplateProps} relation={shareParam?.username} />
+        <ResTemplate {...resTemplateProps} />
       ) : resultMutate.isError ? (
         <ErrorTemplate />
       ) : (
         <Loading />
       )}
+      <Modal onClose={() => setImgUrl(undefined)} opened={!!imgUrl}>
+        <Title mb="md">
+          이미지를 저장해 {userData?.name} 님의 사주를 공유해보세요!
+        </Title>
+        {imgUrl && (
+          <Paper shadow="xl" withBorder>
+            <img width={'100%'} src={imgUrl} alt="saju_image" />
+          </Paper>
+        )}
+      </Modal>
     </>
   );
 }
