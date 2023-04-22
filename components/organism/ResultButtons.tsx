@@ -1,5 +1,6 @@
 import { Button, Stack } from '@mantine/core';
 import { IconShare } from '@tabler/icons';
+import download from 'downloadjs';
 import { toPng } from 'html-to-image';
 import { useRouter } from 'next/router';
 import { RefObject, useCallback, useState } from 'react';
@@ -29,10 +30,14 @@ function ResultButtons({
     setDownloadLoading(true);
     toPng(imgRef.current, { cacheBust: true })
       .then((dataUrl) => {
-        const link = document.createElement('a');
-        link.download = 'saju-result.png';
-        link.href = dataUrl;
-        link.click();
+        console.log(dataUrl);
+
+        // const link = document.createElement('a');
+        // link.download = 'saju-result.png';
+        // link.href = dataUrl;
+        // link.click();
+        download(dataUrl, 'my-node.png');
+
         setDownloadLoading(false);
       })
       .catch((err) => {

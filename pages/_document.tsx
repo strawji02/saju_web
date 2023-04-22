@@ -13,14 +13,17 @@ export default class _Document extends Document {
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
             rel="stylesheet"
+            crossOrigin="anonymous"
           />
           <link
             href="https://webfontworld.github.io/goodchoice/Jalnan.css"
             rel="stylesheet"
+            crossOrigin="anonymous"
           />
           <link
             href="https://webfontworld.github.io/haenam/haenam.css"
             rel="stylesheet"
+            crossOrigin="anonymous"
           />
           <meta property="og:title" content="너와 나의 하루" />
           <meta property="og:url" content="https://saju60.com" />
