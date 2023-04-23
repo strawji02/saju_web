@@ -4,6 +4,7 @@ import DefaultText from '../atoms/DefaultText';
 import SajuImage from '../atoms/SajuImage';
 import Title from '../atoms/Title';
 import UnderLinedText from '../atoms/UnderLinedText';
+import MarkDescriptionText from '../molecules/MarkDescriptionText';
 import UnderLinedDescription from '../molecules/UnderLinedDescription';
 import { ResultType, StepInputFormType } from '../types/StepInput';
 
@@ -80,17 +81,7 @@ function ResultIljuDescription({
           </Title>
         </Title>
       </Box>
-      {result && (
-        <DefaultText disallowDrag weight={500} size={17} align="left">
-          <List>
-            {result.res_str.split(splitText).map((text, index) => (
-              <UnderLinedDescription key={`res-description-${index}`}>
-                {text}
-              </UnderLinedDescription>
-            ))}
-          </List>
-        </DefaultText>
-      )}
+      {result && <MarkDescriptionText resultStr={result.res_str} />}
       <Divider />
       <Box ml="xs">
         <DefaultText fw={800} fz={17}>

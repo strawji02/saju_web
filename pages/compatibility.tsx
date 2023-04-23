@@ -1,4 +1,4 @@
-import { Box, Modal } from '@mantine/core';
+import { Box, Modal, Skeleton } from '@mantine/core';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import ArrowLeftButton from '../components/atoms/ArrowLeftButton';
@@ -56,6 +56,7 @@ function Compatibility() {
         onClose={() => setIljuModalState(undefined)}
         centered
         radius="xl"
+        exitTransitionDuration={200}
       >
         <IljuModalContents ilju={iljuModalState} />
       </Modal>
