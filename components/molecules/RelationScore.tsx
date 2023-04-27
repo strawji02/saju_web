@@ -23,7 +23,7 @@ function RelationScore({ scoreIndex: [obj, sub] }: RelationScoreProps) {
         <Title pos="relative" c="dark" fz={28}>
           <Image
             style={{ position: 'absolute', left: -60, top: -5 }}
-            src={`/icons/compatibility${obj}.png`}
+            src={`/icons/compatibility${obj + 1}.png`}
             alt="obj comp"
             width={77}
             height={77}
@@ -37,7 +37,7 @@ function RelationScore({ scoreIndex: [obj, sub] }: RelationScoreProps) {
         <Title pos="relative" c="dark" fz={28}>
           <Image
             style={{ position: 'absolute', left: -60, top: -5 }}
-            src={`/icons/compatibility${sub}.png`}
+            src={`/icons/compatibility${sub + 1}.png`}
             alt="obj comp"
             width={77}
             height={77}
