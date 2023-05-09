@@ -18,9 +18,17 @@ function ResultIljuDescription({
   userData,
   ...components
 }: ResultIljuDescriptionProps) {
-  const year = new Date(userData?.birthDate || '0').getFullYear();
-  const month = new Date(userData?.birthDate || '0').getMonth() + 1 || 0;
-  const day = new Date(userData?.birthDate || '0').getDate();
+  const dateString = userData?.birthDate;
+  const formattedDate =
+    dateString?.substring(0, 4) +
+    '-' +
+    dateString?.substring(4, 6) +
+    '-' +
+    dateString?.substring(6, 8);
+
+  const year = new Date(formattedDate).getFullYear();
+  const month = new Date(formattedDate).getMonth() + 1 || 0;
+  const day = new Date(formattedDate).getDate();
   const cal = userData?.calendar ? '음력' : '양력';
   const hour = new Date(`2000-01-01T${userData?.birthTime}` || '0').getHours();
   const min = new Date(`2000-01-01T${userData?.birthTime}` || '0').getMinutes();

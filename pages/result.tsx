@@ -77,13 +77,21 @@ function Result() {
       );
     }
     if (userData) {
+      const dateString = userData.birthDate;
+      const formattedDate =
+        dateString?.substring(0, 4) +
+        '-' +
+        dateString?.substring(4, 6) +
+        '-' +
+        dateString?.substring(6, 8);
+
       setParams({
         gender: userData.gender || '',
         birthplace: userData.birthPlace,
         calendar: userData.calendar ? '음력' : '양력',
-        year: new Date(userData.birthDate || '0').getFullYear(),
-        month: new Date(userData.birthDate || '0').getMonth() + 1,
-        day: new Date(userData.birthDate || '0').getDate(),
+        year: new Date(formattedDate).getFullYear(),
+        month: new Date(formattedDate).getMonth() + 1,
+        day: new Date(formattedDate).getDate(),
         hour: new Date(`2000-01-01T${userData.birthTime}` || '0').getHours(),
         min: new Date(`2000-01-01T${userData.birthTime}` || '0').getMinutes(),
         intercalation: userData.intercalation ? '윤달' : null,

@@ -35,9 +35,7 @@ function Step() {
       name: '',
       gender: undefined,
       birthPlace: '',
-      birthDate: toStringByFormatting({
-        source: new Date(today.setFullYear(today.getFullYear() - 20)),
-      }),
+      birthDate: '',
       birthTime: toStringByFormatting({ source: today, isTime: true }),
       calendar: false,
       intercalation: false,
@@ -58,8 +56,26 @@ function Step() {
             birthPlace: values.birthPlace ? null : true,
           };
         default:
+          const dateString = values.birthDate;
+          const formattedDate =
+            dateString?.substring(0, 4) +
+            '-' +
+            dateString?.substring(4, 6) +
+            '-' +
+            dateString?.substring(6, 8);
+          const year = dateString?.substring(0, 4);
+          const isValid = Date.parse(formattedDate);
+          console.log(dateString, formattedDate, isValid);
+
           return {
             termsOfService: values.termsOfService ? null : true,
+            birthDate:
+              !isNaN(isValid) &&
+              dateString.length === 8 &&
+              +year > 1938 &&
+              +year < 2050
+                ? null
+                : true,
           };
       }
     },

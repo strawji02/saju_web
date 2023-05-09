@@ -6,6 +6,8 @@ import {
   MantineThemeOverride,
   Modal,
   ModalStylesNames,
+  NativeSelect,
+  NumberInput,
   Stack,
   Styles,
   Text,
@@ -182,6 +184,14 @@ function BirthInput({ form }: Props) {
   const router = useRouter();
   const routerModalOpened = router.query['modal'];
 
+  const startYear = 1938;
+  const endYear = new Date().getFullYear(); // get the current year
+
+  const yearArray = Array.from(
+    { length: endYear - startYear + 1 },
+    (_, index) => `${startYear + index}`
+  );
+
   useEffect(() => {
     if (!!isModalOpen !== !!routerModalOpened) {
       if (isModalOpen)
@@ -223,7 +233,7 @@ function BirthInput({ form }: Props) {
     <>
       <MantineProvider theme={providerTheme} inherit>
         <Stack spacing={25} style={{ textAlign: 'left' }}>
-          <TextInput
+          {/* <TextInput
             size="lg"
             radius="md"
             type="date"
@@ -231,7 +241,29 @@ function BirthInput({ form }: Props) {
             max="2050-12-31"
             label={<InputLabelText text="생년월일" />}
             {...form.getInputProps('birthDate')}
+          /> */}
+          {/* <NativeSelect
+            data={yearArray}
+            label="Select your favorite framework/library"
+            description="This is anonymous"
+            withAsterisk
+          /> */}
+          <NumberInput
+            size="lg"
+            radius="md"
+            hideControls
+            placeholder="20000101"
+            // parser={(value) => value?.replace(/\./g, '')}
+            // formatter={(value) =>
+            //   !Number.isNaN(parseFloat(value || '')) && value
+            //     ? value.substring(0, 4) + "-" + value.substring(4, 6) + "-" + value.substring(6, 8)
+            //     : ''
+            // }
+            label={<InputLabelText text="생년월일" />}
+            {...form.getInputProps('birthDate')}
+            onChange={(val) => form.setValues({ birthDate: val?.toString() })}
           />
+
           <TextInput
             size="lg"
             radius="md"
