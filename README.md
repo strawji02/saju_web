@@ -1,11 +1,11 @@
 ### Overview
 
-Next.js, MAntine UI 프레임워크를 이용한 웹 어플리케이션입니다. 사용자의 일주와
-그에 맞는 일주 해석을 보여줍니다.
+Next.js, MAntine UI 프레임워크를 이용한 웹 어플리케이션입니다. 사용자의 일주와그
+에 맞는 일주 해석을 보여줍니다.
 
 아직 개발 단계에 있습니다.
 
-### LIVE LINK : [https://www.saju60.com/](https://www.saju60.com/)
+### LIVE LINK : [https://www.saju60.com](https://www.saju60.com/)
 
 ## Program service config
 
@@ -41,5 +41,5 @@ Next.js, MAntine UI 프레임워크를 이용한 웹 어플리케이션입니다
   - AWS EC2 Amazone Linux 2
   - https ssl 인증서를 위해 Amazone CloudeFront 이용
   - vercel 웹 배포를 위해 https 필요
-  > Front ←→ Route53 [`server.saju60.com`](http://server.saju60.com/) ←→
-  > CloudeFront (ssl) `[bak.saju60.com](http://bak.saju60.com)` ←→ EC2
+    > Front ←→ Route53 [`server.saju60.com`](http://server.saju60.com/) ←→
+    > CloudeFront (ssl) `[bak.saju60.com](http://bak.saju60.com)` ←→ EC2
