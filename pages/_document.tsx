@@ -10,6 +10,19 @@ export default class _Document extends Document {
     return (
       <Html>
         <Head>
+          <link rel="icon" href="/favicon/favicon.ico" />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon_32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="196x196"
+            href="/favicon_196.png"
+          />
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
             rel="stylesheet"
@@ -31,6 +44,7 @@ export default class _Document extends Document {
             property="og:description"
             content="생년월일과 시간만으로도 당신의 성향과 심리를 빠르게 파악할 수 있답니다. MBTI보다 자세하고 섬세하게 당신을 설명하고 있어요."
           />
+          <meta property="og:image" content="/images/thumbnail.png" />
           <meta httpEquiv="Content-Language" content="ko" />
         </Head>
         <body style={{ minHeight: '100vh' }}>
