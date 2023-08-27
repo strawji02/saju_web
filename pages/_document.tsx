@@ -1,5 +1,5 @@
-import { createGetInitialProps } from '@mantine/next';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { createGetInitialProps } from "@mantine/next";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 const getInitialProps = createGetInitialProps();
 
@@ -46,8 +46,14 @@ export default class _Document extends Document {
           />
           <meta property="og:image" content="/images/thumbnail.png" />
           <meta httpEquiv="Content-Language" content="ko" />
+
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7739704599307320"
+            crossOrigin="anonymous"
+          ></script>
         </Head>
-        <body style={{ minHeight: '100vh' }}>
+        <body style={{ minHeight: "100vh" }}>
           <Main />
           <NextScript />
         </body>
