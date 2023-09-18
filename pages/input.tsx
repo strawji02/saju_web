@@ -83,10 +83,10 @@ function Step() {
 
   useEffect(() => {
     if (step !== 4) {
-      removeUserData();
-      router.push({
-        query: { step: 1 },
-      });
+      // removeUserData();
+      // router.push({
+      //   query: { step: 1 },
+      // });
     }
     if (step === 4 && userData) {
       if (error) {
@@ -98,7 +98,7 @@ function Step() {
           termsOfService: false,
         });
       } else {
-        router.replace('/');
+        // router.replace('/');
         removeUserData();
       }
     }

@@ -20,7 +20,7 @@ import _ from 'lodash';
 import { useRouter } from 'next/router';
 import { SetStateAction } from 'react';
 import { Dispatch, useEffect, useState } from 'react';
-import { dateIsValid, loremIpsem } from '../../utils/utils';
+import { dateIsValid, privacy, term } from '../../utils/utils';
 import InputLabelText from '../atoms/InputLabelText';
 import SubCheckbox from '../molecules/SubCheckbox';
 import { StepInputFormType } from '../types/StepInput';
@@ -89,9 +89,7 @@ const modalTheme: Styles<ModalStylesNames, Record<string, any>> = (theme) => ({
     fontStyle: 'normal',
     color: 'black',
   },
-  body: {
-    padding: 22,
-  },
+  body: { whiteSpace: 'pre-line', padding: 22 },
 });
 
 const providerTheme: MantineThemeOverride = {
@@ -324,7 +322,7 @@ function BirthInput({ form }: Props) {
         fullScreen
         styles={modalTheme}
       >
-        {loremIpsem}
+        {modalType === '개인정보처리방침' ? privacy : term}
       </Modal>
     </>
   );
