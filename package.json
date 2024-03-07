@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predev": "caddy reverse-proxy --from localhost:443 --to localhost:3030 &"
+    "predev": "caddy reverse-proxy --from localhost:443 --to localhost:3030 &",
+    "prettier": "prettier . --write",
+    "prettier:check": "prettier . --check"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -46,7 +48,9 @@
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",
     "@types/lodash": "^4.14.191",
-    "@types/react-portal": "^4.0.4"
+    "@types/react-portal": "^4.0.4",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4"
   },
   "packageManager": "yarn@1.22.10"
 }

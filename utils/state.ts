@@ -1,6 +1,6 @@
-import { ResultType, StepInputFormType } from './../components/types/StepInput';
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
+import { StepInputFormType } from '../pages/input/types';
 
 interface UserResultState {
   error: boolean | undefined;
@@ -22,7 +22,7 @@ export const useUserResultState = create<UserResultState>()(
         setUserData: (data) => set(() => ({ userData: data })),
         removeUserData: () => set(() => ({ userData: undefined })),
       }),
-      { name: 'user-store' }
-    )
-  )
+      { name: 'user-store' },
+    ),
+  ),
 );

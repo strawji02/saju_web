@@ -1,8 +1,8 @@
 import { Box, Divider, List, Text } from '@mantine/core';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import ArrowLeftButton from '../components/atoms/ArrowLeftButton';
-import Topbar from '../components/molecules/Topbar';
+import ArrowLeftButton from '../components/ArrowLeftButton';
+import Topbar from '../components/Topbar';
 
 function Service() {
   const router = useRouter();
