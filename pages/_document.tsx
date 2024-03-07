@@ -53,7 +53,7 @@ export default class _Document extends Document {
             crossOrigin="anonymous"
           ></script>
         </Head>
-        <body style={{ minHeight: '100vh' }}>
+        <body style={{ minHeight: '100dvh' }}>
           <Main />
           <NextScript />
         </body>

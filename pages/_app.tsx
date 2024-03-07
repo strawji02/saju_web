@@ -91,19 +91,14 @@ export default function App({ Component, pageProps }: AppProps) {
           }}
         >
           <Paper
-            sx={
-              matches
-                ? {
-                    width: 500,
-                    minHeight: '100vh',
-                    boxShadow:
-                      '0 4px 4px rgb(0 23 80 / 1%), 0 1px 6px rgb(0 23 80 / 2%), 0 8px 8px rgb(0 23 80 / 1%), 0 16px 16px rgb(0 23 80 / 1%), 8px 32px 32px rgb(0 23 80 / 2%), 8px 64px 64px rgb(0 23 80 / 2%)',
-                  }
-                : {
-                    width: '-webkit-fill-available',
-                    minHeight: '100vh',
-                  }
-            }
+            sx={{
+              width: '100%',
+              minWidth: 320,
+              minHeight: '100vh',
+              boxShadow: matches
+                ? '0 4px 4px rgb(0 23 80 / 1%), 0 1px 6px rgb(0 23 80 / 2%), 0 8px 8px rgb(0 23 80 / 1%), 0 16px 16px rgb(0 23 80 / 1%), 8px 32px 32px rgb(0 23 80 / 2%), 8px 64px 64px rgb(0 23 80 / 2%)'
+                : undefined,
+            }}
             style={{
               backgroundColor:
                 theme.colorScheme === 'dark'
