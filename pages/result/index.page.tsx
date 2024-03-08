@@ -59,7 +59,7 @@ function Result() {
   }, []);
 
   const onButtonClick = useCallback(async () => {
-    if (imgRef.current === null) {
+    if (imgRef.current === null || typeof document == 'undefined') {
       return;
     }
     setDownloadLoading(true);

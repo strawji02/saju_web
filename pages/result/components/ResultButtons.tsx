@@ -21,7 +21,7 @@ function ResultButtons({
   const router = useRouter();
 
   const text = `${userData?.name}님과의 궁합을 사주 해석과 함께 확인해보세요!`;
-  const url = `${document?.location?.origin}/?ilju=${result?.s_no}&username=${userData?.name}`;
+  const url = `${typeof window !== 'undefined' ? document?.location?.origin : ''}/?ilju=${result?.s_no}&username=${userData?.name}`;
 
   return (
     <Stack mt="xl">
