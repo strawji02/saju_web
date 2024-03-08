@@ -1,4 +1,4 @@
-import { Chip, Select, TextInput } from '@mantine/core';
+import { Box, Chip, Select, TextInput } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
 import { useWindowScroll } from '@mantine/hooks';
 import 'dayjs/locale/ko';
@@ -7,7 +7,7 @@ import { forwardRef, useRef } from 'react';
 import { useQuery } from 'react-query';
 import { getDosiNames } from '../../../../api/dosi';
 import Loading from '../../../../components/Loading';
-import { StepInputFormType } from '../../../../components/types';
+import { StepInputFormType } from '../../../../utils/types';
 import BirthInput from './BirthInput';
 import GenderSelector from './GenderSelector';
 
@@ -88,7 +88,7 @@ function Form({ step, form, goToNextStep }: Props) {
       );
     case 3:
       return data ? (
-        <>
+        <Box sx={{ position: 'relative' }}>
           <Select
             data={data}
             placeholder="이곳을 눌러 검색해주세요"
@@ -121,7 +121,7 @@ function Form({ step, form, goToNextStep }: Props) {
             {...form.getInputProps('birthPlace')}
             onFocus={onFocusScroll}
           />
-        </>
+        </Box>
       ) : (
         <Loading />
       );

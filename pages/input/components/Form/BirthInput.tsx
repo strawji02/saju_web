@@ -15,7 +15,7 @@ import { UseFormReturnType } from '@mantine/form';
 import _ from 'lodash';
 import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { StepInputFormType } from '../../../../components/types';
+import { StepInputFormType } from '../../../../utils/types';
 import { privacy, term } from '../../../../utils/utils';
 import InputLabelText from './InputLabelText';
 import SubCheckbox from './SubCheckbox';

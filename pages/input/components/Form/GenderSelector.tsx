@@ -1,7 +1,7 @@
 import { Group } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
 import { useEffect, useState } from 'react';
-import { Gender, StepInputFormType } from '../../../../components/types';
+import { Gender, StepInputFormType } from '../../../../utils/types';
 import GenderSelectButton from './GenderSelectButton';
 
 interface Props {

@@ -2,7 +2,7 @@ import { Button, Stack } from '@mantine/core';
 import { IconShare } from '@tabler/icons';
 import { useRouter } from 'next/router';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { ResultType, StepInputFormType } from '../../../components/types';
+import { ResultType, StepInputFormType } from '../../../utils/types';
 
 export interface ResultButtonsProps {
   result: ResultType | undefined;

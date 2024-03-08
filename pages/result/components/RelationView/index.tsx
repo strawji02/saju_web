@@ -1,6 +1,6 @@
 import { Stack } from '@mantine/core';
 import Title from '../../../../components/Title';
-import { ResultType, StepInputFormType } from '../../../../components/types';
+import { ResultType, StepInputFormType } from '../../../../utils/types';
 import { SAJU_60, SAJU_HAN_60 } from '../../../../utils/utils';
 import RelationCard from './RelationCard';
 import RelationScore from './RelationScore';

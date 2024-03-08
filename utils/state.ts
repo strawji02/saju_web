@@ -1,6 +1,6 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { StepInputFormType } from '../components/types';
+import { StepInputFormType } from './types';
 
 interface UserResultState {
   error: boolean | undefined;
