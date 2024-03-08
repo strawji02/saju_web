@@ -49,6 +49,8 @@ function Form({ step, form, goToNextStep }: Props) {
     onError: (data) => router.push('/error'),
   });
 
+  console.log(data);
+
   const title = useRef<HTMLInputElement | null>(null);
 
   const [, scrollTo] = useWindowScroll();
@@ -94,7 +96,7 @@ function Form({ step, form, goToNextStep }: Props) {
             placeholder="이곳을 눌러 검색해주세요"
             searchable
             maxDropdownHeight={300}
-            itemComponent={SelectItem}
+            // itemComponent={SelectItem}
             styles={{
               itemsWrapper: {
                 boxSizing: 'border-box',
@@ -110,7 +112,8 @@ function Form({ step, form, goToNextStep }: Props) {
               },
               item: {
                 width: 'fit-content',
-                padding: 2,
+                // backgroundColor: 'red',
+                padding: '2px 10px',
               },
             }}
             mt={32}
