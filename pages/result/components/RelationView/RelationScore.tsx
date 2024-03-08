@@ -1,7 +1,7 @@
 import { Group, Stack } from '@mantine/core';
 import Image from 'next/image';
+import Arrow from '../../../../components/assets/arrow.svg';
 import Title from '../../../../components/Title';
-import Arrow from '../assets/arrow.svg';
 
 export interface RelationScoreProps {
   scoreIndex: number[];

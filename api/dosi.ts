@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Dosi } from '../pages/input/types';
+import { Dosi } from '../components/types';
 
 export async function getDosiNames() {
   const res = await axios.get('https://server.saju60.com/dosi.php');

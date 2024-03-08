@@ -2,7 +2,7 @@ import { Button, Stack } from '@mantine/core';
 import { IconShare } from '@tabler/icons';
 import { useRouter } from 'next/router';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { ResultType, StepInputFormType } from '../../input/types';
+import { ResultType, StepInputFormType } from '../../../components/types';
 
 export interface ResultButtonsProps {
   result: ResultType | undefined;
@@ -21,7 +21,7 @@ function ResultButtons({
   const router = useRouter();
 
   const text = `${userData?.name}님과의 궁합을 사주 해석과 함께 확인해보세요!`;
-  const url = `${document.location.origin}/?ilju=${result?.s_no}&username=${userData?.name}`;
+  const url = `${document?.location?.origin}/?ilju=${result?.s_no}&username=${userData?.name}`;
 
   return (
     <Stack mt="xl">

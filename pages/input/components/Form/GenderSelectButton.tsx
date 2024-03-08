@@ -2,7 +2,7 @@ import { Paper, Stack, Text, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconGenderFemale, IconGenderMale } from '@tabler/icons';
 import { MouseEventHandler } from 'react';
-import { Gender } from '../../types';
+import { Gender } from '../../../../components/types';
 
 interface Props {
   gender: Gender;

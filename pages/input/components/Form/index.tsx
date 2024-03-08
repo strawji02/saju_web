@@ -7,7 +7,7 @@ import { forwardRef, useRef } from 'react';
 import { useQuery } from 'react-query';
 import { getDosiNames } from '../../../../api/dosi';
 import Loading from '../../../../components/Loading';
-import { StepInputFormType } from '../../types';
+import { StepInputFormType } from '../../../../components/types';
 import BirthInput from './BirthInput';
 import GenderSelector from './GenderSelector';
 

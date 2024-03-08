@@ -7,11 +7,11 @@ import ArrowLeftButton from '../../components/ArrowLeftButton';
 import Layout from '../../components/Layout';
 import NextButton from '../../components/NextButton';
 import Topbar from '../../components/Topbar';
+import { StepInputFormType, StepTitleType } from '../../components/types';
 import { useUserResultState } from '../../utils/state';
 import { toStringByFormatting } from '../../utils/utils';
 import Form from './components/Form';
 import StepTitle from './components/StepTitle';
-import { StepInputFormType, StepTitleType } from './types';
 
 const title: StepTitleType[] = [
   {

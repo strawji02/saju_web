@@ -15,8 +15,8 @@ import { useMutation } from 'react-query';
 import { getResult } from '../../api/result';
 import Loading from '../../components/Loading';
 import Title from '../../components/Title';
+import { ResultParams } from '../../components/types';
 import { useUserResultState } from '../../utils/state';
-import { ResultParams } from '../input/types';
 import DescriptionText from './components/DescriptionText';
 import Error from './components/Error';
 import RelationView from './components/RelationView';
@@ -71,7 +71,6 @@ function Result() {
     const dataUrl = await toPng(imgRef.current, { cacheBust: true });
     console.log(dataUrl);
     setImgUrl(dataUrl);
-
     const link = document.createElement('a');
     link.download = 'saju-result.png';
     link.href = dataUrl;

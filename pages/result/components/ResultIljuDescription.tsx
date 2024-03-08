@@ -2,8 +2,8 @@ import { Box, Center, Divider } from '@mantine/core';
 import DefaultText from '../../../components/DefaultText';
 import MarkDescriptionText from '../../../components/MarkDescriptionText';
 import Title from '../../../components/Title';
+import { ResultType, StepInputFormType } from '../../../components/types';
 import UnderLinedText from '../../../components/UnderLinedText';
-import { ResultType, StepInputFormType } from '../../input/types';
 import SajuImage from './shared/SajuImage';
 
 export interface ResultIljuDescriptionProps {
