@@ -5,7 +5,7 @@ import UnderLinedDescription from './UnderLinedDescription';
 export interface MarkDescriptionTextProps {
   resultStr: string;
 }
-const splitText = '\n \n\n ';
+const splitText = '\n\n';
 
 function MarkDescriptionText({
   resultStr,
