@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { Dosi } from '../utils/types';
+import instance from './instance';
 
 export async function getDosiNames() {
-  const res = await axios.get('https://server.saju60.com/dosi.php');
+  const res = await instance.get('/dosi.php');
   const resData = await res.data.split('\n');
   const dosi: Dosi = resData
     .map((d: string) => {

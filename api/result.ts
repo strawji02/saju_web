@@ -1,7 +1,7 @@
-import axios from 'axios';
 import { ResultParams } from '../utils/types';
+import instance from './instance';
 export async function getResult(params: ResultParams) {
-  const response = await axios.get('//server.saju60.com/result5.php', {
+  const response = await instance.get('/result5.php', {
     params,
   });
   return response.data;
