@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "commitlint": "commitlint --edit",
-    "prepare": "husky"
+    "prepare": "husky && panda codegen",
+    "prettier:global": "prettier --write ."
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@pandacss/dev": "^0.48.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
