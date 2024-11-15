@@ -1,16 +1,36 @@
 import type { Metadata } from 'next';
+import { Montserrat, Noto_Sans_KR } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+const notoSansKR = Noto_Sans_KR({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-noto-sans-kr',
 });
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
+
+const jalnan = localFont({
+  src: './fonts/Jalnan.ttf',
+  display: 'swap',
+  variable: '--font-jalnan',
+});
+
+const lotteMart = localFont({
+  src: './fonts/LotteMart.woff2',
+  display: 'swap',
+  variable: '--font-lotte-mart',
+});
+
+const haenam = localFont({
+  src: './fonts/haenam.ttf',
+  display: 'swap',
+  variable: '--font-haenam',
 });
 
 export const metadata: Metadata = {
@@ -24,8 +44,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+    <html lang="ko">
+      <body
+        className={`${notoSansKR.variable} ${montserrat.variable} ${jalnan.variable} ${lotteMart.variable} ${haenam.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
